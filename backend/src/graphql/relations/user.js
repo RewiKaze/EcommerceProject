@@ -1,2 +1,1 @@
-import { UserTC } from '../../models'
-
+import { UserTC } from "../../models";

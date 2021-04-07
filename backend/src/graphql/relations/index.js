@@ -1,1 +1,3 @@
-import './user'
+import "./user";
+import "./product";
+import "./promotion";

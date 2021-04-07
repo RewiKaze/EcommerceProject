@@ -1,0 +1,1 @@
+import { PromotionTC } from "../../models";

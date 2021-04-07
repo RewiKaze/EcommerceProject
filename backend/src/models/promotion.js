@@ -8,9 +8,9 @@ const PromotionSchema = new Schema({
   description: { type: String, require: true },
   active: { type: Boolean, require: true },
   code: { type: String, require: true },
-  endDate: { type: Date , require: true},
-  discount: { type: String, require:true}, //Change to Float
-  minimumPrice:{ type: String, require:true} //Change to Float
+  endDate: { type: Date, require: true },
+  discount: { type: String, require: true }, //Change to Float
+  minimumPrice: { type: String, require: true }, //Change to Float
 });
 
 export const PromotionModel = mongoose.model("Promotion", PromotionSchema);

@@ -1,4 +1,4 @@
-# EcommerceProject
+# Ecommerce Project
 # Full-stack Web Developer (Project)
 
 ## Project description

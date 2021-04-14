@@ -1,0 +1,10 @@
+.firstSection {
+  height: calc(100vh - 4em);
+  background-color: #202c39;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.secondSection {
+  height: calc(100vh - 4em);
+}

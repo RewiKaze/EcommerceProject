@@ -7,13 +7,20 @@ const ProductSchema = new Schema({
   name: { type: String, require: true },
   slug: { type: String, require: true, unique: true },
   description: { type: String, require: true },
+  quantity: { type: String, require: true }, // Change to Integer
   price: { type: String, require: true }, // Change to Float
-  imageurl: { type: String, require: true },
-  stock: { type: String, require: true }, // Change to Integer
+  imageUrl: { type: String, require: true },
+  tags: { type: Array, require: true },
+  timestamp: { type: Date, default: Date.now },
 });
 
+const baseOptions = {
+  inputType: {
+    removeFields: ["timestamp"],
+  },
+};
 export const ProductModel = mongoose.model("Product", ProductSchema);
 
-export const ProductTC = composeWithMongoose(ProductModel);
+export const ProductTC = composeWithMongoose(ProductModel, baseOptions);
 
 export default ProductModel;

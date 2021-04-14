@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import { NavLink } from "react-router-dom";
 import Button from "@material-ui/core/Button";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import PersonIcon from "@material-ui/icons/Person";
 // import IconButton from "@material-ui/core/IconButton";
 
 const useStyles = makeStyles((theme) => ({
@@ -62,7 +64,7 @@ const NavBar = () => {
               activeStyle={{ borderBottom: "5px solid #f29559" }}
               to="/Cart"
             >
-              Cart
+              <ShoppingCartIcon></ShoppingCartIcon>Cart
             </Button>
             <Button
               className={classes.button}
@@ -70,7 +72,7 @@ const NavBar = () => {
               activeStyle={{ borderBottom: "5px solid #f29559" }}
               to="/Login"
             >
-              Login
+              <PersonIcon></PersonIcon>Login
             </Button>
           </div>
         </Toolbar>

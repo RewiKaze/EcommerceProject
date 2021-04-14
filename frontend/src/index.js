@@ -6,6 +6,8 @@ import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import Shops from "./pages/Shops";
 import Promotion from "./pages/Promotion";
+import Cart from "./pages/Cart";
+import Login from "./pages/Login";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import reportWebVitals from "./reportWebVitals";
@@ -23,6 +25,12 @@ ReactDOM.render(
         </Route>
         <Route path="/Promotion">
           <Promotion />
+        </Route>
+        <Route path="/Cart">
+          <Cart />
+        </Route>
+        <Route path="/Login">
+          <Login />
         </Route>
       </Switch>
     </Router>

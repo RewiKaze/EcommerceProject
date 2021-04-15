@@ -1,5 +1,5 @@
 import moment from "moment";
-import { PromotionTC } from "../../models";
+import {CategoryTC, ProductTC, PromotionTC} from "../../models";
 
 PromotionTC.addFields({
   timestamp: {
@@ -8,3 +8,20 @@ PromotionTC.addFields({
     projection: { timestamp: 1 },
   },
 });
+
+PromotionTC.addRelation("category", {
+  resolver: () => CategoryTC.getResolver("findById"),
+  prepareArgs: {
+    _id: (source) => source.categoryId,
+  },
+  projection: { categoryId: 1 },
+});
+
+PromotionTC.addRelation("product", {
+  resolver: () => ProductTC.getResolver("findById"),
+  prepareArgs: {
+    _id: (source) => source.productId,
+  },
+  projection: { productId: 1 },
+});
+

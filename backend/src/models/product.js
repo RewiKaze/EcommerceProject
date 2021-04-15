@@ -12,6 +12,13 @@ const ProductSchema = new Schema({
   imageUrl: { type: String, require: true },
   tags: { type: Array, require: true },
   timestamp: { type: Date, default: Date.now },
+  categoryId: {
+    type: String,
+    require: true,
+    index: true,
+    default: null,
+    ref: "Category",
+  },
 });
 
 const baseOptions = {

@@ -8,6 +8,7 @@ Link : http://localhost:5001/graphql
     * [Product Model](#Product-Model)
     * [Promotion Model](#Promotion-Model)
     * [Customer Model](#Customer-Model)
+    * [Category Model](#Category-Model)
 
 * [Mutation](#Mutation)
   * [User Mutation](#User-Mutation)
@@ -27,11 +28,16 @@ Link : http://localhost:5001/graphql
      * [createCustomer](#createCustomer)
      * [updateCustomerById](#updateCustomerById)
      * [removeCustomerById](#removeCustomerById)
+  * [Category Mutation](#Category-Mutation)
+    * [createCategory](#createCategory)
+    * [updateCategoryById](#updateCategoryById)
+    * [removeCategoryById](#removeCategoryById)
 * [Query](#Query)
     * [UserQuery](#UserQuery)
     * [ProductQuery](#ProductQuery)
     * [PromotionQuery](#PromotionQuery)
     * [CustomerQuery](#CustomerQuery)
+    * [CategoryQuery](#CategoryQuery)
 
 ## Model
 
@@ -80,6 +86,12 @@ Link : http://localhost:5001/graphql
 |    email    |     String, unique     |
 |     tel     |         String         |
 |  authorId   |      <b>User</b>       |
+
+#### Category Model
+|    Name     |          Type          |
+| :---------: | :--------------------: |
+| name | ENUM String |
+|   slug   |         String, unique         |
 
 <!-- #### Cart (ตะกร้าเปล่า)
 
@@ -170,12 +182,13 @@ mutation{
 mutation{
   createProduct(record:{
     name:"555555"
-    slug:"55555fbvrb"
+    slug:"bed123"
     description:"1234"
     price:"1234"
     imageUrl:"www.1234.com"
     quantity:"10"
     tags:["mirror","best price"]
+    categoryId:"6077f320d54feb383a9abf59"
   }) {
     recordId
   }
@@ -211,13 +224,17 @@ mutation{
 ```
 mutation{
   createPromotion(record:{
+    type:FREESHIPPING
     name:"1234"
     description:"1234"
+    amount:"10"
     active:true
-    code:"1234"
+    code:"12345"
     endDate:"2021-04-07"
     discount:"20"
     minimumPrice:"20"
+    categoryId:"6077f320d54feb383a9abf59"
+    
   }) {
     recordId
   }
@@ -286,6 +303,43 @@ mutation{
 }
 ```
 
+### Category Mutation
+
+#### createCategory
+
+```
+mutation{
+  createCategory(record:{
+    name:"Bedroom"
+    slug:"bedroom"
+  }) {
+    recordId
+  }
+}
+```
+
+#### updateCategoryById
+
+```
+mutation{
+  updateCategoryById(_id:"6077f1f1d54feb383a9abf58", record:{
+    name:"bedroom"
+  }){
+    recordId
+  }
+}
+```
+
+#### removeCategoryById
+
+```
+mutation{
+  removeCategoryById(_id:"6077f1f1d54feb383a9abf58"){
+    recordId
+  }
+}
+```
+
 <hr>
 
 ## Query
@@ -324,6 +378,10 @@ query{
     quantity
     tags
     timestamp
+    category{
+      name
+      slug
+    }
   }
 }
 
@@ -334,17 +392,24 @@ query{
 ```
 query{
   promotions{
+    type
     name
     description
+    amount
     active
     code
     endDate
     discount
     minimumPrice
     timestamp
+    category{
+      name
+    }
+    product{
+      name
+    }
   }
 }
-
 ```
 
 #### CustomerQuery
@@ -361,6 +426,16 @@ query{
     address
     email
     tel
+  }
+}
+```
+
+#### CategoryQuery
+```
+query{
+  category{
+    name
+    slug
   }
 }
 ```

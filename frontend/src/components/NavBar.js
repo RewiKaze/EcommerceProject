@@ -9,6 +9,10 @@ import { logDOM } from "@testing-library/dom";
 import logo from "../image/logo.png";
 // import IconButton from "@material-ui/core/IconButton";
 
+import React, { Fragment, useMemo } from 'react'
+import { useSession } from '../contexts/SessionContext'
+import Login from "../pages/Login";
+
 const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
@@ -27,6 +31,20 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const NavBar = () => {
+  const { loading, user, logout: handleLogout } = useSession()
+  const userBox = useMemo(() => {
+    if (user) {
+      return (
+          <React.Fragment>
+          <span style={{ marginRight: 10, fontSize: 16 }}>
+            Hello, K.{user?.name.toUpperCase()}
+          </span>
+            <Button variant="contained" color="secondary" onClick={handleLogout} type="button">Logout</Button>
+          </React.Fragment>
+      );
+    }
+  }, [handleLogout, loading, user]);
+
   const classes = useStyles();
   return (
     <>
@@ -79,6 +97,7 @@ const NavBar = () => {
             >
               <PersonIcon /> Login
             </Button>
+            {userBox}
           </div>
         </Toolbar>
       </AppBar>

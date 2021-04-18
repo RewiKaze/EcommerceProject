@@ -1,39 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-// import App from './App';
-import NavBar from "./components/NavBar";
-import Home from "./pages/Home";
-import Shops from "./pages/Shops";
-import Promotion from "./pages/Promotion";
-import Cart from "./pages/Cart";
-import Login from "./pages/Login";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
+import App from './App';
+import { CookiesProvider } from 'react-cookie'
+import { BrowserRouter } from 'react-router-dom'
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
+import { SessionProvider } from './contexts/SessionContext'
 import reportWebVitals from "./reportWebVitals";
+
+const client = new ApolloClient({
+  uri: 'http://localhost:5001/graphql',
+  cache: new InMemoryCache(),
+  credentials: 'include',
+})
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <NavBar />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/Shop">
-          <Shops />
-        </Route>
-        <Route path="/Promotion">
-          <Promotion />
-        </Route>
-        <Route path="/Cart">
-          <Cart />
-        </Route>
-        <Route path="/Login">
-          <Login />
-        </Route>
-      </Switch>
-    </Router>
+    <CookiesProvider>
+      <BrowserRouter>
+        <ApolloProvider client={client}>
+          <SessionProvider>
+            <App />
+          </SessionProvider>
+        </ApolloProvider>
+      </BrowserRouter>
+    </CookiesProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -5,6 +5,8 @@ import { NavLink } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import PersonIcon from "@material-ui/icons/Person";
+import { logDOM } from "@testing-library/dom";
+import logo from "../image/logo.png";
 // import IconButton from "@material-ui/core/IconButton";
 
 const useStyles = makeStyles((theme) => ({
@@ -31,6 +33,9 @@ const NavBar = () => {
       <AppBar position="fixed" className={classes.styleBar}>
         <Toolbar>
           <div>
+            <Button className={classes.button} component={NavLink} to="/" exact>
+              <img src={logo} width="50vw" />
+            </Button>
             <Button
               className={classes.button}
               component={NavLink}
@@ -64,7 +69,7 @@ const NavBar = () => {
               activeStyle={{ borderBottom: "5px solid #f29559" }}
               to="/Cart"
             >
-              <ShoppingCartIcon></ShoppingCartIcon>Cart
+              <ShoppingCartIcon /> Cart
             </Button>
             <Button
               className={classes.button}
@@ -72,7 +77,7 @@ const NavBar = () => {
               activeStyle={{ borderBottom: "5px solid #f29559" }}
               to="/Login"
             >
-              <PersonIcon></PersonIcon>Login
+              <PersonIcon /> Login
             </Button>
           </div>
         </Toolbar>

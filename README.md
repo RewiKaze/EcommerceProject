@@ -19,7 +19,7 @@
 ## Project requirements
 ### 1. Implement Frontend from sitemap
 - [ ] Home **`/`** *Display banner, latest promotion and products*
-- [ ] Login **`/login`** *Login form*
+- [x] Login **`/login`** *Login form*
 - [ ] Register **`/register`** *Register form*
 - [ ] Products **`/products`** *Display all product with pagination*
 - [ ] Product detail **`/product/:productSlug`** *Display product detail by slug*
@@ -41,8 +41,8 @@
 - [ ] Admin order detail **`/admin/order/:orderId`** *Display order detail by order id*
 ### 2. Page detail and features
 #### Pages
-- [ ] Home
-- [ ] Login
+- [x] Home
+- [x] Login
 - [ ] Register
 - [ ] Products
 - [ ] Product detail

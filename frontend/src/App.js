@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import React, { Fragment, Suspense } from 'react'
+import Navbar from "../src/components/NavBar"
+const HomePage = React.lazy(() => import('./pages/Home'))
+const ShopsPage = React.lazy(() => import('./pages/Shops'))
+const PromotionPage = React.lazy(() => import('./pages/Promotion'))
+const CartPage = React.lazy(() => import('./pages/Cart'))
+const LoginPage = React.lazy(() => import('./pages/Login'))
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <Fragment>
+    <Suspense fallback="Loading ...">
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route path="/Shop">
+          <ShopsPage />
+        </Route>
+        <Route path="/Promotion">
+          <PromotionPage />
+        </Route>
+        <Route path="/Cart">
+          <CartPage />
+        </Route>
+        <Route path="/Login">
+          <LoginPage />
+        </Route>
+      </Switch>
+    </Router>
+    </Suspense>
+  </Fragment>
   );
 }
 

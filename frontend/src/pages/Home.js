@@ -81,7 +81,7 @@ const Home = () => {
         </Container>
       </div>
       {/* third */}
-      <div className="thirdSection">
+      {/* <div className="thirdSection">
         <div className="third-topic">
           <div>
             <span className="third-head">Good Furniture,</span>
@@ -90,7 +90,7 @@ const Home = () => {
         </div>
         <div className="third-content"></div>
         <div className="third-foot"></div>
-      </div>
+      </div> */}
     </>
   );
 };

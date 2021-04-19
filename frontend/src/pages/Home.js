@@ -41,8 +41,8 @@ const Home = () => {
       <div className="secondSection">
         <Container>
           <div className="second-head">
-            <span className="second-head-topic">Best Seller Product</span><br></br>
-            <span className="second-head-title">The best of the year</span>
+            <span className="text-topic">Best Seller Product</span><br></br>
+            <span className="text-title">The best of the year</span>
           </div>
           <div className="second-content">
             <div className="best-sell">
@@ -81,16 +81,19 @@ const Home = () => {
         </Container>
       </div>
       {/* third */}
-      {/* <div className="thirdSection">
+      <div className="thirdSection">
         <div className="third-topic">
           <div>
-            <span className="third-head">Good Furniture,</span>
-            <span className="third-head bg-3">Good Mood</span>
+            <span className="text-topic">Good Furniture,</span>
+            <span className="text-topic bg-3"> Good Mood</span>
+          </div>
+          <div>
+            <span className="text-title">Easy choose - Easy choice - Easy Life</span>
           </div>
         </div>
         <div className="third-content"></div>
         <div className="third-foot"></div>
-      </div> */}
+      </div>
     </>
   );
 };

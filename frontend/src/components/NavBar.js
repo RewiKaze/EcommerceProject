@@ -7,11 +7,12 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import PersonIcon from "@material-ui/icons/Person";
 import { logDOM } from "@testing-library/dom";
 import logo from "../image/logo.png";
-// import IconButton from "@material-ui/core/IconButton";
+import Avatar from '@material-ui/core/Avatar';
 
 import React, { Fragment, useMemo } from 'react'
 import { useSession } from '../contexts/SessionContext'
 import Login from "../pages/Login";
+import Badge from '@material-ui/core/Badge';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -69,7 +70,7 @@ const NavBar = () => {
               activeStyle={{ borderBottom: "5px solid #f29559" }}
               to="/Shop"
             >
-              The Shop
+              Product
             </Button>
             <Button
               className={classes.button}
@@ -87,7 +88,9 @@ const NavBar = () => {
               activeStyle={{ borderBottom: "5px solid #f29559" }}
               to="/Cart"
             >
-              <ShoppingCartIcon /> Cart
+              <Badge badgeContent={4} color="error" >
+              <ShoppingCartIcon /></Badge>
+              {/*Cart*/}
             </Button>
             <Button
               className={classes.button}
@@ -97,6 +100,7 @@ const NavBar = () => {
             >
               <PersonIcon /> Login
             </Button>
+            <Button><Avatar>N</Avatar></Button>
             {userBox}
           </div>
         </Toolbar>

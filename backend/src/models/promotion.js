@@ -16,6 +16,7 @@ const PromotionSchema = new Schema({
     index: true,
   }, // Select Discount Type
   name: { type: String, require: true }, //Coupon name
+  imageUrl: { type: String, require: true, default: null },
   description: { type: String, require: true }, //Coupon description
   amount:{type:String, require:require}, // Coupon amount
   active: { type: Boolean, require: true }, // Status

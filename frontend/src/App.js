@@ -31,6 +31,7 @@ const App = () => {
           <LoginPage />
         </Route>
       </Switch>
+
     </Router>
     </Suspense>
   </Fragment>

@@ -100,7 +100,7 @@ const Login = (props) => {
             type="password"
             value={password}
             onChange={handlePasswordChange}
-            required={true}
+            required={true}l
           />
           <div style={{ width: "80%" }}>
             <Button variant="contained" color="primary" type="submit" >

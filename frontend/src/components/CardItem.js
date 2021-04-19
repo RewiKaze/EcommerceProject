@@ -59,12 +59,18 @@ const CardItem = () => {
                           <Typography gutterBottom variant="h5" component="h3">
                               {product.name}
                           </Typography>
-                          <Typography style={{color:'orange', fontSize:19}}>
-                              ฿{product.price}
+                          <Typography style={{color:'#f29559', fontSize:19}}>
+                              {(parseInt(product.price)).toLocaleString('th-TH', {
+                                  style: 'currency',
+                                  currency: 'THB'
+                              }) ?? ""}
                           </Typography>
                           <Typography variant="body2" color="textSecondary" component="p">
                               {product.description}
-                          </Typography>Tags:{'   '}
+                          </Typography>
+                          <Typography gutterBottom variant="h5" component="h3">
+                          </Typography>
+                          Tags:{'   '}
                               <Chip size="small" label={product.tags[0]} />{'   '}
                               <Chip size="small" label={product.tags[1]} />
                       </CardContent>

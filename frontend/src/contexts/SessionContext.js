@@ -70,4 +70,4 @@ export const SessionProvider = (props) => {
 
 export const useSession = () => useContext(SessionContext)
 
-export default SessionContext;
+export default SessionContext

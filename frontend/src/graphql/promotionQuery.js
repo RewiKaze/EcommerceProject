@@ -2,20 +2,15 @@ import { gql } from '@apollo/client'
 export const PROMOTION_QUERY = gql`
 query{
   promotions{
+    _id
     imageUrl
-    type
     name
     description
     amount
-    active
     code
     endDate
     discount
-    minimumPrice
     timestamp
-    category{
-      name
-    }
     product{
       name
     }

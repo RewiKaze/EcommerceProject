@@ -1,5 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
-
+import FacebookIcon from "@material-ui/icons/Facebook";
+import YouTubeIcon from "@material-ui/icons/YouTube";
+import TwitterIcon from "@material-ui/icons/Twitter";
 const useStyles = makeStyles((theme) => ({
   footer: {
     position: "relative",
@@ -7,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
   top: {
-    height: "10em",
+    height: "fit-content",
     backgroundColor: "#202c39",
     display: "flex",
     alignItems: "center",
@@ -22,6 +24,14 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: "1em",
     fontWeight: "bold",
   },
+  icon: {
+    display: "flex",
+    alignItems: "center",
+    width: "30vw",
+    marginBottom: "1em",
+    justifyContent: "space-evenly",
+    fontSize: "1.1em",
+  },
 }));
 
 const Footer = () => {
@@ -29,8 +39,15 @@ const Footer = () => {
   return (
     <div className={classes.footer}>
       <div className={classes.top}>
-        <h1 style={{ color: "#F2D492" }}>Contact Online</h1>
-        @funiture @funiture Funiture Online
+        <h2 style={{ color: "#F2D492" }}>Contact Online</h2>
+        <div style={{ marginDown: "50vw" }}>
+          <div className={classes.icon}>
+            <FacebookIcon />
+            @funiture
+            <TwitterIcon /> @funiture
+            <YouTubeIcon /> Funiture Online
+          </div>
+        </div>
       </div>
       <div className={classes.bottom}>
         {" "}

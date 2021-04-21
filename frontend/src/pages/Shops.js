@@ -97,27 +97,6 @@ const Shops = () => {
               </Grid>
           </div>
       </React.Fragment>
-    // <>
-    //   <Container
-    //     maxWidth="xl"
-    //     style={{
-    //       marginTop: "1em",
-    //       display: "flex",
-    //       alignItems: "center",
-    //       flexDirection: "column",
-    //     }}
-    //   >
-    //     <TextField
-    //       label="Search"
-    //       variant="outlined"
-    //       style={{ width: "75vw" }}
-    //     />
-    //
-    //     <div style={{ display: "flex", justifyContent: "space-around" }}>
-    //       <CardItem />
-    //     </div>
-    //   </Container>
-    // </>
   );
 };
 

@@ -2,6 +2,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import Lottie from "lottie-react";
+import waveAnimation from "../animation/wave.json";
 import { Link as RouterLink } from "react-router-dom";
 import Link from "@material-ui/core/Link";
 
@@ -12,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     height: "calc(100vh - 4em)",
     flexDirection: "column",
+    backgroundColor: "#F2D492",
   },
   loginBox: {
     width: "70vw",
@@ -21,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
+    zIndex: 2,
   },
   input: {
     backgroundColor: "white",
@@ -34,6 +38,12 @@ const useStyles = makeStyles((theme) => ({
   },
   form: {
     display: "contents",
+  },
+  anim: {
+    width: "100%",
+    zIndex: 1,
+    position: "absolute",
+    bottom: 0,
   },
 }));
 const Register = () => {
@@ -83,6 +93,11 @@ const Register = () => {
           </Button>
         </form>
       </div>
+      <Lottie
+        animationData={waveAnimation}
+        loop
+        className={classes.anim}
+      ></Lottie>
     </div>
   );
 };

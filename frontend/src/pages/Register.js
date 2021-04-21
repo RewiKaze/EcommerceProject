@@ -5,10 +5,6 @@ import Button from "@material-ui/core/Button";
 import { Link as RouterLink } from "react-router-dom";
 import Link from "@material-ui/core/Link";
 
-import { useHistory } from "react-router-dom";
-import { useSession } from "../contexts/SessionContext";
-import { useState, useCallback, useEffect } from "react";
-
 const useStyles = makeStyles((theme) => ({
   loginPage: {
     display: "flex",
@@ -40,32 +36,7 @@ const useStyles = makeStyles((theme) => ({
     display: "contents",
   },
 }));
-
-const Login = (props) => {
-  const history = useHistory();
-  const { login, loginError, loadingLogin } = useSession();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const handleUsernameChange = useCallback((e) => {
-    setUsername(e.target.value);
-  }, []);
-  const handlePasswordChange = useCallback((e) => {
-    setPassword(e.target.value);
-  }, []);
-  const handleLogin = useCallback(
-    async (e) => {
-      e.preventDefault();
-      try {
-        await login(username, password);
-        history.push("/");
-      } catch (err) {
-        console.log(err);
-        alert("Login failed");
-      }
-    },
-    [login, password, username]
-  );
-
+const Register = () => {
   const classes = useStyles();
   return (
     <div className={classes.loginPage}>
@@ -77,22 +48,27 @@ const Login = (props) => {
       </div>
       <div className={classes.loginBox}>
         <div className={classes.titleLogin}>
-          <Typography variant="h5">Login</Typography>
+          <Typography variant="h5">Register</Typography>
           <Typography variant="subtitle1">
-            Create new?{" "}
-            <Link component={RouterLink} to="/Register">
-              Click
+            Already have one?{" "}
+            <Link component={RouterLink} to="/Login">
+              Here
             </Link>
           </Typography>
         </div>
-        <form onSubmit={handleLogin} className={classes.form}>
+        <form className={classes.form}>
+          <TextField
+            className={classes.input}
+            label="Email"
+            variant="filled"
+            type="text"
+            required={true}
+          />
           <TextField
             className={classes.input}
             label="Username"
             variant="filled"
             type="text"
-            value={username}
-            onChange={handleUsernameChange}
             required={true}
           />
           <TextField
@@ -100,20 +76,15 @@ const Login = (props) => {
             label="Password"
             variant="filled"
             type="password"
-            value={password}
-            onChange={handlePasswordChange}
             required={true}
-            l
           />
-          <div style={{ width: "80%" }}>
-            <Button variant="contained" color="primary" type="submit">
-              Login
-            </Button>
-          </div>
+          <Button variant="contained" color="primary" type="submit">
+            Sign up
+          </Button>
         </form>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default Register;

@@ -7,12 +7,12 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import PersonIcon from "@material-ui/icons/Person";
 import { logDOM } from "@testing-library/dom";
 import logo from "../image/logo.png";
-import Avatar from '@material-ui/core/Avatar';
+import Avatar from "@material-ui/core/Avatar";
 
-import React, { Fragment, useMemo } from 'react'
-import { useSession } from '../contexts/SessionContext'
+import React, { Fragment, useMemo } from "react";
+import { useSession } from "../contexts/SessionContext";
 import Login from "../pages/Login";
-import Badge from '@material-ui/core/Badge';
+import Badge from "@material-ui/core/Badge";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -32,16 +32,23 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const NavBar = () => {
-  const { loading, user, logout: handleLogout } = useSession()
+  const { loading, user, logout: handleLogout } = useSession();
   const userBox = useMemo(() => {
     if (user) {
       return (
-          <React.Fragment>
+        <React.Fragment>
           <span style={{ marginRight: 10, fontSize: 16 }}>
             Hello, K.{user?.name.toUpperCase()}
           </span>
-            <Button variant="contained" color="secondary" onClick={handleLogout} type="button">Logout</Button>
-          </React.Fragment>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={handleLogout}
+            type="button"
+          >
+            Logout
+          </Button>
+        </React.Fragment>
       );
     }
   }, [handleLogout, loading, user]);
@@ -88,8 +95,9 @@ const NavBar = () => {
               activeStyle={{ borderBottom: "5px solid #f29559" }}
               to="/Cart"
             >
-              <Badge badgeContent={4} color="error" >
-              <ShoppingCartIcon /></Badge>
+              <Badge badgeContent={4} color="error">
+                <ShoppingCartIcon />
+              </Badge>
               {/*Cart*/}
             </Button>
             <Button
@@ -100,7 +108,9 @@ const NavBar = () => {
             >
               <PersonIcon /> Login
             </Button>
-            <Button><Avatar>N</Avatar></Button>
+            <Button>
+              <Avatar>N</Avatar>
+            </Button>
             {userBox}
           </div>
         </Toolbar>

@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client'
 export const PRODUCT_QUERY = gql`
 query{
-  products{
+  products (sort: _ID_DESC){
     _id
     name
     description

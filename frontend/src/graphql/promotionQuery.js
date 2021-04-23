@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client'
 export const PROMOTION_QUERY = gql`
 query{
-  promotions{
+  promotions (sort: _ID_DESC){
     _id
     name
     amount

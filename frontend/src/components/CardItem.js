@@ -5,17 +5,14 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import logo from "../image/logo.png";
 import Chip from '@material-ui/core/Chip';
 
 // Query Data
 import { PRODUCT_QUERY } from "../graphql/productQuery";
 import { useQuery } from '@apollo/client'
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import React from 'react';
-import {Divider} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -68,11 +65,10 @@ const CardItem = () => {
                           <Typography variant="body2" color="textSecondary" component="p">
                               {product.description}
                           </Typography>
-                          <Typography gutterBottom variant="h5" component="h3">
-                          </Typography>
-                          Tags:{'   '}
-                              <Chip size="small" label={product.tags[0]} />{'   '}
-                              <Chip size="small" label={product.tags[1]} />
+                          {/*<Typography variant="body2" color="textSecondary" component="p">*/}
+                          {/*    Tags:{product.tag}*/}
+                          {/*</Typography>*/}
+
                       </CardContent>
                   </CardActionArea>
                   <CardActions>
@@ -87,5 +83,5 @@ const CardItem = () => {
           </Grid>
       ))
   )
-};
+}
 export default CardItem;

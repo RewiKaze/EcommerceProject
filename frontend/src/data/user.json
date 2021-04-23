@@ -1,0 +1,20 @@
+{
+  "data": {
+    "users": [
+      {
+        "_id": "6080ea0d86ff02667cf1b747",
+        "type": "ADMIN",
+        "name": "admin",
+        "username": "admin",
+        "password": "1234"
+      },
+      {
+        "_id": "6080ea3686ff02667cf1b748",
+        "type": "CUSTOMER",
+        "name": "Sirawit B.",
+        "username": "fourthedition",
+        "password": "1234"
+      }
+    ]
+  }
+}

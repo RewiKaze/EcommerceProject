@@ -35,31 +35,11 @@ const Promotion = () => {
                     variant="outlined"
                     style={{ width: "100%", marginBottom:10}}
                 />
-                STATUS<hr/>
-                <FormGroup>
-                  <FormControlLabel
-                    control={<Checkbox name="checkedA" />}
-                    label="ACTIVE"/>
-                </FormGroup>
-                TYPE<hr/>
-                <FormGroup>
-                  <FormControlLabel
-                      control={<Checkbox name="checkedA" />}
-                      label="DISCOUNT"/>
-                  <FormControlLabel
-                      control={<Checkbox name="checkedA" />}
-                      label="FREESHIPPING"/>
-                </FormGroup>
-                CHECK CODE<hr/>
-                <TextField
-                    label="CODE"
-                    variant="outlined"
-                    style={{ width: "100%", marginBottom:10}}
-                />
-                Active : <span style={{color:'#00e676'}}>Availiable</span>
               </Paper>
             </Grid>
             <Grid item xs={9}>
+              <h1 style={{color:'#f29559'}}>Hot Sale!!!!</h1>
+              <hr/>
               <Grid container spacing={3}>
                 <PromotionItem/>
               </Grid>

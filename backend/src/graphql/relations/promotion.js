@@ -15,6 +15,6 @@ PromotionTC.addRelation("product", {
   prepareArgs: {
     _id: (source) => source.productId,
   },
-  projection: { productId: 1 },
+  projection: { productId: true },
 });
 

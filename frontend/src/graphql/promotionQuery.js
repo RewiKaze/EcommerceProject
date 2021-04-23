@@ -3,17 +3,16 @@ export const PROMOTION_QUERY = gql`
 query{
   promotions{
     _id
-    imageUrl
     name
-    description
     amount
-    code
-    endDate
     discount
+    productId
     timestamp
     product{
       name
+      price
     }
+    total
   }
 }
 `

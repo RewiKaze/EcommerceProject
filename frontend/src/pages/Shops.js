@@ -5,8 +5,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import {Divider, Grid, TextField} from '@material-ui/core';
 import CardItem from "../components/CardItem";
-
-import {CATEGORY_QUERY} from "../graphql/categoryQuery";
 import { useQuery } from '@apollo/client'
 import InputLabel from '@material-ui/core/InputLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
@@ -26,25 +24,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Shops = () => {
     const classes = useStyles();
-    const { loading, error, data } = useQuery(CATEGORY_QUERY)
-    if (loading) {
-        return 'Loading ...'
-    }
-    if (error) {
-        return 'Error !!'
-    }
-
-    const categoryItem = () => {
-        return(data?.category?.map((category) => (
-            <p style={{fontWeight:300, color:'black'}}>{category.name}</p>
-        )))
-    }
-    const categoryItem1 = () => {
-        return(data?.category?.map((category) => (
-            <option >{category.name}</option>
-
-        )))
-    }
   return (
       <React.Fragment>
           <div className={classes.root}>
@@ -70,7 +49,6 @@ const Shops = () => {
                                       }}
                                   >
                                       <option aria-label="None" />
-                                      {categoryItem1()}
                                   </Select>
                               </FormControl>
                           </Grid>
@@ -85,7 +63,12 @@ const Shops = () => {
                   </Grid>
                   <Grid item xs={3}>
                       <Paper className={classes.paper} style={{ color: "#f29559", fontWeight:'bold'}}>CATEGORY<hr/>
-                          {categoryItem()}
+                          <p style={{fontWeight:'lighter'}}>All</p>
+                          <p style={{fontWeight:'lighter'}}>Bedroom</p>
+                          <p style={{fontWeight:'lighter'}}>Bathroom</p>
+                          <p style={{fontWeight:'lighter'}}>Kitchen</p>
+                          <p style={{fontWeight:'lighter'}}>Living room</p>
+                          <p style={{fontWeight:'lighter'}}>Other</p>
                       </Paper>
                   </Grid>
                   <Grid item xs={9}>

@@ -4,17 +4,13 @@ query{
   products{
     _id
     name
-    slug
     description
+    type
+    quantity
     price
     imageUrl
-    quantity
     tags
     timestamp
-    category{
-      name
-      slug
-    }
   }
 }
 `

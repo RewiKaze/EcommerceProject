@@ -1,0 +1,90 @@
+{
+  "data": {
+    "products": [
+      {
+        "_id": "6080574b264b196495bb8fb2",
+        "name": "MALM มาล์ม",
+        "description": "โครงเตียงสูง+กล่องเก็บของ 4 ใบ, วีเนียร์สีไวท์โอ๊ค/ลูร์เอย150x200 ซม.",
+        "type": "BEDROOM",
+        "quantity": "10",
+        "price": "12900",
+        "imageUrl": "https://www.ikea.com/th/th/images/products/malm-bed-frame-high-w-4-storage-boxes-white-stained-oak-veneer-luroey__0803797_ph163207_s5.jpg?f=xxl",
+        "tags": [
+          "Bedroom",
+          "Best sale"
+        ],
+        "timestamp": "11 hours ago"
+      },
+      {
+        "_id": "6080ec5186ff02667cf1b749",
+        "name": "TARVA ทาร์ฟวา",
+        "description": "โครงเตียง, ไม้สน/ลูร์เอย150x200 ซม",
+        "type": "BEDROOM",
+        "quantity": "10",
+        "price": "4990",
+        "imageUrl": "https://www.ikea.com/th/th/images/products/tarva-bed-frame-pine-luroey__0861223_pe555571_s5.jpg?f=g",
+        "tags": [
+          "Bedroom",
+          "Best sale"
+        ],
+        "timestamp": "26 minutes ago"
+      },
+      {
+        "_id": "6080f0c486ff02667cf1b74a",
+        "name": "KNOXHULT คน็อกซ์ฮุลท์",
+        "description": "เหมาะสำหรับบ้านที่ต้องการชุดครัวเข้ามุม พร้อมเตาแบบตั้งโต๊ะและที่เก็บของกว้างจุใจ เริ่มต้นใช้งานง่ายไม่แพ้การเลือกซื้อ เพราะเป็นชุดครัวสำเร็จที่เราจัดองค์ประกอบต่างๆ ไว้ให้พร้อมแล้ว",
+        "type": "KITCHEN",
+        "quantity": "0",
+        "price": "13080",
+        "imageUrl": "https://www.ikea.com/th/th/images/products/knoxhult-corner-kitchen-white__0871439_pe615168_s5.jpg?f=xxl",
+        "tags": [
+          "Kitchen",
+          "Recommend"
+        ],
+        "timestamp": "7 minutes ago"
+      },
+      {
+        "_id": "6080f18686ff02667cf1b74b",
+        "name": "HÖRVIK เฮอร์วิค",
+        "description": "อ่างล้างหน้าแบบวางบนท็อป, ขาว45x32 ซม.",
+        "type": "BATHROOM",
+        "quantity": "10",
+        "price": "3500",
+        "imageUrl": "https://www.ikea.com/th/th/images/products/hoervik-countertop-wash-basin-white__0864219_pe643803_s5.jpg?f=xxl",
+        "tags": [
+          "Bathroom",
+          "Recommend"
+        ],
+        "timestamp": "4 minutes ago"
+      },
+      {
+        "_id": "6080f1f086ff02667cf1b74c",
+        "name": "HEMLINGBY เฮมลิงบี",
+        "description": "โซฟา2ที่นั่ง, คนีซา เทาเข้ม",
+        "type": "LIVINGROOM",
+        "quantity": "5",
+        "price": "3490",
+        "imageUrl": "https://www.ikea.com/th/th/images/products/hemlingby-2-seat-sofa-knisa-dark-grey__0835072_pe736542_s5.jpg?f=xxl",
+        "tags": [
+          "Living Room",
+          "Recommend"
+        ],
+        "timestamp": "2 minutes ago"
+      },
+      {
+        "_id": "6080f27686ff02667cf1b74d",
+        "name": "FÖRVIDDEN",
+        "description": "ตะกร้า",
+        "type": "OTHER",
+        "quantity": "5",
+        "price": "299",
+        "imageUrl": "https://www.ikea.com/th/th/images/products/foervidden-basket-handmade-natural__1008704_pe827295_s5.jpg?f=xxl",
+        "tags": [
+          "Living Room",
+          "Recommend"
+        ],
+        "timestamp": "a few seconds ago"
+      }
+    ]
+  }
+}

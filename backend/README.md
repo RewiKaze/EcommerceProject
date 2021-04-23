@@ -8,7 +8,7 @@ Link : http://localhost:5001/graphql
     * [Product Model](#Product-Model)
     * [Promotion Model](#Promotion-Model)
     * [Customer Model](#Customer-Model)
-    * [Category Model](#Category-Model)
+    * [Order Model](#Order-Model)
 
 * [Mutation](#Mutation)
   * [User Mutation](#User-Mutation)
@@ -28,16 +28,20 @@ Link : http://localhost:5001/graphql
      * [createCustomer](#createCustomer)
      * [updateCustomerById](#updateCustomerById)
      * [removeCustomerById](#removeCustomerById)
-  * [Category Mutation](#Category-Mutation)
-    * [createCategory](#createCategory)
-    * [updateCategoryById](#updateCategoryById)
-    * [removeCategoryById](#removeCategoryById)
+
+[comment]: <> (  * [Order Mutation]&#40;#Order-Mutation&#41;)
+
+[comment]: <> (    * [createCategory]&#40;#createCategory&#41;)
+
+[comment]: <> (    * [updateCategoryById]&#40;#updateCategoryById&#41;)
+
+[comment]: <> (    * [removeCategoryById]&#40;#removeCategoryById&#41;)
 * [Query](#Query)
     * [UserQuery](#UserQuery)
     * [ProductQuery](#ProductQuery)
     * [PromotionQuery](#PromotionQuery)
     * [CustomerQuery](#CustomerQuery)
-    * [CategoryQuery](#CategoryQuery)
+  
 
 ## Model
 
@@ -49,17 +53,17 @@ Link : http://localhost:5001/graphql
 |    name     |         String         |
 |  username   |     String, unique     |
 |  password   |         String         |
-| dateOfBirth |          Date          |
+
 
 #### Product Model
 
 |    Name     |            Type            |
 | :---------: | :------------------------: |
 |    name     |           String           |
-|    slug     |       String, unique       |
 | description |           String           |
-|  quantity   | String \*Change to Integer |
-|    price    |  String \*Change to Float  |
+|    type     |       ENUM(BEDROOM, BATHROOM, KITCHEN, LIVINGROOM, OTHER)      |
+|  quantity   | String  |
+|    price    |  String   |
 |  imageUrl   |           String           |
 |    tags     |           Array            |
 |  timestamp  |            Date            |
@@ -69,12 +73,10 @@ Link : http://localhost:5001/graphql
 |    Name     |           Type           |
 | :---------: | :----------------------: |
 |    name     |          String          |
-| description |          String          |
-|   active    |         Boolean          |
-|    code     |      String, unique      |
-|   endDate   |           Date           |
-|  discount   | String \*Change to Float |
-|   minimum   | String \*Change to Float |
+| amount |          String          |
+|   discount    |         String          |
+|    productId     |      String     |
+|total|String|
 |  timestamp  |           Date           |
 
 #### Customer Model
@@ -87,36 +89,18 @@ Link : http://localhost:5001/graphql
 |     tel     |         String         |
 |  authorId   |      <b>User</b>       |
 
-#### Category Model
+#### Order Model
 |    Name     |          Type          |
 | :---------: | :--------------------: |
-| name | ENUM String |
-|   slug   |         String, unique         |
+|   customerID   |         String         |
+|   promotionID   |         String         |
+|   productsID   |         String         |
+|   timestamp  |         String         |
+|   subtotal   |         String         |
+|   total   |         String         |
+|   status   |         INCOMPLETE, COMPLETED         |
 
-<!-- #### Cart (ตะกร้าเปล่า)
 
-|   Name    |  Type  |
-| :-------: | :----: |
-|  cartNo   | String |
-| timestamp |  Date  |
-
-#### CartItem (สินค้าในตะกร้า)
-
-|   Name    |            Type            |
-| :-------: | :------------------------: |
-|  cartId   |        <b>Cart</b>         |
-| productId |       <b>Product</b>       |
-| quantity  | String \*Change to Integer |
-
-#### Payment
-
-|   Name    |                        Type                         |
-| :-------: | :-------------------------------------------------: |
-|   type    | ENUM (COD, TRANSFER) \*เก็บเงินปลายทาง หรือ โอนเงิน |
-| productId |                   <b>Product</b>                    |
-| quantity  |             String \*Change to Integer              | -->
-
-<hr>
 
 ## Mutation
 
@@ -181,14 +165,13 @@ mutation{
 ```
 mutation{
   createProduct(record:{
-    name:"555555"
-    slug:"bed123"
-    description:"1234"
-    price:"1234"
-    imageUrl:"www.1234.com"
+    name:"TARVA ทาร์ฟวา"
+    description:"โครงเตียง, ไม้สน/ลูร์เอย150x200 ซม"
+    type:BEDROOM
     quantity:"10"
-    tags:["mirror","best price"]
-    categoryId:"6077f320d54feb383a9abf59"
+    price:"4990"
+    imageUrl:"https://www.ikea.com/th/th/images/products/tarva-bed-frame-pine-luroey__0861223_pe555571_s5.jpg?f=g"
+    tags:["Bedroom", "Best sale"]
   }) {
     recordId
   }
@@ -224,17 +207,10 @@ mutation{
 ```
 mutation{
   createPromotion(record:{
-    type:FREESHIPPING
-    name:"1234"
-    description:"1234"
-    amount:"10"
-    active:true
-    code:"12345"
-    endDate:"2021-04-07"
-    discount:"20"
-    minimumPrice:"20"
-    categoryId:"6077f320d54feb383a9abf59"
-    
+    name:"ที่นอนและเครื่องนอนอิเกียลด 15%"
+    amount:10
+		discount: 15
+    productId: "6080574b264b196495bb8fb2"
   }) {
     recordId
   }
@@ -303,42 +279,8 @@ mutation{
 }
 ```
 
-### Category Mutation
 
-#### createCategory
 
-```
-mutation{
-  createCategory(record:{
-    name:"Bedroom"
-    slug:"bedroom"
-  }) {
-    recordId
-  }
-}
-```
-
-#### updateCategoryById
-
-```
-mutation{
-  updateCategoryById(_id:"6077f1f1d54feb383a9abf58", record:{
-    name:"bedroom"
-  }){
-    recordId
-  }
-}
-```
-
-#### removeCategoryById
-
-```
-mutation{
-  removeCategoryById(_id:"6077f1f1d54feb383a9abf58"){
-    recordId
-  }
-}
-```
 
 <hr>
 
@@ -370,20 +312,19 @@ query{
 ```
 query{
   products{
+    _id
     name
-    slug
     description
+    type
+    quantity
     price
     imageUrl
-    quantity
     tags
     timestamp
-    category{
-      name
-      slug
-    }
   }
 }
+
+
 
 ```
 
@@ -392,22 +333,17 @@ query{
 ```
 query{
   promotions{
-    type
+    _id
     name
-    description
-    amount
-    active
-    code
-    endDate
+  	amount
     discount
-    minimumPrice
     timestamp
-    category{
-      name
-    }
     product{
       name
+      price
+      imageUrl
     }
+    total
   }
 }
 ```
@@ -420,7 +356,6 @@ query{
     author{
       name
       username
-      dateOfBirth
     }
     nameAddress
     address
@@ -430,12 +365,4 @@ query{
 }
 ```
 
-#### CategoryQuery
-```
-query{
-  category{
-    name
-    slug
-  }
-}
-```
+

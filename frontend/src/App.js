@@ -6,6 +6,7 @@ const ShopsPage = React.lazy(() => import('./pages/Shops'))
 const PromotionPage = React.lazy(() => import('./pages/Promotion'))
 const CartPage = React.lazy(() => import('./pages/Cart'))
 const LoginPage = React.lazy(() => import('./pages/Login'))
+const Customer = React.lazy(() => import('./components/User/User-Navber'))
 
 
 const App = () => {
@@ -29,6 +30,9 @@ const App = () => {
         </Route>
         <Route path="/Login">
           <LoginPage />
+        </Route>
+        <Route path="/Customer">
+          <Customer />
         </Route>
       </Switch>
     </Router>

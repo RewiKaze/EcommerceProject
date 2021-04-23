@@ -1,11 +1,14 @@
 import "../css/Home.css";
 import Carousel from 'react-material-ui-carousel';
-import { Paper, Typography, Container } from '@material-ui/core'
+import { Paper, Typography, Container, Button } from '@material-ui/core'
 import first from "../image/home/1.png"
 import second from "../image/home/2.png"
 import third from "../image/home/3.png"
 import fourth from "../image/home/4.png"
 import heart from "../image/home/heart.png"
+import fifth from "../image/home/5.png"
+import sixth from "../image/home/6.png"
+import sevth from "../image/home/7.png"
 const Home = () => {
   var items = [
     {
@@ -47,7 +50,7 @@ const Home = () => {
           <div className="second-content">
             <div className="best-sell">
               <img className="best-sell-img" src={fourth} />
-              <div class="best-sell-content">
+              <div className="best-sell-content">
                 <span className="best-sell-name">Sofa</span>
                 <img className="heart" src={heart} />
               </div>
@@ -55,7 +58,7 @@ const Home = () => {
             </div>
             <div className="best-sell">
               <img className="best-sell-img" src={fourth} />
-              <div class="best-sell-content">
+              <div className="best-sell-content">
                 <span className="best-sell-name">Sofa</span>
                 <img className="heart" src={heart} />
               </div>
@@ -63,7 +66,7 @@ const Home = () => {
             </div>
             <div className="best-sell">
               <img className="best-sell-img" src={fourth} />
-              <div class="best-sell-content">
+              <div className="best-sell-content">
                 <span className="best-sell-name">Sofa</span>
                 <img className="heart" src={heart} />
               </div>
@@ -71,7 +74,7 @@ const Home = () => {
             </div>
             <div className="best-sell">
               <img className="best-sell-img" src={fourth} />
-              <div class="best-sell-content">
+              <div className="best-sell-content">
                 <span className="best-sell-name">Sofa</span>
                 <img className="heart" src={heart} />
               </div>
@@ -85,14 +88,24 @@ const Home = () => {
         <div className="third-topic">
           <div>
             <span className="text-topic">Good Furniture,</span>
-            <span className="text-topic bg-3"> Good Mood</span>
+            <span className="text-topic bg3"> Good Mood</span>
           </div>
           <div>
             <span className="text-title">Easy choose - Easy choice - Easy Life</span>
           </div>
         </div>
-        <div className="third-content"></div>
-        <div className="third-foot"></div>
+        <div className="third-content">
+          <div className="third-content-left">
+            <img src={fifth} className="third-img left"/>
+          </div>
+          <div className="third-content-right">
+            <img src={sixth} className="third-img right"/>
+            <img src={sevth} className="third-img right"/>
+          </div>
+        </div>
+        <div className="third-foot">
+          <Button className="button1 third-but">See All Catagories</Button>
+        </div>
       </div>
     </>
   );

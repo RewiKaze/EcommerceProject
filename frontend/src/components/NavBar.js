@@ -1,17 +1,14 @@
-import AppBar from "@material-ui/core/AppBar";
-import { makeStyles } from "@material-ui/core/styles";
-import Toolbar from "@material-ui/core/Toolbar";
+import React, {  useMemo } from 'react'
 import { NavLink } from "react-router-dom";
-import Button from "@material-ui/core/Button";
+import {AppBar, Toolbar, Button, Avatar} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import PersonIcon from "@material-ui/icons/Person";
-import { logDOM } from "@testing-library/dom";
 import logo from "../image/logo.png";
-import Avatar from '@material-ui/core/Avatar';
 
-import React, { Fragment, useMemo } from 'react'
+
+
 import { useSession } from '../contexts/SessionContext'
-import Login from "../pages/Login";
 import Badge from '@material-ui/core/Badge';
 
 const useStyles = makeStyles((theme) => ({
@@ -68,7 +65,7 @@ const NavBar = () => {
               className={classes.button}
               component={NavLink}
               activeStyle={{ borderBottom: "5px solid #f29559" }}
-              to="/Shop"
+              to="/shop"
             >
               Product
             </Button>
@@ -76,9 +73,17 @@ const NavBar = () => {
               className={classes.button}
               component={NavLink}
               activeStyle={{ borderBottom: "5px solid #f29559" }}
-              to="/Promotion"
+              to="/promotion"
             >
               Promotion
+            </Button>
+            <Button
+                className={classes.button}
+                component={NavLink}
+                activeStyle={{ borderBottom: "5px solid #f29559" }}
+                to="/admin"
+            >
+              Admin
             </Button>
           </div>
           <div className={classes.navLinkRight}>
@@ -86,7 +91,7 @@ const NavBar = () => {
               className={classes.button}
               component={NavLink}
               activeStyle={{ borderBottom: "5px solid #f29559" }}
-              to="/Cart"
+              to="/cart"
             >
               <Badge badgeContent={4} color="error" >
               <ShoppingCartIcon /></Badge>
@@ -96,7 +101,7 @@ const NavBar = () => {
               className={classes.button}
               component={NavLink}
               activeStyle={{ borderBottom: "5px solid #f29559" }}
-              to="/Login"
+              to="/login"
             >
               <PersonIcon /> Login
             </Button>

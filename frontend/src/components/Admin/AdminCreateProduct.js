@@ -1,10 +1,8 @@
 import React, { useCallback, useState } from "react";
-import { gql, useMutation } from "@apollo/client";
-
-import { makeStyles } from '@material-ui/core/styles';
-import ProductCreateDemo from "./Demo/ProductCreateDemo";
-
 import {Grid, Button, TextField, InputLabel, Select, FormControl, MenuItem} from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles';
+
+import { gql, useMutation } from "@apollo/client";
 import {PRODUCT_QUERY} from "../../graphql/productQuery";
 //Mutation
 const CREATE_PRODUCT = gql`

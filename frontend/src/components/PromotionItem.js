@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import {Card, CardActionArea, CardActions, CardContent, Button, Typography, Grid, Paper} from '@material-ui/core';
+import React from 'react'
+import {Card,  Button, Grid} from '@material-ui/core';
 // Query Data
 import {PROMOTION_QUERY} from "../graphql/promotionQuery";
 import { useQuery } from '@apollo/client'

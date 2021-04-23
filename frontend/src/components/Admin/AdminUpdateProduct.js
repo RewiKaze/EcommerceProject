@@ -1,10 +1,6 @@
 import React from "react";
-import {Grid, Button, Paper, TextField} from "@material-ui/core";
+import {Grid, Button, TextField, InputLabel,Select, FormControl,MenuItem } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from "@material-ui/core/InputLabel";
-import Select from "@material-ui/core/Select";
-import FormControl from "@material-ui/core/FormControl";
-import MenuItem from '@material-ui/core/MenuItem';
 
 const useStyles = makeStyles((theme) => ({
     root: {

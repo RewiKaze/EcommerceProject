@@ -1,11 +1,8 @@
 import React from "react";
-import {Grid, Button, Paper, TextField} from "@material-ui/core";
+import {Grid, Button, TextField, InputLabel, Select, FormControl} from "@material-ui/core";
 import AddIcon from '@material-ui/icons/Add';
-import InputLabel from "@material-ui/core/InputLabel";
-import Select from "@material-ui/core/Select";
-import FormControl from "@material-ui/core/FormControl";
 import CardItem from "./Adminproduct/showProduct"
-import ProductDemo from "./Demo/ProductDemo"
+
 
 
 

@@ -1,0 +1,18 @@
+{
+  "data": {
+    "customers": [
+      {
+        "_id": "6080fcf886ff02667cf1b750",
+        "authorId": "6080ea3686ff02667cf1b748",
+        "author": {
+          "name": "Sirawit B.",
+          "username": "fourthedition"
+        },
+        "nameAddress": "IT KMITL",
+        "address": "1, Chalong Krung 1, Ladkrabang, Bangkok 10520",
+        "email": "61070220@kmitl.ac.th",
+        "tel": "012-123-2121"
+      }
+    ]
+  }
+}

@@ -1,1 +1,0 @@
-import { CategoryTC } from "../../models";

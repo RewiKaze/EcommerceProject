@@ -1,26 +1,13 @@
 import React from "react";
-import {Grid, Button, Paper, TextField} from "@material-ui/core";
+import {Grid, Button, TextField, InputLabel, Select, FormControl} from "@material-ui/core";
 import AddIcon from '@material-ui/icons/Add';
-import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from "@material-ui/core/InputLabel";
-import Select from "@material-ui/core/Select";
-import FormControl from "@material-ui/core/FormControl";
+import CardItem from "./Adminproduct/showProduct"
 
-import TableProduct from "./Adminproduct/TableProduct"
-import ProductDemo from "./Demo/ProductDemo"
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-    },
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-    },
-}));
+
+
 
 const AdminProduct = () => {
-    const classes = useStyles();
+
     return (
         <React.Fragment>
 
@@ -84,11 +71,13 @@ const AdminProduct = () => {
                     </FormControl>
                 </Grid>
                 <Grid item xs={12}>
-                    <TableProduct/>
+                    <Grid container spacing={3}>
+                    <CardItem/>
+                    </Grid>
                 </Grid>
-                <Grid item xs={12}>
-                    <ProductDemo/>
-                </Grid>
+                {/*<Grid item xs={12}>*/}
+                {/*    <ProductDemo/>*/}
+                {/*</Grid>*/}
             </Grid>
         </React.Fragment>
     );

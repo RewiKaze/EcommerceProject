@@ -5,8 +5,8 @@ import { composeWithMongoose } from "graphql-compose-mongoose";
 const { Schema } = mongoose;
 
 const enumUserType = {
-  CUSTOMER: "Customer",
-  ADMIN: "Admin",
+  CUSTOMER: "CUSTOMER",
+  ADMIN: "ADMIN",
 };
 
 const UserSchema = new Schema({
@@ -19,7 +19,6 @@ const UserSchema = new Schema({
   name: { type: String, required: true },
   username: { type: String, required: true, index: true, unique: true },
   password: { type: String, required: true, bcrypt: true },
-  dateOfBirth: { type: Date, require: true },
 });
 UserSchema.plugin(bcrypt);
 

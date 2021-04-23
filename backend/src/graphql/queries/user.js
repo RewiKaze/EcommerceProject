@@ -12,5 +12,6 @@ export const user = schemaComposer.createResolver({
     const user = await UserModel.findById(_id);
     return user;
   },
+  projection:{_id: true}
 });
 export const userById = UserTC.getResolver("findById");

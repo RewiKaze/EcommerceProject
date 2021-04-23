@@ -1,19 +1,18 @@
 import { gql } from '@apollo/client'
 export const PROMOTION_QUERY = gql`
 query{
-  promotions{
+  promotions (sort: _ID_DESC){
     _id
-    imageUrl
     name
-    description
     amount
-    code
-    endDate
     discount
+    productId
     timestamp
     product{
       name
+      price
     }
+    total
   }
 }
 `

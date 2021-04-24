@@ -1,16 +1,15 @@
-import React, {  useMemo } from 'react'
-import { NavLink } from "react-router-dom";
-import {AppBar, Toolbar, Button, Avatar} from "@material-ui/core";
+import React, { Fragment, useMemo } from "react";
+import { NavLink, useLocation, matchPath } from "react-router-dom";
+import { AppBar, Toolbar, Button, Avatar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import PersonIcon from "@material-ui/icons/Person";
 import logo from "../image/logo.png";
 // <<<<<<< admin
 
-
-
-import { useSession } from '../contexts/SessionContext'
-import Badge from '@material-ui/core/Badge';
+import { useSession } from "../contexts/SessionContext";
+import Badge from "@material-ui/core/Badge";
+import Login from "../pages/Login";
 // =======
 // import Avatar from "@material-ui/core/Avatar";
 
@@ -60,78 +59,93 @@ const NavBar = () => {
   }, [handleLogout, loading, user]);
 
   const classes = useStyles();
-  return (
-    <>
-      <AppBar position="fixed" className={classes.styleBar}>
-        <Toolbar>
-          <div>
-            <Button className={classes.button} component={NavLink} to="/" exact>
-              <img src={logo} width="50vw" />
-            </Button>
-            <Button
-              className={classes.button}
-              component={NavLink}
-              activeStyle={{ borderBottom: "5px solid #f29559" }}
-              to="/"
-              exact
-            >
-              Home
-            </Button>
-            <Button
-              className={classes.button}
-              component={NavLink}
-              activeStyle={{ borderBottom: "5px solid #f29559" }}
-              to="/shop"
-            >
-              Product
-            </Button>
-            <Button
-              className={classes.button}
-              component={NavLink}
-              activeStyle={{ borderBottom: "5px solid #f29559" }}
-              to="/promotion"
-            >
-              Promotion
-            </Button>
-            <Button
+  const location = useLocation();
+
+  if (
+    matchPath(location.pathname, {
+      path: "/admin",
+    }) == null
+  ) {
+    return (
+      <>
+        <AppBar position="fixed" className={classes.styleBar}>
+          <Toolbar>
+            <div>
+              <Button
+                className={classes.button}
+                component={NavLink}
+                to="/"
+                exact
+              >
+                <img src={logo} width="50vw" />
+              </Button>
+              <Button
+                className={classes.button}
+                component={NavLink}
+                activeStyle={{ borderBottom: "5px solid #f29559" }}
+                to="/"
+                exact
+              >
+                Home
+              </Button>
+              <Button
+                className={classes.button}
+                component={NavLink}
+                activeStyle={{ borderBottom: "5px solid #f29559" }}
+                to="/shop"
+              >
+                Product
+              </Button>
+              <Button
+                className={classes.button}
+                component={NavLink}
+                activeStyle={{ borderBottom: "5px solid #f29559" }}
+                to="/promotion"
+              >
+                Promotion
+              </Button>
+              <Button
                 className={classes.button}
                 component={NavLink}
                 activeStyle={{ borderBottom: "5px solid #f29559" }}
                 to="/admin"
-            >
-              Admin
-            </Button>
-          </div>
-          <div className={classes.navLinkRight}>
-            <Button
-              className={classes.button}
-              component={NavLink}
-              activeStyle={{ borderBottom: "5px solid #f29559" }}
-              to="/cart"
-            >
-              <Badge badgeContent={4} color="error">
-                <ShoppingCartIcon />
-              </Badge>
-              {/*Cart*/}
-            </Button>
-            <Button
-              className={classes.button}
-              component={NavLink}
-              activeStyle={{ borderBottom: "5px solid #f29559" }}
-              to="/login"
-            >
-              <PersonIcon /> Login
-            </Button>
-            <Button>
-              <Avatar>N</Avatar>
-            </Button>
-            {userBox}
-          </div>
-        </Toolbar>
-      </AppBar>
-      <Toolbar />
-    </>
-  );
+              >
+                Admin
+              </Button>
+            </div>
+            <div className={classes.navLinkRight}>
+              <Button
+                className={classes.button}
+                component={NavLink}
+                activeStyle={{ borderBottom: "5px solid #f29559" }}
+                to="/cart"
+              >
+                <Badge badgeContent={4} color="error">
+                  <ShoppingCartIcon />
+                </Badge>
+                {/*Cart*/}
+              </Button>
+              <Button
+                className={classes.button}
+                component={NavLink}
+                activeStyle={{ borderBottom: "5px solid #f29559" }}
+                to="/login"
+              >
+                <PersonIcon /> Login
+              </Button>
+              <Button>
+                <Avatar>N</Avatar>
+              </Button>
+              {userBox}
+            </div>
+          </Toolbar>
+        </AppBar>
+        <Toolbar />
+      </>
+    );
+  } else {
+    return null;
+  }
 };
 
 export default NavBar;

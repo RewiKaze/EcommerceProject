@@ -13,71 +13,40 @@ const AdminPage = React.lazy(() => import("./pages/Admin"));
 
 const App = () => {
   return (
-// <<<<<<< admin
-  <Fragment>
-    <Suspense fallback="Loading ...">
-    <Router>
-      <Navbar />
-      <Switch>
-        <Route exact path="/">
-          <HomePage />
-        </Route>
-        <Route path="/shop">
-          <ShopsPage />
-        </Route>
-        <Route path="/promotion">
-          <PromotionPage />
-        </Route>
-        <Route path="/cart">
-          <CartPage />
-        </Route>
-        <Route path="/login">
-          <LoginPage />
-        </Route>
-        <Route path="/admin">
-          <AdminPage />
-        </Route>
-      </Switch>
-
-    </Router>
-    </Suspense>
-  </Fragment>
-// =======
-//     <Fragment>
-//       <Suspense fallback="Loading ...">
-//         <Router>
-//           <Navbar />
-//           <Switch>
-//             <Route exact path="/">
-//               <HomePage />
-//               <Footer />
-//             </Route>
-//             <Route path="/Shop">
-//               <ShopsPage />
-//               <Footer />
-//             </Route>
-//             <Route path="/Promotion">
-//               <PromotionPage />
-//               <Footer />
-//             </Route>
-//             <Route path="/Cart">
-//               <CartPage />
-//               <Footer />
-//             </Route>
-//             <Route path="/Login">
-//               <LoginPage />
-//             </Route>
-//             <Route path="/Register">
-//               <RegisterPage />
-//             </Route>
-//             <Route path="/Admin">
-//               <AdminPage />
-//             </Route>
-//           </Switch>
-//         </Router>
-//       </Suspense>
-//     </Fragment>
-// >>>>>>> main
+    // <<<<<<< admin
+    <Fragment>
+      <Suspense fallback="Loading ...">
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route exact path="/">
+              <HomePage />
+              <Footer />
+            </Route>
+            <Route path="/shop">
+              <ShopsPage />
+              <Footer />
+            </Route>
+            <Route path="/promotion">
+              <PromotionPage />
+              <Footer />
+            </Route>
+            <Route path="/cart">
+              <CartPage />
+            </Route>
+            <Route path="/login">
+              <LoginPage />
+            </Route>
+            <Route path="/register">
+              <RegisterPage />
+            </Route>
+            <Route path="/admin">
+              <AdminPage />
+            </Route>
+          </Switch>
+        </Router>
+      </Suspense>
+    </Fragment>
   );
 };
 

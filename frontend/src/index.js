@@ -7,11 +7,13 @@ import Home from "./pages/Home";
 import Shops from "./pages/Shops";
 import Promotion from "./pages/Promotion";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import Payment from "./pages/Payment";
 import Login from "./pages/Login";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import reportWebVitals from "./reportWebVitals";
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
 ReactDOM.render(
   <React.StrictMode>
     <Router>
@@ -28,6 +30,12 @@ ReactDOM.render(
         </Route>
         <Route path="/Cart">
           <Cart />
+        </Route>
+        <Route path="/Checkout">
+          <Checkout />
+        </Route>
+        <Route path="/Payment">
+          <Payment />
         </Route>
         <Route path="/Login">
           <Login />

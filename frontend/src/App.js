@@ -1,19 +1,7 @@
-<<<<<<< HEAD
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import React, { Fragment, Suspense } from "react";
 import Navbar from "../src/components/NavBar";
 import Footer from "../src/components/Footer";
-=======
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import React, { Fragment, Suspense } from 'react'
-import Navbar from "../src/components/NavBar"
-const HomePage = React.lazy(() => import('./pages/Home'))
-const ShopsPage = React.lazy(() => import('./pages/Shops'))
-const PromotionPage = React.lazy(() => import('./pages/Promotion'))
-const CartPage = React.lazy(() => import('./pages/Cart'))
-const LoginPage = React.lazy(() => import('./pages/Login'))
-const Customer = React.lazy(() => import('./components/User/User-Navber'))
->>>>>>> home
 
 const HomePage = React.lazy(() => import("./pages/Home"));
 const ShopsPage = React.lazy(() => import("./pages/Shops"));
@@ -46,13 +34,8 @@ const App = () => {
         <Route path="/login">
           <LoginPage />
         </Route>
-<<<<<<< HEAD
         <Route path="/admin">
           <AdminPage />
-=======
-        <Route path="/Customer">
-          <Customer />
->>>>>>> home
         </Route>
       </Switch>
 

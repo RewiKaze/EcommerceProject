@@ -1,4 +1,5 @@
 import React from 'react'
+import "../../css/Home.css"
 import {Card, Button, Grid, CardActionArea, CardMedia, CardContent, Typography, CardActions} from '@material-ui/core';
 // Query Data
 import {PROMOTION_QUERY} from "../../graphql/promotionQuery";
@@ -32,43 +33,69 @@ const PromotionItem = () => {
         return 'Error !!'
     }
     return (
-        data?.promotions?.map((promo) => (
+        data?.promotions?.slice(0, 4).map((promo) => (
             <Grid item xs={3}>
-                {promo.product._id ?<Card className={classes.root2}>
-                    <CardActionArea>
-                        <CardMedia
-                            className={classes.media}
-                            image={promo.product.imageUrl}
-                            title="Contemplative Reptile"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="h3" noWrap={true}>
-                                {promo.name}
-                            </Typography>
-                            <Typography style={{color:'#f29559', fontSize:19}}>
-                                {(parseInt(promo.total)).toLocaleString('th-TH', {
-                                    style: 'currency',
-                                    currency: 'THB'
-                                }) ?? ""}{"     "}
-                                <span style={{fontSize:14, color:"black", textDecoration:'line-through'}}>{(parseInt(promo.product.price)).toLocaleString('th-TH', {
-                                    style: 'currency',
-                                    currency: 'THB'
-                                }) ?? ""}</span>
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p" noWrap={true}>
-                                Product: {promo.product.name}
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                        <Button size="small" color="primary">
-                            Detail
-                        </Button>
-                        <Button size="small" color="primary" variant="contained">
-                            Add to cart
-                        </Button>
-                    </CardActions>
-                </Card> :null}
+                {promo.product._id ?
+                    // <Card className={classes.root2}>
+                    <div className="best-sell">
+                      <img className="best-sell-img" src={promo.product.imageUrl} />
+                      <div className="best-sell-content">
+                        <span className="best-sell-name">{promo.product.name}</span>
+                        {/*<img className="heart" src={heart} />*/}
+                      </div>
+                      <span className="best-sell-price">{(parseInt(promo.total)).toLocaleString('th-TH', {
+                          style: 'currency',
+                          currency: 'THB'
+                      }) ?? ""}{"     "}
+                          <span style={{fontSize:14, color:"black", textDecoration:'line-through'}}>{(parseInt(promo.product.price)).toLocaleString('th-TH', {
+                              style: 'currency',
+                              currency: 'THB'
+                          }) ?? ""}</span></span> <hr/>
+                        <div style={{alignItems:'center'}}>
+                            <Button size="small" color="primary">
+                                Detail
+                            </Button>
+                            <Button size="small" color="primary" variant="contained">
+                                Add to cart
+                            </Button>
+                        </div>
+
+                    </div>:null}
+                {/*    <CardActionArea>*/}
+                {/*        <CardMedia*/}
+                {/*            className={classes.media}*/}
+                {/*            image={promo.product.imageUrl}*/}
+                {/*            title="Contemplative Reptile"*/}
+                {/*        />*/}
+                {/*        <CardContent>*/}
+                {/*            <Typography gutterBottom variant="h5" component="h3" noWrap={true}>*/}
+                {/*                {promo.name}*/}
+                {/*            </Typography>*/}
+                {/*            <Typography style={{color:'#f29559', fontSize:19}}>*/}
+                {/*                {(parseInt(promo.total)).toLocaleString('th-TH', {*/}
+                {/*                    style: 'currency',*/}
+                {/*                    currency: 'THB'*/}
+                {/*                }) ?? ""}{"     "}*/}
+                {/*                <span style={{fontSize:14, color:"black", textDecoration:'line-through'}}>{(parseInt(promo.product.price)).toLocaleString('th-TH', {*/}
+                {/*                    style: 'currency',*/}
+                {/*                    currency: 'THB'*/}
+                {/*                }) ?? ""}</span>*/}
+                {/*            </Typography>*/}
+                {/*            <Typography variant="body2" color="textSecondary" component="p" noWrap={true}>*/}
+                {/*                Product: {promo.product.name}*/}
+                {/*            </Typography>*/}
+                {/*        </CardContent>*/}
+                {/*    </CardActionArea>*/}
+                {/*    <CardActions>*/}
+                {/*        <Button size="small" color="primary">*/}
+                {/*            Detail*/}
+                {/*        </Button>*/}
+                {/*        <Button size="small" color="primary" variant="contained">*/}
+                {/*            Add to cart*/}
+                {/*        </Button>*/}
+                {/*    </CardActions>*/}
+                {/*</Card> */}
+
                 {/*<Card className={classes.root2}>*/}
                 {/*    <CardActionArea>*/}
                 {/*        <CardMedia*/}

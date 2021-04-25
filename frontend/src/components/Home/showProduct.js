@@ -35,7 +35,7 @@ const CardItem = () => {
         return 'Error !!'
     }
     return (
-        data?.products?.slice(0, 4).map((product) => (
+        data?.products?.slice(0, 8).map((product) => (
             <Grid item xs={3}>
                 <Card className={classes.root2}>
                     <CardActionArea>

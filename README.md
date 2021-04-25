@@ -32,10 +32,10 @@
 - [ ] Customer order detail **`/customer/order/:orderId`** *Display order detail by order id*
 - [ ] Admin dashboard **`/admin`** *Display admin dashboard*
 - [ ] Admin products **`/admin/products`** *Display all product*
-- [ ] Admin create product **`/admin/product/create`** *Create product from*
+- [x] Admin create product **`/admin/product/create`** *Create product from*
 - [ ] Admin update product **`/admin/product/:productId`** *Update product form*
 - [ ] Admin promotions **`/admin/promotions`** *Display all promotion*
-- [ ] Admin create promotion **`/admin/promotion/create`** *Create promotion from*
+- [x] Admin create promotion **`/admin/promotion/create`** *Create promotion from*
 - [ ] Admin update promotion **`/admin/promotion/:promotionId`** *Update promotion form*
 - [ ] Admin orders **`/admin/orders`** *Display all orders*
 - [ ] Admin order detail **`/admin/order/:orderId`** *Display order detail by order id*
@@ -43,7 +43,7 @@
 #### Pages
 - [x] Home
 - [x] Login
-- [ ] Register
+- [x] Register
 - [ ] Products
 - [ ] Product detail
 - [ ] Promotions
@@ -55,19 +55,21 @@
 - [ ] Customer order detail
 - [ ] Admin dashboard
 - [ ] Admin products
-- [ ] Admin create product
+- [x] Admin create product
 - [ ] Admin update product
 - [ ] Admin promotions
-- [ ] Admin create promotion
+- [x] Admin create promotion
 - [ ] Admin update promotion
 - [ ] Admin orders
 - [ ] Admin order detail
 #### Features
 - [ ] Token base auth
-- [ ] Admin and Customer type implement User type
-- [ ] Promotion type implement Product type
+- [x] Admin and Customer type implement User type
+- [x] Promotion type implement Product type
 - [ ] Admin update order status
 - [ ] Admin cancel order
 - [ ] Update product stock when Customer make order
 ### 3. Implement Frontend, Backend and Database support pages and features
+- [ ] Done
 ### 4. Deploy Frontend, Backend and Database to server
+- [ ] Done

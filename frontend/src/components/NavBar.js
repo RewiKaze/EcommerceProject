@@ -58,6 +58,10 @@ const NavBar = () => {
             {/*Cart*/}
           </Button>
           }
+          <Button>
+            <Avatar style={{backgroundColor:"#F2D492"}}>{user?.name[0]}</Avatar>{'  '}
+            <span style={{color:"#F29559", marginLeft:10}}>Hello,K.{user?.name}</span>
+          </Button>
           <Button style={{color:"#F29559"}}
             onClick={handleLogout}
             type="button"

@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import { gql, useMutation } from "@apollo/client";
 import {PRODUCT_QUERY} from "../../graphql/productQuery";
+import {useHistory} from "react-router";
 //Mutation
 const CREATE_PRODUCT = gql`
     mutation($record: CreateOneProductInput!) {
@@ -32,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 
 const AdminCreateProduct = () => {
     const classes = useStyles();
-
+    const history = useHistory();
     const [name, setName]= useState("");
     const [description, setDescription]= useState("");
     const [price, setPrice]= useState("");
@@ -81,6 +82,7 @@ const AdminCreateProduct = () => {
             setType("");
             setQuantity("");
             setImageUrl("");
+            history.push("/admin/product");
             // setTag("")
         },
         [createProduct,name, description, price, type, quantity, imageUrl,

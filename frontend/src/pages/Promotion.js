@@ -30,7 +30,7 @@ const Promotion = () => {
               </Paper>
             </Grid>
             <Grid item xs={9}>
-              <h1 style={{color:'#f29559'}}>Hot Sale!!!!</h1>
+              <h1 style={{color:'#f29559'}}>Hot Deal!!!!</h1>
               <hr/>
               <Grid container spacing={3}>
                 <PromotionItem/>

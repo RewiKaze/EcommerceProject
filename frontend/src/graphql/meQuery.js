@@ -1,9 +1,11 @@
 import { gql } from '@apollo/client'
 export const ME_QUERY = gql`
 query {
-  me {
+  user {
     _id
     name
+    username
+    type
   }
 }
 `

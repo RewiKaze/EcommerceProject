@@ -4,6 +4,7 @@ import {Grid, Button, TextField,} from "@material-ui/core";
 import {PROMOTION_QUERY} from "../../graphql/promotionQuery";
 //Mutation
 import { gql, useMutation } from "@apollo/client";
+import {useHistory} from "react-router";
 const CREATE_PROMOTION = gql`
     mutation($record: CreateOnePromotionInput!) {
         createPromotion(record: $record) {
@@ -13,6 +14,7 @@ const CREATE_PROMOTION = gql`
 `;
 
 const AdminCreatePromotion = () => {
+    const history = useHistory();
     const [name, setName]= useState("");
     const [amount, setAmount]= useState("");
     const [discount, setDiscount]= useState("");
@@ -47,6 +49,7 @@ const AdminCreatePromotion = () => {
             setAmount("");
             setDiscount("");
             setProductId("");
+            history.push("/admin/promotions");
         },
         [createPromotion, name, amount, discount, productId
         ]

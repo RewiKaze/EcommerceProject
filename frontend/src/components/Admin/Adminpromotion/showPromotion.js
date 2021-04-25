@@ -28,7 +28,7 @@ const PromotionItem = () =>  {
     return (
         data?.promotions?.map((promo) => (
             <Grid item xs={8}>
-                <Card className={classes.root}>
+                {promo.product._id ?<Card className={classes.root}>
                     <Grid container spacing={3} style={{padding:5, backgroundColor:'rgb(242,242,247)'}}>
                         <Grid item xs={8}>
                             <h2 style={{textAlign:'right', justifyContent:'center', color:"#202C39"}}> <span style={{color:'#F29559'}}>{promo.discount}% Sale off</span> <span> | {promo.name}</span> </h2>
@@ -53,7 +53,8 @@ const PromotionItem = () =>  {
                             </Grid>
                         </Grid>
                     </Grid>
-                </Card>
+                </Card>:null}
+
             </Grid>
     )));
 };

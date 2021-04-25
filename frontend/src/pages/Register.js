@@ -1,13 +1,15 @@
 import { makeStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
+import {TextField, Typography, Button} from "@material-ui/core";
 import Lottie from "lottie-react";
 import waveAnimation from "../animation/wave.json";
 import { Link as RouterLink } from "react-router-dom";
 import Link from "@material-ui/core/Link";
+import React, {useCallback, useState} from "react";
+import {useHistory} from "react-router"
+import {useMutation} from "@apollo/client";
+import {CREATE_USER_MUTATION} from "../graphql/createUserMutation";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((s) => ({
   loginPage: {
     display: "flex",
     justifyContent: "space-evenly",
@@ -48,6 +50,40 @@ const useStyles = makeStyles((theme) => ({
 }));
 const Register = () => {
   const classes = useStyles();
+  const history = useHistory();
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [createUser] = useMutation(CREATE_USER_MUTATION);
+    const handleNameChange = useCallback((e) => {
+        setName(e.target.value);
+    }, []);
+    const handleUsernameChange = useCallback((e) => {
+      setUsername(e.target.value);
+    }, []);
+    const handlePasswordChange = useCallback((e) => {
+      setPassword(e.target.value);
+    }, []);
+  const handleRegister = useCallback(
+      async (e) => {
+        e.preventDefault();
+        try {
+          const variables = {
+            record:{createUser, name, username, password}
+          };
+          await createUser({variables});
+          setName("");
+          setUsername("");
+          setPassword("");
+          history.push("/login");
+          alert("Register Success!!!");
+        } catch (err) {
+          console.log(err);
+          alert("Register Failed!!!");
+        }
+      },
+      [createUser, history, name, username, password]
+  );
   return (
     <div className={classes.loginPage}>
       <div>
@@ -66,27 +102,33 @@ const Register = () => {
             </Link>
           </Typography>
         </div>
-        <form className={classes.form}>
+        <form className={classes.form} onSubmit={handleRegister}>
           <TextField
             className={classes.input}
-            label="Email"
+            label="Name"
             variant="filled"
             type="text"
-            required={true}
+            required
+            value={name}
+            onChange={handleNameChange}
           />
           <TextField
             className={classes.input}
             label="Username"
             variant="filled"
             type="text"
-            required={true}
+            required
+            value={username}
+            onChange={handleUsernameChange}
           />
           <TextField
             className={classes.input}
             label="Password"
             variant="filled"
             type="password"
-            required={true}
+            required
+            value={password}
+            onChange={handlePasswordChange}
           />
           <Button variant="contained" color="primary" type="submit">
             Sign up

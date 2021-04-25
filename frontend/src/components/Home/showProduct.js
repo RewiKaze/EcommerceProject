@@ -1,15 +1,10 @@
-import React, {useMemo,useCallback} from 'react';
+import React,{useState,useEffect} from 'react';
 import {Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography, Grid} from '@material-ui/core';
-import EditIcon from '@material-ui/icons/Edit';
-import DeleteIcon from '@material-ui/icons/Delete';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from "react-router-dom";
 
 // Query Data
-import { PRODUCT_QUERY } from "../../../graphql/productQuery";
-import {useQuery} from "@apollo/client";
-
-
+import { PRODUCT_QUERY } from "../../graphql/productQuery";
+import { useQuery } from '@apollo/client'
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -32,15 +27,15 @@ const useStyles = makeStyles((theme) => ({
 const CardItem = () => {
     const classes = useStyles();
     const { loading, error, data } = useQuery(PRODUCT_QUERY)
+
     if (loading) {
         return 'Loading ...'
     }
     if (error) {
         return 'Error !!'
     }
-
     return (
-        data?.products?.map((product) => (
+        data?.products?.slice(0, 4).map((product) => (
             <Grid item xs={3}>
                 <Card className={classes.root2}>
                     <CardActionArea>
@@ -65,18 +60,15 @@ const CardItem = () => {
                             {/*<Typography variant="body2" color="textSecondary" component="p">*/}
                             {/*    Tags:{product.tag}*/}
                             {/*</Typography>*/}
+
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <Link to={{
-                            pathname: `/admin/product/${product._id}`,
-                        }} style={{ textDecoration: "none" }}>
-                        <Button size="small" color="primary" variant="contained">
-                            <EditIcon fontSize="small"/>Edit
+                        <Button size="small" color="primary">
+                            Detail
                         </Button>
-                        </Link>
-                        <Button size="small" variant="outlined" style={{color:"red"}}>
-                            <DeleteIcon fontSize="small"/>Delete
+                        <Button size="small" color="primary" variant="contained">
+                            Add to cart
                         </Button>
                     </CardActions>
                 </Card>

@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { gql, useMutation } from "@apollo/client";
 import {PRODUCT_QUERY} from "../../graphql/productQuery";
 import {useHistory} from "react-router";
+import {Link} from "react-router-dom";
 //Mutation
 const CREATE_PRODUCT = gql`
     mutation($record: CreateOneProductInput!) {
@@ -35,6 +36,7 @@ const AdminCreateProduct = () => {
     const classes = useStyles();
     const history = useHistory();
     const [name, setName]= useState("");
+    const [slug, setSlug]= useState("");
     const [description, setDescription]= useState("");
     const [price, setPrice]= useState("");
     const [type, setType] = useState("");
@@ -45,6 +47,9 @@ const AdminCreateProduct = () => {
 
     const handleNameChange = useCallback((e) => {
         setName(e.target.value);
+    }, []);
+    const handleSlugChange = useCallback((e) => {
+        setSlug(e.target.value);
     }, []);
     const handleDescriptionChange = useCallback((e) => {
         setDescription(e.target.value);
@@ -69,7 +74,7 @@ const AdminCreateProduct = () => {
         async (e) => {
             e.preventDefault();
             const variables = {
-                record: {createProduct,name, description, price, type, quantity, imageUrl,
+                record: {createProduct,name, description, price, type, quantity, imageUrl, slug
                 },
             };
             await createProduct({
@@ -77,6 +82,7 @@ const AdminCreateProduct = () => {
                 refetchQueries: [{ query: PRODUCT_QUERY }],
             });
             setName("");
+            setSlug("")
             setDescription("");
             setPrice("");
             setType("");
@@ -85,7 +91,7 @@ const AdminCreateProduct = () => {
             history.push("/admin/product");
             // setTag("")
         },
-        [createProduct,name, description, price, type, quantity, imageUrl,
+        [createProduct,name, description, price, type, quantity, imageUrl, slug
         ]
     );
 
@@ -129,7 +135,18 @@ const AdminCreateProduct = () => {
                             </Select>
                         </FormControl>
                     </Grid>
-                    <Grid item xs={9}>
+                    <Grid item xs={4}>
+                        <TextField
+                            label="Slug"
+                            variant="outlined"
+                            style={{ width: "100%"}}
+                            type="text"
+                            value={slug}
+                            onChange={handleSlugChange}
+                            required
+                        />
+                    </Grid>
+                    <Grid item xs={5}>
                         <TextField
                             label="Description"
                             variant="outlined"
@@ -191,9 +208,13 @@ const AdminCreateProduct = () => {
                     Create
                 </Button>
                 {'  '}
-                <Button variant="outlined" color="secondary">
-                    Back
-                </Button>
+                <Link to={{
+                    pathname: `/admin/product`,
+                }} style={{ textDecoration: "none" }}>
+                    <Button variant="outlined" color="secondary">
+                        Back
+                    </Button>
+                </Link>
             </form>
             {/*<h1 style={{color:'#202C39'}}>CREATE PRODUCT DEMO</h1>*/}
             {/*<hr/>*/}

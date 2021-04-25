@@ -5,6 +5,8 @@ import {PROMOTION_QUERY} from "../../graphql/promotionQuery";
 //Mutation
 import { gql, useMutation } from "@apollo/client";
 import {useHistory} from "react-router";
+import CardItem from "../Admin/Adminpromotion/showProduct"
+import {Link} from "react-router-dom";
 const CREATE_PROMOTION = gql`
     mutation($record: CreateOnePromotionInput!) {
         createPromotion(record: $record) {
@@ -109,23 +111,30 @@ const AdminCreatePromotion = () => {
                             />
                         </Grid>
                     </Grid>
-                    <h2>Product Detail</h2>
-                    <b>Product Name: </b> <br/>
-                    <b>Product Type: </b> <br/>
-                    <b>Product Price: </b> <br/>
-                    <b>Product Image: </b> <br/>
-                    <b>Product Description: </b> <br/>
-                    <b>Product Tag: </b>
-                    <br/>
                     <hr/>
                     <Button variant="contained" color="primary" type="submit" value="Submit">
                         Create
                     </Button>
                     {'  '}
-                    <Button variant="outlined" color="secondary">
-                        Back
-                    </Button>
+                    <Link to={{
+                        pathname: `/admin/promotions`,
+                    }} style={{ textDecoration: "none" }}>
+                        <Button variant="outlined" color="secondary">
+                            Back
+                        </Button>
+                    </Link>
+
                 </form>
+                    <h2>Product List</h2>
+                    <hr/>
+                    <Grid container spacing={3}>
+                        {/*<Grid item xs={12}>*/}
+                            <CardItem/>
+                        {/*</Grid>*/}
+                </Grid>
+
+                    <br/>
+
             {/*<hr/>*/}
 
             {/*<h1 style={{color:'#202C39'}}>CREATE PROMOTION DEMO</h1>*/}

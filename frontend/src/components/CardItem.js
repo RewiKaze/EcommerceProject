@@ -65,7 +65,7 @@ const CardItem = () => {
                   </CardActionArea>
                   <CardActions>
                       <Link to={{
-                          pathname: `/product/${product._id}`,
+                          pathname: `/product/${product.slug}`,
                       }} style={{ textDecoration: "none" }}>
                       <Button size="small" color="primary">
                           Detail

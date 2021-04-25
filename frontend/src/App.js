@@ -27,7 +27,7 @@ const App = () => {
               <ShopsPage />
               <Footer />
             </Route>
-            <Route path="product/:id">
+            <Route path="product/:slug">
               <ProductSlug />
               <Footer />
             </Route>

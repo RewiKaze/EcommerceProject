@@ -7,8 +7,7 @@ import { Link } from "react-router-dom";
 
 // Query Data
 import { PRODUCT_QUERY } from "../../../graphql/productQuery";
-import { useQuery, useMutation } from '@apollo/client'
-
+import {useQuery} from "@apollo/client";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -39,6 +38,7 @@ const CardItem = () => {
     if (error) {
         return 'Error !!'
     }
+
     return (
         data?.products?.map((product) => (
             <Grid item xs={3}>
@@ -75,7 +75,7 @@ const CardItem = () => {
                             <EditIcon fontSize="small"/>Edit
                         </Button>
                         </Link>
-                        <Button size="small" variant="outlined" style={{color:"red"}} >
+                        <Button size="small" variant="outlined" style={{color:"red"}}>
                             <DeleteIcon fontSize="small"/>Delete
                         </Button>
                     </CardActions>

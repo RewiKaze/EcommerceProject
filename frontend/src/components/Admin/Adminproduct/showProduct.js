@@ -1,12 +1,13 @@
-import React from 'react';
+import React, {useMemo,useCallback} from 'react';
 import {Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography, Grid} from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from "react-router-dom";
 
 // Query Data
 import { PRODUCT_QUERY } from "../../../graphql/productQuery";
-import { useQuery } from '@apollo/client'
+import { useQuery, useMutation } from '@apollo/client'
 
 
 
@@ -67,10 +68,14 @@ const CardItem = () => {
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
+                        <Link to={{
+                            pathname: `/admin/product/${product._id}`,
+                        }} style={{ textDecoration: "none" }}>
                         <Button size="small" color="primary" variant="contained">
                             <EditIcon fontSize="small"/>Edit
                         </Button>
-                        <Button size="small" variant="outlined" style={{color:"red"}}>
+                        </Link>
+                        <Button size="small" variant="outlined" style={{color:"red"}} >
                             <DeleteIcon fontSize="small"/>Delete
                         </Button>
                     </CardActions>

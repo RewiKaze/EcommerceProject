@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     right: theme.spacing(2),
     position: "absolute",
   },
+
 }));
 
 const NavBar = () => {
@@ -62,6 +63,7 @@ const NavBar = () => {
             <Avatar style={{backgroundColor:"#F2D492"}}>{user?.name[0]}</Avatar>{'  '}
             <span style={{color:"#F29559", marginLeft:10}}>Hello,K.{user?.name}</span>
           </Button>
+
           <Button style={{color:"#F29559"}}
             onClick={handleLogout}
             type="button"
@@ -84,11 +86,11 @@ const NavBar = () => {
   const classes = useStyles();
   const location = useLocation();
 
-  if (
-    matchPath(location.pathname, {
-      path: "/admin",
-    }) == null
-  ) {
+  // if (
+  //   matchPath(location.pathname, {
+  //     path: "/admin",
+  //   }) == null
+  // ) {
     return (
       <>
         <AppBar position="fixed" className={classes.styleBar}>
@@ -115,7 +117,7 @@ const NavBar = () => {
                 className={classes.button}
                 component={NavLink}
                 activeStyle={{ borderBottom: "5px solid #f29559" }}
-                to="/shop"
+                to="/product"
               >
                 Product
               </Button>
@@ -139,9 +141,10 @@ const NavBar = () => {
         <Toolbar />
       </>
     );
-  } else {
-    return null;
-  }
+  // }
+  // else {
+  //   return null;
+  // }
 };
 
 export default NavBar;

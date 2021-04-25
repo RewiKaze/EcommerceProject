@@ -9,7 +9,25 @@ import heart from "../image/home/heart.png"
 import fifth from "../image/home/5.png"
 import sixth from "../image/home/6.png"
 import sevth from "../image/home/7.png"
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import CardItem from "../components/Home/showProduct"
+import {Link} from "react-router-dom";
+import PromotionItem from "../components/Home/showPromotion";
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    // padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+}));
+
 const Home = () => {
+  const classes = useStyles();
   var items = [
     {
       image: first
@@ -23,7 +41,7 @@ const Home = () => {
   ]
 
   return (
-    <>
+    <React.Fragment>
       {/* first */}
       <div className="firstSection">
         <Typography variant="h1">
@@ -40,49 +58,71 @@ const Home = () => {
           </Carousel>
         </div>
       </div>
-      {/* second */}
-      <div className="secondSection">
-        <Container>
-          <div className="second-head">
-            <span className="text-topic">Best Seller Product</span><br></br>
-            <span className="text-title">The best of the year</span>
-          </div>
-          <div className="second-content">
-            <div className="best-sell">
-              <img className="best-sell-img" src={fourth} />
-              <div className="best-sell-content">
-                <span className="best-sell-name">Sofa</span>
-                <img className="heart" src={heart} />
-              </div>
-              <span className="best-sell-price">$ 300.00</span>
-            </div>
-            <div className="best-sell">
-              <img className="best-sell-img" src={fourth} />
-              <div className="best-sell-content">
-                <span className="best-sell-name">Sofa</span>
-                <img className="heart" src={heart} />
-              </div>
-              <span className="best-sell-price">$ 300.00</span>
-            </div>
-            <div className="best-sell">
-              <img className="best-sell-img" src={fourth} />
-              <div className="best-sell-content">
-                <span className="best-sell-name">Sofa</span>
-                <img className="heart" src={heart} />
-              </div>
-              <span className="best-sell-price">$ 300.00</span>
-            </div>
-            <div className="best-sell">
-              <img className="best-sell-img" src={fourth} />
-              <div className="best-sell-content">
-                <span className="best-sell-name">Sofa</span>
-                <img className="heart" src={heart} />
-              </div>
-              <span className="best-sell-price">$ 300.00</span>
-            </div>
-          </div>
-        </Container>
+
+
+      <div className={classes.root}>
+        <Grid  spacing={3}>
+          <Grid item xs={11} style={{padding:20}}>
+            <Grid container spacing={3}>
+              <Grid item xs={12}>
+              <h1>Hot Deal</h1>
+              </Grid>
+              <PromotionItem/>
+              <Grid item xs={12}>
+                <h1>Product Latest</h1>
+              </Grid>
+              <CardItem />
+            </Grid>
+
+          </Grid>
+        </Grid>
       </div>
+
+      {/*<h1 className="text-topic"></h1>*/}
+      {/* second */}
+      {/*<div className="secondSection">*/}
+      {/*  <Container>*/}
+      {/*    <div className="second-head">*/}
+      {/*      <span className="text-topic">Latest Product</span><br></br>*/}
+      {/*      <span className="text-title">Furniture and home inspiration</span>*/}
+      {/*    </div>*/}
+      {/*    <div className="second-content">*/}
+      {/*      <div className="best-sell">*/}
+      {/*        <img className="best-sell-img" src={fourth} />*/}
+      {/*        <div className="best-sell-content">*/}
+      {/*          <span className="best-sell-name">Sofa</span>*/}
+      {/*          <img className="heart" src={heart} />*/}
+      {/*        </div>*/}
+      {/*        <span className="best-sell-price">$ 300.00</span>*/}
+      {/*      </div>*/}
+      {/*      <div className="best-sell">*/}
+      {/*        <img className="best-sell-img" src={fourth} />*/}
+      {/*        <div className="best-sell-content">*/}
+      {/*          <span className="best-sell-name">Sofa</span>*/}
+      {/*          <img className="heart" src={heart} />*/}
+      {/*        </div>*/}
+      {/*        <span className="best-sell-price">$ 300.00</span>*/}
+      {/*      </div>*/}
+      {/*      <div className="best-sell">*/}
+      {/*        <img className="best-sell-img" src={fourth} />*/}
+      {/*        <div className="best-sell-content">*/}
+      {/*          <span className="best-sell-name">Sofa</span>*/}
+      {/*          <img className="heart" src={heart} />*/}
+      {/*        </div>*/}
+      {/*        <span className="best-sell-price">$ 300.00</span>*/}
+      {/*      </div>*/}
+      {/*      */}
+      {/*      <div className="best-sell">*/}
+      {/*        <img className="best-sell-img" src={fourth} />*/}
+      {/*        <div className="best-sell-content">*/}
+      {/*          <span className="best-sell-name">Sofa</span>*/}
+      {/*          <img className="heart" src={heart} />*/}
+      {/*        </div>*/}
+      {/*        <span className="best-sell-price">$ 300.00</span>*/}
+      {/*      </div>*/}
+      {/*    </div>*/}
+      {/*  </Container>*/}
+      {/*</div>*/}
       {/* third */}
       <div className="thirdSection">
         <div className="third-topic">
@@ -104,10 +144,14 @@ const Home = () => {
           </div>
         </div>
         <div className="third-foot">
-          <Button className="button1 third-but">See All Catagories</Button>
+          <Link to={{
+            pathname: `/product/`,
+          }} style={{ textDecoration: "none" }}>
+          <Button className="button1 third-but">See All Products</Button>
+          </Link>
         </div>
       </div>
-    </>
+    </React.Fragment>
   );
 };
 

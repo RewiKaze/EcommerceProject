@@ -1,9 +1,12 @@
 import React from 'react'
 import {Card, Button, Grid, CardActionArea, CardMedia, CardContent, Typography, CardActions} from '@material-ui/core';
 // Query Data
-import {PROMOTION_QUERY} from "../graphql/promotionQuery";
+import {PROMOTION_QUERY} from "../../graphql/promotionQuery";
 import { useQuery } from '@apollo/client'
 import { makeStyles } from '@material-ui/core/styles';
+import {Link} from "react-router-dom";
+import EditIcon from "@material-ui/icons/Edit";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 const useStyles = makeStyles((theme)=>({
     root: {
@@ -52,11 +55,8 @@ const PromotionItem = () => {
                                     currency: 'THB'
                                 }) ?? ""}</span>
                             </Typography>
-                            <Typography variant="body2" component="p" noWrap={true}>
+                            <Typography variant="body2" color="textSecondary" component="p" noWrap={true}>
                                 Product: {promo.product.name}
-                            </Typography>
-                            <Typography variant="body2" component="p" noWrap={true} style={{color:"green"}}>
-                                Available: {promo.amount}
                             </Typography>
                         </CardContent>
                     </CardActionArea>
@@ -105,62 +105,35 @@ const PromotionItem = () => {
                 {/*    </CardActions>*/}
                 {/*</Card>*/}
             </Grid>
-
-        // data?.promotions?.map((promo) => (
-        //     <Grid item xs={8}>
-        //         {promo.product._id ?<Card className={classes.root}>
-        //             <Grid container spacing={3} style={{padding:5, backgroundColor:'rgb(242,242,247)'}}>
-        //                 <Grid item xs={8}>
-        //                     <h2 style={{textAlign:'right', justifyContent:'center', color:"#202C39"}}> <span style={{color:'#F29559'}}>{promo.discount}% Sale off</span> <span> | {promo.name}</span> </h2>
-        //                     <hr/>
-        //                     <p style={{textAlign:'right', justifyContent:'center', color:"#202C39", fontSize:19}}>Product: {promo.product.name} <br/>
-        //                         Price: <b>{promo.total}</b> <span style={{textDecoration:'line-through', fontSize:14}}>{promo.product.price}</span>
-        //                     </p>
-        //
-        //                 </Grid>
-        //                 <Grid item xs={4}>
-        //                     <Grid container spacing={3} style={{padding:5, backgroundColor:'rgb(242,242,247)'}}>
-        //                         <Grid item xs={12} >
-        //                             <Button variant="outlined" style={{color:'#202C39'}}>
-        //                                 Detail
-        //                             </Button>
-        //                         </Grid>
-        //                         <Grid item xs={12}>
-        //                             <Button variant="contained" style={{backgroundColor:"#F29559", color:'white'}}>
-        //                                 Add to Cart
-        //                             </Button>
-        //                         </Grid>
-        //                     </Grid>
-        //                 </Grid>
-        //             </Grid>
-        //         </Card>:null}
-        //         {/*<Card className={classes.root}>*/}
-        //         {/*    <Grid container spacing={3} style={{padding:5, backgroundColor:'rgb(242,242,247)'}}>*/}
-        //         {/*        <Grid item xs={8}>*/}
-        //         {/*            <h2 style={{textAlign:'right', justifyContent:'center', color:"#202C39"}}> <span style={{color:'#F29559'}}>{promo.discount}% Sale off</span> <span> | {promo.name}</span> </h2>*/}
-        //         {/*            <hr/>*/}
-        //         {/*            <p style={{textAlign:'right', justifyContent:'center', color:"#202C39", fontSize:19}}>Product: {promo.product.name} <br/>*/}
-        //         {/*                Price: <b>{promo.total}</b> <span style={{textDecoration:'line-through', fontSize:14}}>{promo.product.price}</span>*/}
-        //         {/*            </p>*/}
-        //
-        //         {/*        </Grid>*/}
-        //         {/*        <Grid item xs={4}>*/}
-        //         {/*            <Grid container spacing={3} style={{padding:5, backgroundColor:'rgb(242,242,247)'}}>*/}
-        //         {/*                <Grid item xs={12} >*/}
-        //         {/*                    <Button variant="outlined" style={{color:'#202C39'}}>*/}
-        //         {/*                        Detail*/}
-        //         {/*                    </Button>*/}
-        //         {/*                </Grid>*/}
-        //         {/*                <Grid item xs={12}>*/}
-        //         {/*                    <Button variant="contained" style={{backgroundColor:"#F29559", color:'white'}}>*/}
-        //         {/*                        Add to Cart*/}
-        //         {/*                    </Button>*/}
-        //         {/*                </Grid>*/}
-        //         {/*            </Grid>*/}
-        //         {/*        </Grid>*/}
-        //         {/*    </Grid>*/}
-        //         {/*</Card>*/}
-        //     </Grid>
+            // <Grid item xs={8}>
+            //     <Card className={classes.root}>
+            //         <Grid container spacing={3} style={{padding:5, backgroundColor:'rgb(242,242,247)'}}>
+            //             <Grid item xs={8}>
+            //                 <h2 style={{textAlign:'right', justifyContent:'center', color:"#202C39"}}> <span style={{color:'#F29559'}}>{promo.discount}% Sale off</span> <span> | {promo.name}</span> </h2>
+            //                 <hr/>
+            //                 <p style={{textAlign:'right', justifyContent:'center', color:"#202C39", fontSize:19}}>Product: {promo.product.name} <br/>
+            //                     Price: <b>{promo.total}</b> <span style={{textDecoration:'line-through', fontSize:14}}>{promo.product.price}</span>
+            //                 </p>
+            //
+            //             </Grid>
+            //             <Grid item xs={4}>
+            //                 <Grid container spacing={3} style={{padding:5, backgroundColor:'rgb(242,242,247)'}}>
+            //                     <Grid item xs={12} >
+            //                         <Button variant="outlined" style={{color:'#202C39'}}>
+            //                             Detail
+            //                         </Button>
+            //                     </Grid>
+            //                     <Grid item xs={12}>
+            //                         <Button variant="contained" style={{backgroundColor:"#F29559", color:'white'}}>
+            //                             Add to Cart
+            //                         </Button>
+            //                     </Grid>
+            //                 </Grid>
+            //             </Grid>
+            //         </Grid>
+            //
+            //     </Card>
+            // </Grid>
         ))
     )
 };

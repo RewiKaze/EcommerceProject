@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 // Query Data
 import { PRODUCT_QUERY } from "../graphql/productQuery";
 import { useQuery } from '@apollo/client'
+import {Link} from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -63,9 +64,13 @@ const CardItem = () => {
                       </CardContent>
                   </CardActionArea>
                   <CardActions>
+                      <Link to={{
+                          pathname: `/product/${product._id}`,
+                      }} style={{ textDecoration: "none" }}>
                       <Button size="small" color="primary">
                           Detail
                       </Button>
+                      </Link>
                       <Button size="small" color="primary" variant="contained">
                           Add to cart
                       </Button>

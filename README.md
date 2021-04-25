@@ -18,7 +18,7 @@
 
 ## Project requirements
 ### 1. Implement Frontend from sitemap
-- [ ] Home **`/`** *Display banner, latest promotion and products* **`อันล่าสุดยังไม่ lasted`**
+- [x] Home **`/`** *Display banner, latest promotion and products* **`อันล่าสุดยังไม่ lasted`**
 - [x] Login **`/login`** *Login form*
 - [x] Register **`/register`** *Register form*
 - [ ] Products **`/products`** *Display all product with pagination*

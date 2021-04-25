@@ -10,10 +10,10 @@ const CartPage = React.lazy(() => import("./pages/Cart"));
 const LoginPage = React.lazy(() => import("./pages/Login"));
 const RegisterPage = React.lazy(() => import("./pages/Register"));
 const AdminPage = React.lazy(() => import("./pages/Admin"));
+const ProductSlug = React.lazy(() => import("./pages/ProductSlug"));
 
 const App = () => {
   return (
-    // <<<<<<< admin
     <Fragment>
       <Suspense fallback="Loading ...">
         <Router>
@@ -23,8 +23,12 @@ const App = () => {
               <HomePage />
               <Footer />
             </Route>
-            <Route path="/shop">
+            <Route path="/product">
               <ShopsPage />
+              <Footer />
+            </Route>
+            <Route path="product/:id">
+              <ProductSlug />
               <Footer />
             </Route>
             <Route path="/promotion">

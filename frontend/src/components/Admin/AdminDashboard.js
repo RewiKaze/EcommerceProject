@@ -6,6 +6,7 @@ import CategoryList from "./Dashboard/categoryList";
 import RangePrice from "./Dashboard/rangePrice";
 import OrderList from "./Dashboard/orderList";
 import PromotionList from "./Dashboard/promotionList";
+import {Link} from "react-router-dom";
 
 const AdminDashboard = () =>{
     return(
@@ -21,9 +22,13 @@ const AdminDashboard = () =>{
                         <h2 style={{color:'#202C39'}}>
                             Product{'   '}
                             <span>
+                                <Link to={{
+                                    pathname: `/admin/product/`,
+                                }} style={{ textDecoration: "none" }}>
                                 <Button color="primary" size="small" variant="outlined">
                                     See more
                                 </Button>
+                                    </Link>
                             </span>
                         </h2>
                         <Grid container spacing={3}>
@@ -62,9 +67,13 @@ const AdminDashboard = () =>{
                     <h2 style={{color:'#202C39'}}>
                         Promotion{'   '}
                         <span>
+                            <Link to={{
+                                pathname: `/admin/promotions/`,
+                            }} style={{ textDecoration: "none" }}>
                             <Button color="primary" size="small" variant="outlined">
                                 See more
                             </Button>
+                                </Link>
                         </span>
                     </h2>
                     <Grid container spacing={3}>

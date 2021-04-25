@@ -14,6 +14,7 @@ const enumCategoryType = {
 const ProductSchema = new Schema({
   name: { type: String, require: true, index: true  },
   description: { type: String, require: true, index: true  },
+  slug: { type: String, require: true, index: true, unique:true },
   type: {
     type: String,
     require: true,

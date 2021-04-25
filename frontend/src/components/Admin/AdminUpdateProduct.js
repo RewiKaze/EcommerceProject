@@ -1,6 +1,7 @@
 import React from "react";
 import {Grid, Button, TextField, InputLabel,Select, FormControl,MenuItem } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
+import {Link} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -122,9 +123,13 @@ const AdminUpdateProduct = () => {
                     Create
                 </Button>
                 {'  '}
-                <Button variant="outlined" color="secondary">
-                    Back
-                </Button>
+                <Link to={{
+                    pathname: `/admin/product`,
+                }} style={{ textDecoration: "none" }}>
+                    <Button variant="outlined" color="secondary">
+                        Back
+                    </Button>
+                </Link>
             </form>
         </React.Fragment>
     );

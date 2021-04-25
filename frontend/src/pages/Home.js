@@ -18,6 +18,7 @@ import PromotionItem from "../components/Home/showPromotion";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+
   },
   paper: {
     // padding: theme.spacing(2),
@@ -60,69 +61,75 @@ const Home = () => {
       </div>
 
 
+       {/*second*/}
+      <div className="secondSection">
+        <Container>
+          <div className="second-head">
+            <span className="text-topic">Hot Deals!!</span><br></br>
+            <span className="text-title">Furniture and home inspiration</span>
+          </div>
+          <div className="second-content">
+            <PromotionItem/>
+            {/*<div className="best-sell">*/}
+            {/*  <img className="best-sell-img" src={fourth} />*/}
+            {/*  <div className="best-sell-content">*/}
+            {/*    <span className="best-sell-name">Sofa</span>*/}
+            {/*    <img className="heart" src={heart} />*/}
+            {/*  </div>*/}
+            {/*  <span className="best-sell-price">$ 300.00</span>*/}
+            {/*</div>*/}
+            {/*<div className="best-sell">*/}
+            {/*  <img className="best-sell-img" src={fourth} />*/}
+            {/*  <div className="best-sell-content">*/}
+            {/*    <span className="best-sell-name">Sofa</span>*/}
+            {/*    <img className="heart" src={heart} />*/}
+            {/*  </div>*/}
+            {/*  <span className="best-sell-price">$ 300.00</span>*/}
+            {/*</div>*/}
+            {/*<div className="best-sell">*/}
+            {/*  <img className="best-sell-img" src={fourth} />*/}
+            {/*  <div className="best-sell-content">*/}
+            {/*    <span className="best-sell-name">Sofa</span>*/}
+            {/*    <img className="heart" src={heart} />*/}
+            {/*  </div>*/}
+            {/*  <span className="best-sell-price">$ 300.00</span>*/}
+            {/*</div>*/}
+
+            {/*<div className="best-sell">*/}
+            {/*  <img className="best-sell-img" src={fourth} />*/}
+            {/*  <div className="best-sell-content">*/}
+            {/*    <span className="best-sell-name">Sofa</span>*/}
+            {/*    <img className="heart" src={heart} />*/}
+            {/*  </div>*/}
+            {/*  <span className="best-sell-price">$ 300.00</span>*/}
+            {/*</div>*/}
+          </div>
+        </Container>
+      </div>
       <div className={classes.root}>
-        <Grid  spacing={3}>
-          <Grid item xs={11} style={{padding:20}}>
-            <Grid container spacing={3}>
-              <Grid item xs={12}>
-              <h1>Hot Deal</h1>
-              </Grid>
-              <PromotionItem/>
-              <Grid item xs={12}>
-                <h1>Product Latest</h1>
-              </Grid>
+        <Grid  spacing={3} >
+          <Grid item xs={10} style={{padding:10}}>
+            <h1>Product Latest</h1>
+            <hr/>
+            <Grid container spacing={3} >
+              {/*<Grid item xs={12}>*/}
+              {/*/!*<h1>Hot Deal</h1>*!/*/}
+              {/*</Grid>*/}
+              {/*<PromotionItem/>*/}
               <CardItem />
             </Grid>
-
           </Grid>
         </Grid>
+        <div className="third-foot">
+          <Link to={{
+            pathname: `/product/`,
+          }} style={{ textDecoration: "none" }}>
+            <Button className="button1 third-but">See All Products</Button>
+          </Link>
+        </div>
       </div>
 
       {/*<h1 className="text-topic"></h1>*/}
-      {/* second */}
-      {/*<div className="secondSection">*/}
-      {/*  <Container>*/}
-      {/*    <div className="second-head">*/}
-      {/*      <span className="text-topic">Latest Product</span><br></br>*/}
-      {/*      <span className="text-title">Furniture and home inspiration</span>*/}
-      {/*    </div>*/}
-      {/*    <div className="second-content">*/}
-      {/*      <div className="best-sell">*/}
-      {/*        <img className="best-sell-img" src={fourth} />*/}
-      {/*        <div className="best-sell-content">*/}
-      {/*          <span className="best-sell-name">Sofa</span>*/}
-      {/*          <img className="heart" src={heart} />*/}
-      {/*        </div>*/}
-      {/*        <span className="best-sell-price">$ 300.00</span>*/}
-      {/*      </div>*/}
-      {/*      <div className="best-sell">*/}
-      {/*        <img className="best-sell-img" src={fourth} />*/}
-      {/*        <div className="best-sell-content">*/}
-      {/*          <span className="best-sell-name">Sofa</span>*/}
-      {/*          <img className="heart" src={heart} />*/}
-      {/*        </div>*/}
-      {/*        <span className="best-sell-price">$ 300.00</span>*/}
-      {/*      </div>*/}
-      {/*      <div className="best-sell">*/}
-      {/*        <img className="best-sell-img" src={fourth} />*/}
-      {/*        <div className="best-sell-content">*/}
-      {/*          <span className="best-sell-name">Sofa</span>*/}
-      {/*          <img className="heart" src={heart} />*/}
-      {/*        </div>*/}
-      {/*        <span className="best-sell-price">$ 300.00</span>*/}
-      {/*      </div>*/}
-      {/*      */}
-      {/*      <div className="best-sell">*/}
-      {/*        <img className="best-sell-img" src={fourth} />*/}
-      {/*        <div className="best-sell-content">*/}
-      {/*          <span className="best-sell-name">Sofa</span>*/}
-      {/*          <img className="heart" src={heart} />*/}
-      {/*        </div>*/}
-      {/*        <span className="best-sell-price">$ 300.00</span>*/}
-      {/*      </div>*/}
-      {/*    </div>*/}
-      {/*  </Container>*/}
-      {/*</div>*/}
       {/* third */}
       <div className="thirdSection">
         <div className="third-topic">
@@ -143,13 +150,13 @@ const Home = () => {
             <img src={sevth} className="third-img right"/>
           </div>
         </div>
-        <div className="third-foot">
-          <Link to={{
-            pathname: `/product/`,
-          }} style={{ textDecoration: "none" }}>
-          <Button className="button1 third-but">See All Products</Button>
-          </Link>
-        </div>
+        {/*<div className="third-foot">*/}
+        {/*  <Link to={{*/}
+        {/*    pathname: `/product/`,*/}
+        {/*  }} style={{ textDecoration: "none" }}>*/}
+        {/*  <Button className="button1 third-but">See All Products</Button>*/}
+        {/*  </Link>*/}
+        {/*</div>*/}
       </div>
     </React.Fragment>
   );

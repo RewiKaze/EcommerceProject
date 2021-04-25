@@ -5,19 +5,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import PersonIcon from "@material-ui/icons/Person";
 import logo from "../image/logo.png";
-// <<<<<<< admin
-
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { useSession } from "../contexts/SessionContext";
 import Badge from "@material-ui/core/Badge";
-import Login from "../pages/Login";
-// =======
-// import Avatar from "@material-ui/core/Avatar";
-
-// import React, { Fragment, useMemo } from "react";
-// import { useSession } from "../contexts/SessionContext";
-// import Login from "../pages/Login";
-// import Badge from "@material-ui/core/Badge";
-// >>>>>>> main
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -37,25 +27,54 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const NavBar = () => {
-  const { loading, user, logout: handleLogout } = useSession();
+  const { loading, user, logout: handleLogout, } = useSession();
   const userBox = useMemo(() => {
+    if (loading) {
+      return (
+          <span>Loading ...</span>
+      )
+    }
     if (user) {
       return (
         <React.Fragment>
-          <span style={{ marginRight: 10, fontSize: 16 }}>
-            Hello, K.{user?.name.toUpperCase()}
-          </span>
-          <Button
-            variant="contained"
-            color="secondary"
+          {user?.type === "ADMIN" ? (
+              <Button
+                  style={{color:"#F29559"}}
+                  component={NavLink}
+                  type="button"
+                  activeStyle={{ borderBottom: "5px solid #f29559" }}
+                  to="/admin"
+              >
+                Admin
+              </Button>
+          ) : <Button style={{color:"#F29559"}}
+              component={NavLink}
+              activeStyle={{ borderBottom: "5px solid #f29559" }}
+              to="/cart"
+          >
+            <Badge badgeContent={4} color="error">
+              <ShoppingCartIcon />
+            </Badge>
+            {/*Cart*/}
+          </Button>
+          }
+          <Button style={{color:"#F29559"}}
             onClick={handleLogout}
             type="button"
           >
-            Logout
+            <ExitToAppIcon/> Logout
           </Button>
         </React.Fragment>
       );
     }
+    return (<Button
+        component={NavLink}
+        style={{color:"#F29559"}}
+        activeStyle={{ borderBottom: "5px solid #f29559" }}
+        to="/login"
+    >
+      <PersonIcon /> Login
+    </Button>)
   }, [handleLogout, loading, user]);
 
   const classes = useStyles();
@@ -104,39 +123,12 @@ const NavBar = () => {
               >
                 Promotion
               </Button>
-              <Button
-                className={classes.button}
-                component={NavLink}
-                activeStyle={{ borderBottom: "5px solid #f29559" }}
-                to="/admin"
-              >
-                Admin
-              </Button>
             </div>
+
             <div className={classes.navLinkRight}>
-              <Button
-                className={classes.button}
-                component={NavLink}
-                activeStyle={{ borderBottom: "5px solid #f29559" }}
-                to="/cart"
-              >
-                <Badge badgeContent={4} color="error">
-                  <ShoppingCartIcon />
-                </Badge>
-                {/*Cart*/}
-              </Button>
-              <Button
-                className={classes.button}
-                component={NavLink}
-                activeStyle={{ borderBottom: "5px solid #f29559" }}
-                to="/login"
-              >
-                <PersonIcon /> Login
-              </Button>
-              <Button>
-                <Avatar>N</Avatar>
-              </Button>
+
               {userBox}
+
             </div>
           </Toolbar>
         </AppBar>

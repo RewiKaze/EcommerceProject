@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Login = (props) => {
   const history = useHistory();
-  const { login, loginError, loadingLogin } = useSession();
+  const { login } = useSession();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const handleUsernameChange = useCallback((e) => {
@@ -69,7 +69,7 @@ const Login = (props) => {
         history.push("/");
       } catch (err) {
         console.log(err);
-        alert("Login failed");
+        alert("Username or Password is not correct!!!");
       }
     },
     [login, password, username]

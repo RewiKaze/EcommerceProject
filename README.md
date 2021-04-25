@@ -10,7 +10,7 @@
 
 ## Timeline
 - [x] 5 Apr: Project start
-- [ ] 19 Apr: Project update
+- [x] 19 Apr: Project update
 - [ ] 3 May: Project demo
 
 ## Team
@@ -18,9 +18,9 @@
 
 ## Project requirements
 ### 1. Implement Frontend from sitemap
-- [ ] Home **`/`** *Display banner, latest promotion and products*
+- [ ] Home **`/`** *Display banner, latest promotion and products* **`อันล่าสุดยังไม่ lasted`**
 - [x] Login **`/login`** *Login form*
-- [ ] Register **`/register`** *Register form*
+- [x] Register **`/register`** *Register form*
 - [ ] Products **`/products`** *Display all product with pagination*
 - [ ] Product detail **`/product/:productSlug`** *Display product detail by slug*
 - [ ] Promotions **`/promotions`** *Display all promotion*

@@ -9,6 +9,7 @@ import {
 } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import CardItem from "./Adminproduct/showProduct";
+import TableProduct from "./Adminproduct/tableProduct"
 import { NavLink } from "react-router-dom";
 
 const AdminProduct = () => {
@@ -93,6 +94,8 @@ const AdminProduct = () => {
         {/*    <ProductDemo/>*/}
         {/*</Grid>*/}
       </Grid>
+      <hr/>
+      <TableProduct/>
     </React.Fragment>
   );
 };

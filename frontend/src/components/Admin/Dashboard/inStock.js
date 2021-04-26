@@ -1,6 +1,10 @@
 import React from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import {Paper, Grid, LinearProgress} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import {Paper, Grid, Button} from '@material-ui/core';
+// Query Data
+import { PRODUCT_QUERY } from "../../../graphql/productQuery";
+import {useQuery} from "@apollo/client";
+import {Link} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root1: {
@@ -17,53 +21,60 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-
-const BorderLinearProgress = withStyles((theme) => ({
-    root: {
-        height: 10,
-        borderRadius: 5,
-    },
-    colorPrimary: {
-        backgroundColor: theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
-    },
-    bar: {
-        borderRadius: 5,
-        backgroundColor: 'green',
-    },
-}))(LinearProgress);
-
-const BorderLinearProgress2 = withStyles((theme) => ({
-    root: {
-        height: 10,
-        borderRadius: 5,
-    },
-    colorPrimary: {
-        backgroundColor: theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
-    },
-    bar: {
-        borderRadius: 5,
-        backgroundColor: 'red',
-    },
-
-}))(LinearProgress);
-
-
+const ProductData = () => {
+    const {loading, error, data} = useQuery(PRODUCT_QUERY)
+    if (loading) {
+        return 'Loading ...'
+    }
+    if (error) {
+        return 'Error !!'
+    }
+    return (
+        data?.products?.map((product) => (
+            <tr style={{textAlign:"left" , color:"white"}}>
+                <td>{product.name}</td>
+                <td>{product.type}</td>
+                <td>{(parseInt(product.price)).toLocaleString('th-TH', {
+                    style: 'currency',
+                    currency: 'THB'
+                }) ?? ""} </td>
+                <td>{product.quantity > 0 ? <b style={{color:'lightgreen'}}>In Stock ({product.quantity}) </b>: <b style={{color:'red'}}>Out Stock </b>}</td>
+                <td>{product.timestamp}</td>
+            </tr>
+        ))
+    )
+}
 const InStock = () => {
     const classes = useStyles();
+
+
     return(
+
         <Paper className={classes.paper1} style={{color:'#F29559'}}>
             <Grid container spacing={3}>
-                <Grid item xs={2}>
-                    <h3 style={{textAlign:'center'}}>In stock <br/> 77%</h3>
-                </Grid>
-                <Grid item xs={10}>
-                    <Paper className={classes.paper}>
-                        <div className={classes.root1}>
-                            <BorderLinearProgress variant="determinate" value={77} />
-                            <br/>
-                            <BorderLinearProgress2 variant="determinate" value={23} />
-                        </div>
-                    </Paper>
+                <Grid item xs={12}>
+                    <h3 style={{color:'white'}}>Product List<span>
+                                <Link to={{
+                                    pathname: `/admin/product/`,
+                                }} style={{ textDecoration: "none" }}>{'   '}
+                                <Button style={{backgroundColor:"#F29559", borderRadius:0}} size="small" variant="contained">
+                                    See more
+                                </Button>
+                                    </Link>
+                            </span></h3>
+
+                    <hr/>
+                    <table style={{width:'100%', textAlign:'left', borderSpacing:"5px"}}>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th>Date Added</th>
+                        </tr>
+                            {ProductData()}
+                    </table>
+
                 </Grid>
             </Grid>
         </Paper>

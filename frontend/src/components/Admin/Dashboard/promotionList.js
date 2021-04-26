@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import {Paper, Card, CardActionArea, CardActions, CardContent, Button, Typography, Grid} from '@material-ui/core';
 import {useQuery} from "@apollo/client";
 import {PROMOTION_QUERY} from "../../../graphql/promotionQuery";
+import {Link} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     paper1: {
@@ -25,37 +26,46 @@ const PromotionList = () => {
 
     const promotionItem = () => {
         return(data?.promotions?.map((promo) => (
-            <Grid item xs={3}>
-            <Card className={classes.root}>
-                <CardActionArea>
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="h3">
-                             <span style={{color:'#F29559', fontWeight:'bold'}}>{promo.discount}% Sale off</span>
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                            Product: {promo.product.name} <br/>
-                            Price: <b>{promo.total}</b> <span style={{textDecoration:'line-through', fontSize:14}}>{promo.product.price}</span>
-                        </Typography>
-                    </CardContent>
-                </CardActionArea>
-                <CardActions>
-                    <Button size="small" color="primary" variant="contained">
-                        Active: {promo.amount}
-                    </Button>
-                </CardActions>
-            </Card>
-            </Grid>
+            <tr style={{textAlign:"left" , color:"white"}}>
+                <td>{promo.name}</td>
+                <td>{promo.product.name}</td>
+                <td>{promo.amount > 0 ? <b style={{color:'lightgreen'}}>In Stock ({promo.amount}) </b>: <b style={{color:'red'}}>Out Stock </b>}</td>
+                <td>{promo.discount}%</td>
+                <td>{(parseInt(promo.total)).toLocaleString('th-TH', {
+                    style: 'currency',
+                    currency: 'THB'
+                }) ?? ""}</td>
+            </tr>
         )))
     }
     return (
-        <Paper className={classes.paper1}>
+        <Paper className={classes.paper1} style={{color:'#F29559'}}>
             <h3 style={{color:'white'}}>
-                List Promotion
+                Promotions List{'   '}
+                <span>
+                            <Link to={{
+                                pathname: `/admin/promotions/`,
+                            }} style={{ textDecoration: "none" }}>
+                            <Button style={{backgroundColor:"#F29559", borderRadius:0}} size="small" variant="outlined">
+                                See more
+                            </Button>
+                                </Link>
+                        </span>
             </h3>
             <hr/>
-            <Grid container spacing={3}>
+
+            <table style={{width:'100%', textAlign:'left', borderSpacing:"5px"}}>
+                <tr>
+                    <th>Promotion</th>
+                    <th>Product</th>
+                    <th>Status</th>
+                    <th>Discount</th>
+                    <th>Price (Discount)</th>
+                    {/*<th style={{ color:'white'}}>Date Added</th>*/}
+                </tr>
                 {promotionItem()}
-            </Grid>
+            </table>
+
         </Paper>
     );
 };

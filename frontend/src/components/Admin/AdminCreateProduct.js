@@ -32,6 +32,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+
+
 const AdminCreateProduct = () => {
     const classes = useStyles();
     const history = useHistory();

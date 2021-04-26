@@ -3,7 +3,7 @@ import { Grid, Button } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import PromotionItem from "./Adminpromotion/showPromotion";
 import { NavLink } from "react-router-dom";
-
+import TablePromotion from "./Adminpromotion/tablePromotiom"
 const AdminPromotion = () => {
   return (
     <React.Fragment>
@@ -24,6 +24,7 @@ const AdminPromotion = () => {
       <Grid container spacing={3}>
         <PromotionItem />
       </Grid>
+        <TablePromotion/>
     </React.Fragment>
   );
 };

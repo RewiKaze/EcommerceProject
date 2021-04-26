@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import PersonIcon from "@material-ui/icons/Person";
 import logo from "../image/logo.png";
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { useSession } from "../contexts/SessionContext";
 import Badge from "@material-ui/core/Badge";
 
@@ -24,33 +24,57 @@ const useStyles = makeStyles((theme) => ({
     right: theme.spacing(2),
     position: "absolute",
   },
-
 }));
 
 const NavBar = () => {
-  const { loading, user, logout: handleLogout, } = useSession();
+  const { loading, user, logout: handleLogout, cart } = useSession();
   const userBox = useMemo(() => {
     if (loading) {
-      return (
-          <span>Loading ...</span>
-      )
+      return <span>Loading ...</span>;
     }
     if (user) {
       return (
         <React.Fragment>
           {user?.type === "ADMIN" ? (
-              <Button
-                  style={{color:"#F29559"}}
-                  component={NavLink}
-                  type="button"
-                  activeStyle={{ borderBottom: "5px solid #f29559" }}
-                  to="/admin"
-              >
-                Admin
-              </Button>
-          ) : <Button style={{color:"#F29559"}}
+            <Button
+              style={{ color: "#F29559" }}
+              component={NavLink}
+              type="button"
+              activeStyle={{ borderBottom: "5px solid #f29559" }}
+              to="/admin"
+            >
+              Admin
+            </Button>
+          ) : (
+            <Button
+              style={{ color: "#F29559" }}
               component={NavLink}
               activeStyle={{ borderBottom: "5px solid #f29559" }}
+// <<<<<<< update-add-to-cart-finish-
+//               to="/cart"
+//             >
+//               <Badge
+//                 badgeContent={
+//                   cart
+//                     ? cart.reduce((total, obj) => obj.amount + total, 0)
+//                     : null
+//                 }
+//                 color="error"
+//               >
+//                 <ShoppingCartIcon />
+//               </Badge>
+//               {/*Cart*/}
+//             </Button>
+//           )}
+//           <Button>
+//             <Avatar style={{ backgroundColor: "#F2D492" }}>
+//               {user?.name[0]}
+//             </Avatar>
+//             {"  "}
+//             <span style={{ color: "#F29559", marginLeft: 10 }}>
+//               Hello,K.{user?.name}
+//             </span>
+// =======
               to="/"
           >
             <Badge badgeContent={4} color="error">
@@ -63,25 +87,29 @@ const NavBar = () => {
               to="/customer">
             <Avatar style={{backgroundColor:"#F2D492"}}>{user?.name[0]}</Avatar>{'  '}
             <span style={{color:"#F29559", marginLeft:10}}>Hello,K.{user?.name}</span>
+// >>>>>>> main
           </Button>
 
-          <Button style={{color:"#F29559"}}
+          <Button
+            style={{ color: "#F29559" }}
             onClick={handleLogout}
             type="button"
           >
-            <ExitToAppIcon/> Logout
+            <ExitToAppIcon /> Logout
           </Button>
         </React.Fragment>
       );
     }
-    return (<Button
+    return (
+      <Button
         component={NavLink}
-        style={{color:"#F29559"}}
+        style={{ color: "#F29559" }}
         activeStyle={{ borderBottom: "5px solid #f29559" }}
         to="/login"
-    >
-      <PersonIcon /> Login
-    </Button>)
+      >
+        <PersonIcon /> Login
+      </Button>
+    );
   }, [handleLogout, loading, user]);
 
   const classes = useStyles();
@@ -92,56 +120,47 @@ const NavBar = () => {
   //     path: "/admin",
   //   }) == null
   // ) {
-    return (
-      <>
-        <AppBar position="fixed" className={classes.styleBar}>
-          <Toolbar>
-            <div>
-              <Button
-                className={classes.button}
-                component={NavLink}
-                to="/"
-                exact
-              >
-                <img src={logo} width="50vw" />
-              </Button>
-              <Button
-                className={classes.button}
-                component={NavLink}
-                activeStyle={{ borderBottom: "5px solid #f29559" }}
-                to="/"
-                exact
-              >
-                Home
-              </Button>
-              <Button
-                className={classes.button}
-                component={NavLink}
-                activeStyle={{ borderBottom: "5px solid #f29559" }}
-                to="/product"
-              >
-                Product
-              </Button>
-              <Button
-                className={classes.button}
-                component={NavLink}
-                activeStyle={{ borderBottom: "5px solid #f29559" }}
-                to="/promotion"
-              >
-                Promotion
-              </Button>
-            </div>
+  return (
+    <>
+      <AppBar position="fixed" className={classes.styleBar}>
+        <Toolbar>
+          <div>
+            <Button className={classes.button} component={NavLink} to="/" exact>
+              <img src={logo} width="50vw" />
+            </Button>
+            <Button
+              className={classes.button}
+              component={NavLink}
+              activeStyle={{ borderBottom: "5px solid #f29559" }}
+              to="/"
+              exact
+            >
+              Home
+            </Button>
+            <Button
+              className={classes.button}
+              component={NavLink}
+              activeStyle={{ borderBottom: "5px solid #f29559" }}
+              to="/product"
+            >
+              Product
+            </Button>
+            <Button
+              className={classes.button}
+              component={NavLink}
+              activeStyle={{ borderBottom: "5px solid #f29559" }}
+              to="/promotion"
+            >
+              Promotion
+            </Button>
+          </div>
 
-            <div className={classes.navLinkRight}>
-
-              {userBox}
-
-            </div>
-          </Toolbar>
-        </AppBar>
-        <Toolbar />
-      </>
-    );
+          <div className={classes.navLinkRight}>{userBox}</div>
+        </Toolbar>
+      </AppBar>
+      <Toolbar />
+    </>
+  );
   // }
   // else {
   //   return null;

@@ -1,23 +1,27 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import React, { Fragment, Suspense } from "react";
-import UserNav from "./User-Component";
+import User from "./User-Component";
 
 const Account = React.lazy(() => import("./page/User-Account"));
 const Address = React.lazy(() => import("./page/User-Address"));
 const Order = React.lazy(() => import("./page/User-Order"));
+const OrderID = React.lazy(() => import("./page/User-OrderID"));
 
 const UserRouter = () => {
   return (
     <Fragment>
       <Suspense fallback="Loading ...">
         <Router>
-          <UserNav />
+          <User />
           <Switch>
             <Route exact path="/">
               <Account />
             </Route>
             <Route path="/address">
               <Address />
+            </Route>
+            <Route path="/order/:id">
+              <OrderID />
             </Route>
             <Route path="/orders">
               <Order />

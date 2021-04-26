@@ -1,14 +1,41 @@
 import React from "react";
+import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import product1 from './image/product1.png'
-import product2 from './image/product2.png'
+import product1 from './../image/product1.png'
+import product2 from './../image/product2.png'
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1,
+    },
+    paper: {
+        padding: theme.spacing(3),
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+        margin: '2rem',
+        height: '80vh',
+    },
+
+    formControl: {
+        margin: theme.spacing(1),
+        minWidth: 120,
+    },
+    selectEmpty: {
+        marginTop: theme.spacing(2),
+    },
+}));
 
 const Order = () => {
+    const [sort, setSort] = React.useState('');
+    const handleChange = (event) => {
+        setSort(event.target.value);
+    };
+    const classes = useStyles();
     return (
         <Grid item xs={9}>
             <Paper className={classes.paper}>

@@ -10,7 +10,7 @@ const CartPage = React.lazy(() => import("./pages/Cart"));
 const LoginPage = React.lazy(() => import("./pages/Login"));
 const RegisterPage = React.lazy(() => import("./pages/Register"));
 const AdminPage = React.lazy(() => import("./pages/Admin"));
-const UserNav = React.lazy(() => import("./components/User/User-Component"));
+const User = React.lazy(() => import("./components/User/User-Component"));
 
 const App = () => {
   return (
@@ -45,7 +45,7 @@ const App = () => {
               <AdminPage />
             </Route>
             <Route path="/customer">
-              <UserNav />
+              <User />
               <Footer />
             </Route>
           </Switch>

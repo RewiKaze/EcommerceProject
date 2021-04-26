@@ -32,14 +32,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const UserNav = () => {
-
-    //copy this
-    const [sort, setSort] = React.useState('');
-    const handleChange = (event) => {
-        setSort(event.target.value);
-    };
-
+const User = () => {
     const classes = useStyles();
     return (
         <div className={classes.root} style={{ display: 'flex' }}>
@@ -83,4 +76,4 @@ const UserNav = () => {
         </div>
     );
 };
-export default UserNav;
+export default User;

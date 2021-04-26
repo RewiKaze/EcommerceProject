@@ -1,4 +1,5 @@
 import React from "react";
+import { makeStyles } from '@material-ui/core/styles';
 import proflie from "./../image/proflie.png";
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
@@ -7,12 +8,38 @@ import FormControl from '@material-ui/core/FormControl';
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1,
+    },
+    paper: {
+        padding: theme.spacing(3),
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+        margin: '2rem',
+        height: '80vh',
+    },
+
+    formControl: {
+        margin: theme.spacing(1),
+        minWidth: 120,
+    },
+    selectEmpty: {
+        marginTop: theme.spacing(2),
+    },
+}));
+
+
 const Account = () => {
-    //copy here
+    
+
+    const classes = useStyles();
     const [name, setName] = React.useState('');
     const [email, setEmail] = React.useState('');
     const [date, setDate] = React.useState('');
     const [phone, setPhone] = React.useState('');
+    
+
     const handleChange = (event) => {
         setName(event.target.value);
     };

@@ -51,7 +51,7 @@ const NavBar = () => {
           ) : <Button style={{color:"#F29559"}}
               component={NavLink}
               activeStyle={{ borderBottom: "5px solid #f29559" }}
-              to="/cart"
+              to="/"
           >
             <Badge badgeContent={4} color="error">
               <ShoppingCartIcon />
@@ -59,7 +59,8 @@ const NavBar = () => {
             {/*Cart*/}
           </Button>
           }
-          <Button>
+          <Button component={NavLink}
+              to="/customer">
             <Avatar style={{backgroundColor:"#F2D492"}}>{user?.name[0]}</Avatar>{'  '}
             <span style={{color:"#F29559", marginLeft:10}}>Hello,K.{user?.name}</span>
           </Button>

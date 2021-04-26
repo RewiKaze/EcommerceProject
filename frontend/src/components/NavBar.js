@@ -56,7 +56,7 @@ const NavBar = () => {
               <ShoppingCartIcon />
             </Badge>
             {/*Cart*/}
-          </Button>
+          </Button>)
           }
           <Button component={NavLink}
               to="/customer">

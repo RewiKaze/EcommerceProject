@@ -11,6 +11,7 @@ const LoginPage = React.lazy(() => import("./pages/Login"));
 const RegisterPage = React.lazy(() => import("./pages/Register"));
 const AdminPage = React.lazy(() => import("./pages/Admin"));
 const ProductSlug = React.lazy(() => import("./pages/ProductSlug"));
+const UserPage = React.lazy(() => import("./components/User/User-Component"));
 
 const App = () => {
   return (
@@ -33,6 +34,10 @@ const App = () => {
             </Route>
             <Route path="/promotion">
               <PromotionPage />
+              <Footer />
+            </Route>
+            <Route path="/customer">
+              <UserPage />
               <Footer />
             </Route>
             <Route path="/cart">

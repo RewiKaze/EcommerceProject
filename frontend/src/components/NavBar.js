@@ -57,7 +57,6 @@ const NavBar = () => {
             </Badge>
             {/*Cart*/}
           </Button>
-          }
           <Button component={NavLink}
               to="/customer">
             <Avatar style={{backgroundColor:"#F2D492"}}>{user?.name[0]}</Avatar>{'  '}

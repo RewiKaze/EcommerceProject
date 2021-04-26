@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { NavLink, Switch, Route } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
+import Footer from "../components/Footer";
 // import {Switch} from "react-router-dom";
 
 const AdminDashboard = React.lazy(() =>
@@ -27,6 +28,7 @@ const AdminCreatePromotion = React.lazy(() =>
 const AdminUpdatePromotion = React.lazy(() =>
   import("../components/Admin/AdminUpdatePromotion")
 );
+const AdminCreateUser = React.lazy(()=>import('../components/Admin/AdminCreateUser'))
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,45 +52,65 @@ const useStyles = makeStyles((theme) => ({
 const Admin = () => {
   const classes = useStyles();
   return (
+      <React.Fragment>
     <div className={classes.root}>
       <Grid container spacing={3} justify="space-between">
         <Grid item xs={2} className={classes.navbar}>
-          {/* <Paper
-            className={classes.paper}
-            style={{ backgroundColor: "#202C39", color: "#F29559" }}
-          >
-            ADMIN DASHBOARD
-          </Paper> */}
-          <Button
-            // className={classes.button}
-            component={NavLink}
-            activeStyle={{ backgroundColor: "#F2D492", color: "#202C39" }}
-            to="/admin"
-            exact
-          >
-            Dashboard
-          </Button>
-          <Button
-            component={NavLink}
-            activeStyle={{ backgroundColor: "#F2D492", color: "#202C39" }}
-            to="/admin/product"
-          >
-            Products
-          </Button>
-          <Button
-            component={NavLink}
-            activeStyle={{ backgroundColor: "#F2D492", color: "#202C39" }}
-            to="/admin/promotions"
-          >
-            Promotions
-          </Button>
-          <Button
-            component={NavLink}
-            activeStyle={{ backgroundColor: "#F2D492", color: "#202C39" }}
-            to="/admin/orders"
-          >
-            Orders
-          </Button>
+          <Grid container spacing={2} justify="space-between">
+            <Grid item xs={12}>
+              <h3 style={{color:'#F29559', textAlign:'center'}}>Admin Dashboard</h3>
+              <hr/>
+              <Button
+                  style={{width:"100%", borderRadius:0, color:'#F2D492'}}
+                  component={NavLink}
+                  activeStyle={{ backgroundColor: "#F2D492", color: "#202C39" }}
+                  to="/admin"
+                  exact
+              >
+                Dashboard
+              </Button>
+            </Grid>
+            <Grid item xs={12}>
+              <Button
+                  style={{width:"100%", borderRadius:0, color:'#F2D492'}}
+                  component={NavLink}
+                  activeStyle={{ backgroundColor: "#F2D492", color: "#202C39" }}
+                  to="/admin/product"
+              >
+                Products
+              </Button>
+            </Grid>
+            <Grid item xs={12}>
+              <Button
+                  style={{width:"100%", borderRadius:0, color:'#F2D492'}}
+                  component={NavLink}
+                  activeStyle={{ backgroundColor: "#F2D492", color: "#202C39" }}
+                  to="/admin/promotions"
+              >
+                Promotions
+              </Button>
+            </Grid>
+            <Grid item xs={12}>
+              <Button
+                  style={{width:"100%", borderRadius:0, color:'#F2D492'}}
+                  component={NavLink}
+                  activeStyle={{ backgroundColor: "#F2D492", color: "#202C39" }}
+                  to="/admin/orders"
+              >
+                Orders
+              </Button>
+            </Grid>
+            <Grid item xs={12}>
+              <Button
+                  style={{width:"100%", borderRadius:0, color:'#F2D492'}}
+                  component={NavLink}
+                  activeStyle={{ backgroundColor: "#F2D492", color: "#202C39" }}
+                  to="/admin/create/user"
+              >
+                Add User
+              </Button>
+            </Grid>
+          </Grid>
         </Grid>
         <Grid item xs={10}>
           <Switch>
@@ -110,13 +132,17 @@ const Admin = () => {
             <Route exact path="/admin/promotions/create">
               <AdminCreatePromotion style={{ padding: 10 }} />
             </Route>
-            <Route path="/admin/promotion/:promotionId">
-              <AdminUpdatePromotion style={{ padding: 10 }} />
+            <Route path="/admin/create/user">
+              <AdminCreateUser style={{ padding: 10 }} />
             </Route>
           </Switch>
         </Grid>
       </Grid>
     </div>
+        {/*Footer*/}
+        <Footer />
+      </React.Fragment>
+
   );
 };
 export default Admin;

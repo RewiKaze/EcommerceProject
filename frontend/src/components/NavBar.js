@@ -50,29 +50,44 @@ const NavBar = () => {
               style={{ color: "#F29559" }}
               component={NavLink}
               activeStyle={{ borderBottom: "5px solid #f29559" }}
-              to="/cart"
-            >
-              <Badge
-                badgeContent={
-                  cart
-                    ? cart.reduce((total, obj) => obj.amount + total, 0)
-                    : null
-                }
-                color="error"
-              >
-                <ShoppingCartIcon />
-              </Badge>
-              {/*Cart*/}
-            </Button>
-          )}
-          <Button>
-            <Avatar style={{ backgroundColor: "#F2D492" }}>
-              {user?.name[0]}
-            </Avatar>
-            {"  "}
-            <span style={{ color: "#F29559", marginLeft: 10 }}>
-              Hello,K.{user?.name}
-            </span>
+// <<<<<<< update-add-to-cart-finish-
+//               to="/cart"
+//             >
+//               <Badge
+//                 badgeContent={
+//                   cart
+//                     ? cart.reduce((total, obj) => obj.amount + total, 0)
+//                     : null
+//                 }
+//                 color="error"
+//               >
+//                 <ShoppingCartIcon />
+//               </Badge>
+//               {/*Cart*/}
+//             </Button>
+//           )}
+//           <Button>
+//             <Avatar style={{ backgroundColor: "#F2D492" }}>
+//               {user?.name[0]}
+//             </Avatar>
+//             {"  "}
+//             <span style={{ color: "#F29559", marginLeft: 10 }}>
+//               Hello,K.{user?.name}
+//             </span>
+// =======
+              to="/"
+          >
+            <Badge badgeContent={4} color="error">
+              <ShoppingCartIcon />
+            </Badge>
+            {/*Cart*/}
+          </Button>
+          }
+          <Button component={NavLink}
+              to="/customer">
+            <Avatar style={{backgroundColor:"#F2D492"}}>{user?.name[0]}</Avatar>{'  '}
+            <span style={{color:"#F29559", marginLeft:10}}>Hello,K.{user?.name}</span>
+// >>>>>>> main
           </Button>
 
           <Button

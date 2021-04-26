@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import {useSession} from "../../../contexts/SessionContext";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -31,14 +32,14 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Account = () => {
-    
+
 
     const classes = useStyles();
     const [name, setName] = React.useState('');
     const [email, setEmail] = React.useState('');
     const [date, setDate] = React.useState('');
     const [phone, setPhone] = React.useState('');
-    
+
 
     const handleChange = (event) => {
         setName(event.target.value);
@@ -52,9 +53,10 @@ const Account = () => {
     const phoneChange = (event) => {
         setPhone(event.target.value);
     };
-
-    return (
-        <Grid item xs={9}>
+    const { user } = useSession();
+    if (user) {
+        return (
+            <Grid item xs={9}>
                 <Paper className={classes.paper}>
                     <span style={{ fontWeight: '700', color: '#202C39' }}>My Account</span>
                     <hr style={{ height: '0.005rem', backgroundColor: '#E5E5E5', borderWidth: '0', margin: '1rem' }}></hr>
@@ -133,11 +135,12 @@ const Account = () => {
                                     />
                                 </FormControl>
                             </div>
-                            <Button style={{marginTop:'2rem',width:'fit-content',padding:'0.5rem',backgroundColor:'#202C39',color:'white'}}>Save Change</Button>
+                            <Button style={{ marginTop: '2rem', width: 'fit-content', padding: '0.5rem', backgroundColor: '#202C39', color: 'white' }}>Save Change</Button>
                         </div>
                     </div>
                 </Paper>
             </Grid>
-    );
+        );
+    }
 };
 export default Account;

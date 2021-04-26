@@ -3,10 +3,10 @@ import {Grid, Button, TextField,} from "@material-ui/core";
 
 import {PROMOTION_QUERY} from "../../graphql/promotionQuery";
 //Mutation
-import { gql, useMutation } from "@apollo/client";
+import {gql, useMutation, useQuery} from "@apollo/client";
 import {useHistory} from "react-router";
-import CardItem from "../Admin/Adminpromotion/showProduct"
 import {Link} from "react-router-dom";
+import {PRODUCT_QUERY} from "../../graphql/productQuery";
 const CREATE_PROMOTION = gql`
     mutation($record: CreateOnePromotionInput!) {
         createPromotion(record: $record) {
@@ -14,6 +14,26 @@ const CREATE_PROMOTION = gql`
         }
       }
 `;
+
+
+const ProductData = () => {
+    const {loading, error, data} = useQuery(PRODUCT_QUERY)
+    if (loading) {
+        return 'Loading ...'
+    }
+    if (error) {
+        return 'Error !!'
+    }
+    return (
+        data?.products?.map((product) => (
+            <tr style={{textAlign:"left"}}>
+                <td>{product._id}</td>
+                <td>{product.name}</td>
+                <td>{product.quantity > 0 ? <b style={{color:'lightgreen'}}>In Stock ({product.quantity}) </b>: <b style={{color:'red'}}>Out Stock </b>}</td>
+            </tr>
+        ))
+    )
+}
 
 const AdminCreatePromotion = () => {
     const history = useHistory();
@@ -127,19 +147,16 @@ const AdminCreatePromotion = () => {
                 </form>
                     <h2>Product List</h2>
                     <hr/>
-                    <Grid container spacing={3}>
-                        {/*<Grid item xs={12}>*/}
-                            <CardItem/>
-                        {/*</Grid>*/}
-                </Grid>
+                        <table style={{width:'100%', textAlign:'left', borderSpacing:"5px"}}>
+                            <tr>
+                                <th>Product ID</th>
+                                <th>Product Name</th>
+                                <th>Status</th>
+                            </tr>
+                            {ProductData()}
+                        </table>
 
-                    <br/>
 
-            {/*<hr/>*/}
-
-            {/*<h1 style={{color:'#202C39'}}>CREATE PROMOTION DEMO</h1>*/}
-            {/*<hr/>*/}
-            {/*<PromotionCreateDemo/>*/}
         </React.Fragment>
     );
 };

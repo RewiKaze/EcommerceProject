@@ -50,34 +50,9 @@ const NavBar = () => {
               style={{ color: "#F29559" }}
               component={NavLink}
               activeStyle={{ borderBottom: "5px solid #f29559" }}
-// <<<<<<< update-add-to-cart-finish-
-//               to="/cart"
-//             >
-//               <Badge
-//                 badgeContent={
-//                   cart
-//                     ? cart.reduce((total, obj) => obj.amount + total, 0)
-//                     : null
-//                 }
-//                 color="error"
-//               >
-//                 <ShoppingCartIcon />
-//               </Badge>
-//               {/*Cart*/}
-//             </Button>
-//           )}
-//           <Button>
-//             <Avatar style={{ backgroundColor: "#F2D492" }}>
-//               {user?.name[0]}
-//             </Avatar>
-//             {"  "}
-//             <span style={{ color: "#F29559", marginLeft: 10 }}>
-//               Hello,K.{user?.name}
-//             </span>
-// =======
-              to="/"
+              to="/cart"
           >
-            <Badge badgeContent={4} color="error">
+            <Badge badgeContent={cart ? cart.reduce((total, obj) => obj.amount + total, 0): null} color="error">
               <ShoppingCartIcon />
             </Badge>
             {/*Cart*/}
@@ -87,7 +62,6 @@ const NavBar = () => {
               to="/customer">
             <Avatar style={{backgroundColor:"#F2D492"}}>{user?.name[0]}</Avatar>{'  '}
             <span style={{color:"#F29559", marginLeft:10}}>Hello,K.{user?.name}</span>
-// >>>>>>> main
           </Button>
 
           <Button

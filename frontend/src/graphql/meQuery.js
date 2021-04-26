@@ -6,6 +6,9 @@ query {
     name
     username
     type
+    address
+    email
+    tel
   }
 }
 `

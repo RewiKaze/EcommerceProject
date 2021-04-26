@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Checkout = () => {
   const classes = useStyles();
-  const { cart } = useSession();
+  const { user,cart } = useSession();
   const { loading, error, data } = useQuery(PRODUCT_QUERY);
   const [checked, setChecked] = React.useState(true);
   const [open, setOpen] = React.useState(false);
@@ -100,193 +100,195 @@ const Checkout = () => {
         </div>
       </div>
       <div className="HeaderDetail">
-        <div className="NameAddsBox">
-          <Checkbox
-            checked={checked}
-            onChange={handleChange}
-            inputProps={{ "aria-label": "primary checkbox" }}
-          />
-        </div>
+        {/*<div className="NameAddsBox">*/}
+        {/*  <Checkbox*/}
+        {/*    checked={checked}*/}
+        {/*    onChange={handleChange}*/}
+        {/*    inputProps={{ "aria-label": "primary checkbox" }}*/}
+        {/*  />*/}
+        {/*</div>*/}
         <div className="NameAdds">
-          Address <span>1</span>
+          Address
         </div>
       </div>
       <div className="footerAllD">
         <div className="AddressD">
           <div className="Add-Des">
-            <span>Pattharnan Ruengchana </span>
+            <span>K.{user.name}</span>
             <br />
-            <span>159/123 m.2 Tahkheintie Banglamung 20150 </span>
+            <span>{user.address}</span>
             <br />
-            <span>Tel. 0959031xxx</span>
-          </div>
-        </div>
-        <div className="Pro-button">
-          <Button
-            variant="outlined"
-            style={{ color: "white", backgroundColor: "#F29559" }}
-          >
-            Set as Defaut Address
-          </Button>
-        </div>
-
-        <div className="footerAllR">
-          <div className="FeeText3">
-            {" "}
-            Edit <EditIcon className="IconEd" />
-          </div>
-          <div className="FeeText3">
-            Delete <DeleteIcon className="IconEd" />
-          </div>
-        </div>
-      </div>
-
-      <div className="HeaderDetail">
-        <div className="NameAddsBox">
-          <Checkbox
-            onChange={handleChange}
-            inputProps={{ "aria-label": "primary checkbox" }}
-          />
-        </div>
-        <div className="NameAdds">
-          Address <span>2</span>
-        </div>
-      </div>
-      <div className="footerAllD">
-        <div className="AddressD">
-          <div className="Add-Des">
-            <span>Pattharnan Ruengchana </span>
+            <span>Tel. {user.tel}</span>
             <br />
-            <span>102/12 m.8 Lamphatew Banglajung 10250 </span> <br />
-            <span>Tel. 0959031xxx</span>
+            <span>{user.email}</span>
           </div>
         </div>
-        <div className="Pro-button">
-          <Button variant="outlined" className={classes.button}>
-            Set as Defaut Address
-          </Button>
-        </div>
+        {/*<div className="Pro-button">*/}
+        {/*  <Button*/}
+        {/*    variant="outlined"*/}
+        {/*    style={{ color: "white", backgroundColor: "#F29559" }}*/}
+        {/*  >*/}
+        {/*    Set as Defaut Address*/}
+        {/*  </Button>*/}
+        {/*</div>*/}
 
-        <div className="footerAllR">
-          <div className="FeeText3">
-            {" "}
-            Edit <EditIcon className="IconEd" />
-          </div>
-          <div className="FeeText3">
-            Delete <DeleteIcon className="IconEd" />
-          </div>
-        </div>
+        {/*<div className="footerAllR">*/}
+        {/*  <div className="FeeText3">*/}
+        {/*    {" "}*/}
+        {/*    Edit <EditIcon className="IconEd" />*/}
+        {/*  </div>*/}
+        {/*  <div className="FeeText3">*/}
+        {/*    Delete <DeleteIcon className="IconEd" />*/}
+        {/*  </div>*/}
+        {/*</div>*/}
       </div>
-      <div className="HeaderDetail">
-        <div className="Add-Adds">
-          <Button onClick={handleClickOpen}>+ Add A New Address </Button>
-        </div>
-        <Dialog
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-        >
-          <DialogTitle id="alert-dialog-title">
-            {"Add A New Address"}
-          </DialogTitle>
-          <DialogContent>
-            <DialogContentText id="alert-dialog-description">
-              To place order, please add a delivery address
-              <Grid container spacing={3}>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    id="firstName"
-                    name="firstName"
-                    label="First name"
-                    fullWidth
-                    autoComplete="given-name"
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    id="lastName"
-                    name="lastName"
-                    label="Last name"
-                    fullWidth
-                    autoComplete="family-name"
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    id="address1"
-                    name="address1"
-                    label="Address line 1"
-                    fullWidth
-                    autoComplete="shipping address-line1"
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    id="city"
-                    name="city"
-                    label="City"
-                    fullWidth
-                    autoComplete="shipping address-level2"
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    id="state"
-                    name="state"
-                    label="State/Province/Region"
-                    fullWidth
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    id="zip"
-                    name="zip"
-                    label="Zip / Postal code"
-                    fullWidth
-                    autoComplete="shipping postal-code"
-                  />
-                </Grid>
-                {/* <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="country"
-            name="country"
-            label="Country"
-            fullWidth
-            autoComplete="shipping country"
-          />
-        </Grid> */}
-                <Grid item xs={12}>
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        color="secondary"
-                        name="saveAddress"
-                        value="yes"
-                      />
-                    }
-                    label="Set as Defaut Address"
-                  />
-                </Grid>
-              </Grid>
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose} color="#F29559">
-              CANCLE
-            </Button>
-            <Button
-              variant="outlined"
-              style={{ color: "white", backgroundColor: "#F29559" }}
-              onClick={handleClose}
-              autoFocus
-            >
-              SUBMIT
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </div>
+
+      {/*<div className="HeaderDetail">*/}
+        {/*<div className="NameAddsBox">*/}
+        {/*  <Checkbox*/}
+        {/*    onChange={handleChange}*/}
+        {/*    inputProps={{ "aria-label": "primary checkbox" }}*/}
+        {/*  />*/}
+        {/*</div>*/}
+        {/*<div className="NameAdds">*/}
+        {/*  Address <span>2</span>*/}
+        {/*</div>*/}
+      {/*</div>*/}
+      {/*<div className="footerAllD">*/}
+      {/*  <div className="AddressD">*/}
+      {/*    <div className="Add-Des">*/}
+      {/*      <span>Pattharnan Ruengchana </span>*/}
+      {/*      <br />*/}
+      {/*      <span>102/12 m.8 Lamphatew Banglajung 10250 </span> <br />*/}
+      {/*      <span>Tel. 0959031xxx</span>*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*  <div className="Pro-button">*/}
+      {/*    <Button variant="outlined" className={classes.button}>*/}
+      {/*      Set as Defaut Address*/}
+      {/*    </Button>*/}
+      {/*  </div>*/}
+
+      {/*  <div className="footerAllR">*/}
+      {/*    <div className="FeeText3">*/}
+      {/*      {" "}*/}
+      {/*      Edit <EditIcon className="IconEd" />*/}
+      {/*    </div>*/}
+      {/*    <div className="FeeText3">*/}
+      {/*      Delete <DeleteIcon className="IconEd" />*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
+      {/*<div className="HeaderDetail">*/}
+        {/*<div className="Add-Adds">*/}
+        {/*  <Button onClick={handleClickOpen}>+ Add A New Address </Button>*/}
+        {/*</div>*/}
+        {/*<Dialog*/}
+        {/*  open={open}*/}
+        {/*  onClose={handleClose}*/}
+        {/*  aria-labelledby="alert-dialog-title"*/}
+        {/*  aria-describedby="alert-dialog-description"*/}
+        {/*>*/}
+        {/*  <DialogTitle id="alert-dialog-title">*/}
+        {/*    {"Add A New Address"}*/}
+        {/*  </DialogTitle>*/}
+        {/*  <DialogContent>*/}
+        {/*    <DialogContentText id="alert-dialog-description">*/}
+        {/*      To place order, please add a delivery address*/}
+        {/*      <Grid container spacing={3}>*/}
+        {/*        <Grid item xs={12} sm={6}>*/}
+        {/*          <TextField*/}
+        {/*            id="firstName"*/}
+        {/*            name="firstName"*/}
+        {/*            label="First name"*/}
+        {/*            fullWidth*/}
+        {/*            autoComplete="given-name"*/}
+        {/*          />*/}
+        {/*        </Grid>*/}
+        {/*        <Grid item xs={12} sm={6}>*/}
+        {/*          <TextField*/}
+        {/*            id="lastName"*/}
+        {/*            name="lastName"*/}
+        {/*            label="Last name"*/}
+        {/*            fullWidth*/}
+        {/*            autoComplete="family-name"*/}
+        {/*          />*/}
+        {/*        </Grid>*/}
+        {/*        <Grid item xs={12}>*/}
+        {/*          <TextField*/}
+        {/*            id="address1"*/}
+        {/*            name="address1"*/}
+        {/*            label="Address line 1"*/}
+        {/*            fullWidth*/}
+        {/*            autoComplete="shipping address-line1"*/}
+        {/*          />*/}
+        {/*        </Grid>*/}
+        {/*        <Grid item xs={12} sm={6}>*/}
+        {/*          <TextField*/}
+        {/*            id="city"*/}
+        {/*            name="city"*/}
+        {/*            label="City"*/}
+        {/*            fullWidth*/}
+        {/*            autoComplete="shipping address-level2"*/}
+        {/*          />*/}
+        {/*        </Grid>*/}
+        {/*        <Grid item xs={12} sm={6}>*/}
+        {/*          <TextField*/}
+        {/*            id="state"*/}
+        {/*            name="state"*/}
+        {/*            label="State/Province/Region"*/}
+        {/*            fullWidth*/}
+        {/*          />*/}
+        {/*        </Grid>*/}
+        {/*        <Grid item xs={12} sm={6}>*/}
+        {/*          <TextField*/}
+        {/*            id="zip"*/}
+        {/*            name="zip"*/}
+        {/*            label="Zip / Postal code"*/}
+        {/*            fullWidth*/}
+        {/*            autoComplete="shipping postal-code"*/}
+        {/*          />*/}
+        {/*        </Grid>*/}
+        {/*        /!* <Grid item xs={12} sm={6}>*/}
+        {/*  <TextField*/}
+        {/*    required*/}
+        {/*    id="country"*/}
+        {/*    name="country"*/}
+        {/*    label="Country"*/}
+        {/*    fullWidth*/}
+        {/*    autoComplete="shipping country"*/}
+        {/*  />*/}
+        {/*</Grid> *!/*/}
+        {/*        <Grid item xs={12}>*/}
+        {/*          <FormControlLabel*/}
+        {/*            control={*/}
+        {/*              <Checkbox*/}
+        {/*                color="secondary"*/}
+        {/*                name="saveAddress"*/}
+        {/*                value="yes"*/}
+        {/*              />*/}
+        {/*            }*/}
+        {/*            label="Set as Defaut Address"*/}
+        {/*          />*/}
+        {/*        </Grid>*/}
+        {/*      </Grid>*/}
+        {/*    </DialogContentText>*/}
+        {/*  </DialogContent>*/}
+        {/*  <DialogActions>*/}
+        {/*    <Button onClick={handleClose} color="#F29559">*/}
+        {/*      CANCLE*/}
+        {/*    </Button>*/}
+        {/*    <Button*/}
+        {/*      variant="outlined"*/}
+        {/*      style={{ color: "white", backgroundColor: "#F29559" }}*/}
+        {/*      onClick={handleClose}*/}
+        {/*      autoFocus*/}
+        {/*    >*/}
+        {/*      SUBMIT*/}
+        {/*    </Button>*/}
+        {/*  </DialogActions>*/}
+        {/*</Dialog>*/}
+      {/*</div>*/}
 
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid rows={rows} columns={columns} pageSize={5} />
@@ -305,23 +307,23 @@ const Checkout = () => {
       </div>
 
       <div className="footerAll">
-        <div className="footerT">
-          <div className="FeeText">Promotion Code </div>
-          <div className="Procode">
-            <form className={classes.rootZ} noValidate autoComplete="off">
-              <TextField
-                id="outlined-basic"
-                label="Enter Voucher code here"
-                variant="outlined"
-              />
-            </form>
-          </div>
-          <div className="Pro-button">
-            <Button variant="outlined" className={classes.button}>
-              Apply
-            </Button>
-          </div>
-        </div>
+        {/*<div className="footerT">*/}
+        {/*  /!*<div className="FeeText">Promotion Code </div>*!/*/}
+        {/*  /!*<div className="Procode">*!/*/}
+        {/*  /!*  <form className={classes.rootZ} noValidate autoComplete="off">*!/*/}
+        {/*  /!*    <TextField*!/*/}
+        {/*  /!*      id="outlined-basic"*!/*/}
+        {/*  /!*      label="Enter Voucher code here"*!/*/}
+        {/*  /!*      variant="outlined"*!/*/}
+        {/*  /!*    />*!/*/}
+        {/*  /!*  </form>*!/*/}
+        {/*  /!*</div>*!/*/}
+        {/*  <div className="Pro-button">*/}
+        {/*    <Button variant="outlined" className={classes.button}>*/}
+        {/*      Apply*/}
+        {/*    </Button>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
         <div className="footerR">
           <div className="FeeText2">
             Order total : (

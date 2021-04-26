@@ -53,7 +53,6 @@ export const SessionProvider = (props) => {
     },
     [login, removeCookie, setCookie, history]
   );
-
   useEffect(() => {
     if (userData) {
       setUser(userData);
@@ -61,12 +60,6 @@ export const SessionProvider = (props) => {
     return () => {};
   }, [cookie]);
 
-  const handleLogout = useCallback(() => {
-    setUser(null);
-    removeCookie("token", { maxAge: 86400 });
-    removeCookie("user", { maxAge: 86400 });
-    removeCookie("cart", { maxAge: 86400 });
-  }, [removeCookie]);
   useEffect(() => {
     if (data?.user) {
       setUser(data?.user);
@@ -85,6 +78,15 @@ export const SessionProvider = (props) => {
     };
     loadData();
   }, [loadMe, removeCookie]);
+
+
+  const handleLogout = useCallback(() => {
+    setUser(null);
+    removeCookie("token", { maxAge: 86400 });
+    removeCookie("user", { maxAge: 86400 });
+    removeCookie("cart", { maxAge: 86400 });
+    history.push("/");
+  },[user, removeCookie,history]);
 
   const handleAddCart = (product) => {
     console.log("CART", cart);

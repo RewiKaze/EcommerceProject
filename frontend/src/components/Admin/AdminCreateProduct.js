@@ -72,29 +72,55 @@ const AdminCreateProduct = () => {
     //     setTag(e.target.value);
     // }, []);
 
+    // const handleCreateProduct = useCallback(
+    //     async (e) => {
+    //         e.preventDefault();
+    //         const variables = {
+    //             record: {createProduct,name, description, price, type, quantity, imageUrl, slug
+    //             },
+    //         };
+    //         await createProduct({
+    //             variables,
+    //             refetchQueries: [{ query: PRODUCT_QUERY }],
+    //         });
+    //         setName("");
+    //         setSlug("")
+    //         setDescription("");
+    //         setPrice("");
+    //         setType("");
+    //         setQuantity("");
+    //         setImageUrl("");
+    //         history.push("/admin/product");
+    //         // setTag("")
+    //     },
+    //     [createProduct,name, description, price, type, quantity, imageUrl, slug
+    //     ]
+    // );
+
     const handleCreateProduct = useCallback(
         async (e) => {
             e.preventDefault();
-            const variables = {
-                record: {createProduct,name, description, price, type, quantity, imageUrl, slug
-                },
-            };
-            await createProduct({
-                variables,
-                refetchQueries: [{ query: PRODUCT_QUERY }],
-            });
-            setName("");
-            setSlug("")
-            setDescription("");
-            setPrice("");
-            setType("");
-            setQuantity("");
-            setImageUrl("");
-            history.push("/admin/product");
-            // setTag("")
+            try {
+                const variables = {
+                    record:{createProduct,name, description, price, type, quantity, imageUrl, slug}
+                };
+                await createProduct({ variables,
+                    refetchQueries: [{ query: PRODUCT_QUERY }]});
+                setName("");
+                setSlug("")
+                setDescription("");
+                setPrice("");
+                setType("");
+                setQuantity("");
+                setImageUrl("");
+                history.push("/admin/product");
+                alert("Add Product Success!!!");
+            } catch (err) {
+                console.log(err);
+                alert("Add Product Failed!!!");
+            }
         },
-        [createProduct,name, description, price, type, quantity, imageUrl, slug
-        ]
+        [createProduct,name, description, price, type, quantity, imageUrl, slug]
     );
 
     return (

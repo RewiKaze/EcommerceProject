@@ -56,25 +56,51 @@ const AdminCreatePromotion = () => {
         setProductId(e.target.value);
     }, []);
 
+
+
+    // const handleCreatePromotion = useCallback(
+    //     async (e) => {
+    //         e.preventDefault();
+    //         const variables = {
+    //             record: {createPromotion, name, amount, discount, productId
+    //             },
+    //         };
+    //         await createPromotion({
+    //             variables,
+    //             refetchQueries: [{ query: PROMOTION_QUERY }],
+    //         });
+    //         setName("");
+    //         setAmount("");
+    //         setDiscount("");
+    //         setProductId("");
+    //         history.push("/admin/promotions");
+    //     },
+    //     [createPromotion, name, amount, discount, productId
+    //     ]
+    // );
+
+
     const handleCreatePromotion = useCallback(
         async (e) => {
             e.preventDefault();
-            const variables = {
-                record: {createPromotion, name, amount, discount, productId
-                },
-            };
-            await createPromotion({
-                variables,
-                refetchQueries: [{ query: PROMOTION_QUERY }],
-            });
-            setName("");
-            setAmount("");
-            setDiscount("");
-            setProductId("");
-            history.push("/admin/promotions");
+            try {
+                const variables = {
+                    record:{createPromotion, name, amount, discount, productId}
+                };
+                await createPromotion({variables,
+                    refetchQueries: [{ query: PROMOTION_QUERY }]});
+                setName("");
+                setAmount("");
+                setDiscount("");
+                setProductId("");
+                history.push("/admin/promotions");
+                alert("Add Promotion Success!!!");
+            } catch (err) {
+                console.log(err);
+                alert("Add Promotion Failed!!!");
+            }
         },
-        [createPromotion, name, amount, discount, productId
-        ]
+        [createPromotion, name, amount, discount, productId]
     );
 
     return (

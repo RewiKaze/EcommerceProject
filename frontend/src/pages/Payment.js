@@ -14,6 +14,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 
 import "../css/Payment.css";
+import {useHistory} from "react-router";
 const useStyles = makeStyles((theme) => ({
   button: {
     color: "#f29559",
@@ -53,6 +54,7 @@ const currencies = [
   },
 ];
 const Payment = () => {
+  const history = useHistory();
   const [currency, setCurrency] = React.useState("SCB");
 
   const [open, setOpen] = React.useState(false);
@@ -63,6 +65,7 @@ const Payment = () => {
 
   const handleClose = () => {
     setOpen(false);
+    history.push("/");
   };
 
   const handleChange = (event) => {
@@ -124,92 +127,104 @@ const Payment = () => {
         <div className="NamePays">Confirm payment</div>
       </div>
       <div className="footerPayment-F">
-        <div className="Payment-F">
-          <div className="Pay-form">Payment transfer date:</div>
-          <div className="Pay-form2">
-            {" "}
-            <form className={classes.rootZ} noValidate autoComplete="off">
-              <TextField
-                id="outlined-basic"
-                label="DD/MM/YYYY"
-                variant="outlined"
-              />
-            </form>
+        <div className="AddressD">
+          <div className="Pay-Des">
+            <span>FACEBOOK OFFICIAL </span>
+            <br />
+            <span className="Pay-Des3">@funiture</span>
+            <br />
+            <span>Email </span>
+            <br />
+            <span className="Pay-Des3">admin@funiture.com</span>
           </div>
         </div>
-        <br />
-        <div className="Payment-F">
-          <div className="Pay-form">Payment transfer time:</div>
-          <div className="Pay-form2">
-            {" "}
-            <form className={classes.rootZ} noValidate autoComplete="off">
-              <TextField id="outlined-basic" label="--:--" variant="outlined" />
-            </form>
-          </div>
-        </div>
-        <br />
-        <div className="Payment-F">
-          <div className="Pay-form">Payment transfer from:</div>
-          <div className="Pay-form2">
-            {" "}
-            <form className={classes.rootZ} noValidate autoComplete="off">
-              <TextField
-                id="outlined-select-currency"
-                select
-                label="Select"
-                value={currency}
-                onChange={handleChange}
-                helperText="Please select your bank"
-                variant="outlined"
-              >
-                {currencies.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </TextField>
-            </form>
-          </div>
-        </div>
-        <br />
-        <div className="Payment-F">
-          <div className="Pay-form">Payment transfer to:</div>
-          <div className="Pay-form2">
-            {" "}
-            <form className={classes.rootZ} noValidate autoComplete="off">
-              <TextField
-                id="outlined-select-currency"
-                select
-                label="Select"
-                value={currency}
-                onChange={handleChange}
-                helperText="Please select your bank"
-                variant="outlined"
-              >
-                {currencies.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </TextField>
-            </form>
-          </div>
-        </div>
-        <br />
-        <div className="Payment-F">
-          <div className="Pay-form">Payment transfer number:</div>
-          <div className="Pay-form2">
-            {" "}
-            <form className={classes.rootZ} noValidate autoComplete="off">
-              <TextField
-                id="outlined-basic"
-                label="Last 4 digit account numbers"
-                variant="outlined"
-              />
-            </form>
-          </div>
-        </div>
-        <br />
+
+        {/*<div className="Payment-F">*/}
+        {/*  <div className="Pay-form">Payment transfer date:</div>*/}
+        {/*  <div className="Pay-form2">*/}
+        {/*    {" "}*/}
+        {/*    <form className={classes.rootZ} noValidate autoComplete="off">*/}
+        {/*      <TextField*/}
+        {/*        id="outlined-basic"*/}
+        {/*        label="DD/MM/YYYY"*/}
+        {/*        variant="outlined"*/}
+        {/*      />*/}
+        {/*    </form>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
+        {/*<br />*/}
+        {/*<div className="Payment-F">*/}
+        {/*  <div className="Pay-form">Payment transfer time:</div>*/}
+        {/*  <div className="Pay-form2">*/}
+        {/*    {" "}*/}
+        {/*    <form className={classes.rootZ} noValidate autoComplete="off">*/}
+        {/*      <TextField id="outlined-basic" label="--:--" variant="outlined" />*/}
+        {/*    </form>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
+        {/*<br />*/}
+        {/*<div className="Payment-F">*/}
+        {/*  <div className="Pay-form">Payment transfer from:</div>*/}
+        {/*  <div className="Pay-form2">*/}
+        {/*    {" "}*/}
+        {/*    <form className={classes.rootZ} noValidate autoComplete="off">*/}
+        {/*      <TextField*/}
+        {/*        id="outlined-select-currency"*/}
+        {/*        select*/}
+        {/*        label="Select"*/}
+        {/*        value={currency}*/}
+        {/*        onChange={handleChange}*/}
+        {/*        helperText="Please select your bank"*/}
+        {/*        variant="outlined"*/}
+        {/*      >*/}
+        {/*        {currencies.map((option) => (*/}
+        {/*          <MenuItem key={option.value} value={option.value}>*/}
+        {/*            {option.label}*/}
+        {/*          </MenuItem>*/}
+        {/*        ))}*/}
+        {/*      </TextField>*/}
+        {/*    </form>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
+        {/*<br />*/}
+        {/*<div className="Payment-F">*/}
+        {/*  <div className="Pay-form">Payment transfer to:</div>*/}
+        {/*  <div className="Pay-form2">*/}
+        {/*    {" "}*/}
+        {/*    /!*<form className={classes.rootZ} noValidate autoComplete="off">*!/*/}
+        {/*    /!*  <TextField*!/*/}
+        {/*    /!*    id="outlined-select-currency"*!/*/}
+        {/*    /!*    select*!/*/}
+        {/*    /!*    label="Select"*!/*/}
+        {/*    /!*    value={currency}*!/*/}
+        {/*    /!*    onChange={handleChange}*!/*/}
+        {/*    /!*    helperText="Please select your bank"*!/*/}
+        {/*    /!*    variant="outlined"*!/*/}
+        {/*    /!*  >*!/*/}
+        {/*    /!*    {currencies.map((option) => (*!/*/}
+        {/*    /!*      <MenuItem key={option.value} value={option.value}>*!/*/}
+        {/*    /!*        {option.label}*!/*/}
+        {/*    /!*      </MenuItem>*!/*/}
+        {/*    /!*    ))}*!/*/}
+        {/*    /!*  </TextField>*!/*/}
+        {/*    /!*</form>*!/*/}
+        {/*  </div>*/}
+        {/*</div>*/}
+        {/*<br />*/}
+        {/*<div className="Payment-F">*/}
+        {/*  <div className="Pay-form">Payment transfer number:</div>*/}
+        {/*  <div className="Pay-form2">*/}
+        {/*    {" "}*/}
+        {/*    <form className={classes.rootZ} noValidate autoComplete="off">*/}
+        {/*      <TextField*/}
+        {/*        id="outlined-basic"*/}
+        {/*        label="Last 4 digit account numbers"*/}
+        {/*        variant="outlined"*/}
+        {/*      />*/}
+        {/*    </form>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
+        {/*<br />*/}
         <div className="Payment-B">
           <div className="Payment-button">
             <Button

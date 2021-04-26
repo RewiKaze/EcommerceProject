@@ -7,6 +7,7 @@ import { NavLink } from "react-router-dom";
 import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import Avatar from '@material-ui/core/Avatar';
 import "./User-Component.css";
 import proflie from "./image/proflie.png";
 import BorderColorRoundedIcon from '@material-ui/icons/BorderColorRounded';
@@ -44,24 +45,26 @@ const useStyles = makeStyles((theme) => ({
 
 const User = () => {
     const classes = useStyles();
-    const { user } = useSession();
+    const { user, logout: handleLogout } = useSession();
     if (user) {
     return (
         <React.Fragment>
             <div className={classes.root} style={{ display: 'flex' }}>
                 <Grid item xs={3}>
                     <Paper className={classes.paper} style={{ display: 'flex', flexDirection: 'column', backgroundColor: "#E5E5E5", boxShadow: '0 0' }}>
-                        <div style={{ display: 'flex' }}>
-                            <div>
-                                <img src={proflie} style={{ width: "4.5rem" }} />
-                            </div>
-                            <div style={{ display: 'flex', flexDirection: 'column', marginLeft: "1rem", textAlign: "left" }}>
-                                <span className="head-title">{user?.name}</span>
-                                <Link href="#">
-                                    <BorderColorRoundedIcon style={{ color: "#9E9E9E", height: '0.7rem' }}></BorderColorRoundedIcon><span style={{ fontSize: "0.7rem" }}>Change your profile</span>
-                                </Link>
-                            </div>
-                        </div>
+                        <h1>My Profile</h1>
+                        {/*<div style={{ display: 'flex' }}>*/}
+                        {/*    <div>*/}
+                        {/*        <Avatar>{user?.name[0].toUpperCase()}</Avatar>*/}
+                        {/*        /!*<img src={proflie} style={{ width: "4.5rem" }} />*!/*/}
+                        {/*    </div>*/}
+                        {/*    <div style={{ display: 'flex', flexDirection: 'column', marginLeft: "1rem", textAlign: "left" }}>*/}
+                        {/*        <p className="head-title">{user?.name}</p>*/}
+                        {/*        /!*<Link href="#">*!/*/}
+                        {/*        /!*    <BorderColorRoundedIcon style={{ color: "#9E9E9E", height: '0.7rem' }}></BorderColorRoundedIcon><span style={{ fontSize: "0.7rem" }}>Change your profile</span>*!/*/}
+                        {/*        /!*</Link>*!/*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
                         <Button
                             className={classes.button}
                             component={NavLink}
@@ -71,15 +74,15 @@ const User = () => {
                         >
                             <PersonOutlineOutlinedIcon></PersonOutlineOutlinedIcon><span> My Account</span>
                         </Button>
-                        <Button
-                            className={classes.button}
-                            component={NavLink}
-                            activeStyle={{ color: "#F29559" }}
-                            to="/customer/address"
-                            exact
-                        >
-                            <EventAvailableOutlinedIcon></EventAvailableOutlinedIcon><span> My Address</span>
-                        </Button>
+                        {/*<Button*/}
+                        {/*    className={classes.button}*/}
+                        {/*    component={NavLink}*/}
+                        {/*    activeStyle={{ color: "#F29559" }}*/}
+                        {/*    to="/customer/address"*/}
+                        {/*    exact*/}
+                        {/*>*/}
+                        {/*    <EventAvailableOutlinedIcon></EventAvailableOutlinedIcon><span> My Address</span>*/}
+                        {/*</Button>*/}
                         <Button
                             className={classes.button}
                             component={NavLink}
@@ -89,7 +92,7 @@ const User = () => {
                         >
                             <InsertDriveFileOutlinedIcon></InsertDriveFileOutlinedIcon><span> My Order</span>
                         </Button>
-                        <Button className="logout">Log out</Button>
+                        {/*<Button className="logout" onClick={handleLogout}>Log out</Button>*/}
                     </Paper>
                 </Grid>
                 <Grid item xs={9}>

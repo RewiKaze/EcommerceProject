@@ -5,6 +5,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import {useHistory} from "react-router"
 import {useMutation} from "@apollo/client";
 import {CREATE_USER_MUTATION} from "../../graphql/createUserMutation";
+import {ME_QUERY} from "../../graphql/meQuery";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -64,7 +65,8 @@ const AdminCreateUser = () =>{
                 const variables = {
                     record:{createUser, name, username, password, address, type, email, tel}
                 };
-                await createUser({variables});
+                await createUser({ variables,
+                    refetchQueries: [{ query: ME_QUERY }]});
                 setName("");
                 setUsername("");
                 setPassword("");

@@ -25,9 +25,9 @@
 - [ ] Product detail **`/product/:productSlug`** *Display product detail by slug* **pam,note**
 - [x] Promotions **`/promotions`** *Display all promotion*
 - [x] Cart **`/cart`** *Display products in cart*
-- [ ] Checkout **`/checkout`** *Checkout form* **Fourth**
-- [ ] Payment **`/payment`** *Payment form* **Fourth**
-- [ ] Customer info **`/customer`** *Display customer detail* **Fourth**
+- [x] Checkout **`/checkout`** *Checkout form* 
+- [x] Payment **`/payment`** *Payment form* 
+- [x] Customer info **`/customer`** *Display customer detail* 
 - [ ] Customer orders **`/customer/orders`** *Display customer orders*
 - [ ] Customer order detail **`/customer/order/:orderId`** *Display order detail by order id*
 - [ ] Admin dashboard **`/admin`** *Display admin dashboard* 

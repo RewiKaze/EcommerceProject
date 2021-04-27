@@ -24,7 +24,7 @@ const AdminPromotion = () => {
       <Grid container spacing={3}>
         <PromotionItem />
       </Grid>
-        <TablePromotion/>
+        {/*<TablePromotion/>*/}
     </React.Fragment>
   );
 };

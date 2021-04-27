@@ -2,6 +2,9 @@ import React from "react";
 import {Grid, Button, TextField, InputLabel,Select, FormControl,MenuItem } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import {Link} from "react-router-dom";
+import {useHistory} from "react-router";
+import {useQuery} from "@apollo/client";
+import {PRODUCT_QUERY} from "../../graphql/productQuery";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -20,12 +23,29 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const AdminUpdateProduct = () => {
+const AdminUpdateProduct = (props) => {
+    const history = useHistory()
+    const id = props?.match?.params?.id
     const classes = useStyles();
+    const {loading, data, error} = useQuery(PRODUCT_QUERY,{
+        variables:{id: id}
+    });
+    const refetchQuery ={
+        refetchQueries:[{
+            query:PRODUCT_QUERY
+        }]
+    }
+    if (loading) {
+        return 'Loading ...'
+    }
+    if (error) {
+        return 'Error !!'
+    }
+
     return (
         <React.Fragment>
             {/*Dashboard*/}
-            <h1 style={{color:'#202C39'}}>EDIT PRODUCT (ID: dlmvkdmkvdlkvmdkmv)</h1>
+            <h1 style={{color:'#202C39'}}>EDIT PRODUCT (ID: )</h1>
             <hr/>
 
             <form

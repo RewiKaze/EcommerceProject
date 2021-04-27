@@ -1,4 +1,4 @@
-import React, {useMemo,useCallback} from 'react';
+import React, {useMemo, useCallback, useState} from 'react';
 import {Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography, Grid} from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -6,8 +6,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
 
 // Query Data
+import {DELETE_PRODUCT_MUTATION} from "../../../graphql/deleteProduct";
 import { PRODUCT_QUERY } from "../../../graphql/productQuery";
-import {useQuery} from "@apollo/client";
+import {useMutation, useQuery} from "@apollo/client";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -29,15 +30,30 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const CardItem = () => {
+
+const CardItem = (props) => {
     const classes = useStyles();
     const { loading, error, data } = useQuery(PRODUCT_QUERY)
+
+    const [deleteProduct] = useMutation(DELETE_PRODUCT_MUTATION)
+    const removeProduct = async (id) =>{
+        try{
+            await deleteProduct({variables:{id}, refetchQueries: [{ query: PRODUCT_QUERY }]})
+            alert("Delete Product Success")
+        }catch (err){
+            console.log(err)
+            alert("Delete Product Failed")
+        }
+    }
+
     if (loading) {
         return 'Loading ...'
     }
     if (error) {
         return 'Error !!'
     }
+    // console.log(productId)
+
 
     return (
         data?.products?.map((product) => (
@@ -75,7 +91,7 @@ const CardItem = () => {
                             <EditIcon fontSize="small"/>Edit
                         </Button>
                         </Link>
-                        <Button size="small" variant="outlined" style={{color:"red"}}>
+                        <Button size="small"  variant="outlined" style={{color:"red"}} onClick={() => removeProduct(product._id)}>
                             <DeleteIcon fontSize="small"/>Delete
                         </Button>
                     </CardActions>

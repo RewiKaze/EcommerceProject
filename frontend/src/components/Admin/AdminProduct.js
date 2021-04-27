@@ -94,8 +94,8 @@ const AdminProduct = () => {
         {/*    <ProductDemo/>*/}
         {/*</Grid>*/}
       </Grid>
-      <hr/>
-      <TableProduct/>
+      {/*<hr/>*/}
+      {/*<TableProduct/>*/}
     </React.Fragment>
   );
 };

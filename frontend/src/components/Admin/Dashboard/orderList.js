@@ -3,6 +3,9 @@ import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import {Button, Grid} from "@material-ui/core";
 import {Link} from "react-router-dom";
+import { ORDER_QUERY} from "../../../graphql/orderQuery";
+import {useQuery} from "@apollo/client";
+import {PRODUCT_QUERY} from "../../../graphql/productQuery";
 
 const useStyles = makeStyles((theme) => ({
     paper1: {
@@ -10,6 +13,23 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor:"#202C39"
     },
 }));
+const OrderData = () => {
+    const {loading, error, data} = useQuery(ORDER_QUERY, { fetchPolicy: 'network-only' })
+    if (loading) {
+        return 'Loading ...'
+    }
+    if (error) {
+        return 'Error !!'
+    }
+    return (
+        data?.orders?.map((order) => (
+            <tr style={{textAlign:"left" , color:"white"}}>
+                <td>{order._id}</td>
+                <td>{order.status == "INCOMPLETE"?<b style={{color:'red'}}>INCOMPLETE</b>:<b style={{color:'lightgreen'}}>COMPLETED</b>}</td>
+            </tr>
+        ))
+    )
+}
 
 const OrderList = () => {
     const classes = useStyles();
@@ -30,9 +50,8 @@ const OrderList = () => {
                     <tr>
                         <th>Order ID</th>
                         <th>Status</th>
-
-                        {/*<th style={{ color:'white'}}>Date Added</th>*/}
                     </tr>
+                    {OrderData()}
 
                 </table>
         </Paper>

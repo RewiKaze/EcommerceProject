@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ProductData = () => {
-    const {loading, error, data} = useQuery(PRODUCT_QUERY)
+    const {loading, error, data} = useQuery(PRODUCT_QUERY, { fetchPolicy: 'network-only' })
     if (loading) {
         return 'Loading ...'
     }

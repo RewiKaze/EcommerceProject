@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 const Checkout = () => {
   const classes = useStyles();
   const { user,cart } = useSession();
-  const { loading, error, data } = useQuery(PRODUCT_QUERY);
+  const { loading, error, data } = useQuery(PRODUCT_QUERY, { fetchPolicy: 'network-only' });
   const [checked, setChecked] = React.useState(true);
   const [open, setOpen] = React.useState(false);
   if (loading) {

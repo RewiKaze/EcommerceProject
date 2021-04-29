@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CardItem = () => {
     const classes = useStyles();
-    const { loading, error, data } = useQuery(PRODUCT_QUERY)
+    const { loading, error, data } = useQuery(PRODUCT_QUERY, { fetchPolicy: 'network-only' })
 
     if (loading) {
         return 'Loading ...'

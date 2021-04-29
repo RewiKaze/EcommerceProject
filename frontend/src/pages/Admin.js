@@ -30,6 +30,7 @@ const AdminUpdatePromotion = React.lazy(() =>
 );
 const AdminCreateUser = React.lazy(()=>import('../components/Admin/AdminCreateUser'))
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -123,7 +124,7 @@ const Admin = () => {
             <Route exact path="/admin/product/create">
               <AdminCreateProduct style={{ padding: 10 }} />
             </Route>
-            <Route path="/admin/product/:_id">
+            <Route exact path="/admin/product/:_id">
               <AdminUpdateProduct style={{ padding: 10 }} />
             </Route>
             <Route exact path="/admin/promotions">
@@ -131,6 +132,9 @@ const Admin = () => {
             </Route>
             <Route exact path="/admin/promotions/create">
               <AdminCreatePromotion style={{ padding: 10 }} />
+            </Route>
+            <Route exact path="/admin/promotions/:_id">
+              <AdminUpdatePromotion style={{ padding: 10 }} />
             </Route>
             <Route path="/admin/create/user">
               <AdminCreateUser style={{ padding: 10 }} />

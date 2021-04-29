@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CardItem = (props) => {
     const classes = useStyles();
-    const { loading, error, data } = useQuery(PRODUCT_QUERY)
+    const { loading, error, data } = useQuery(PRODUCT_QUERY, { fetchPolicy: 'network-only' })
 
     const [deleteProduct] = useMutation(DELETE_PRODUCT_MUTATION)
     const removeProduct = async (id) =>{

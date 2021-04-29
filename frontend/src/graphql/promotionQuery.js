@@ -13,6 +13,7 @@ query{
       name
       price
       imageUrl
+      description
     }
     total
   }

@@ -13,6 +13,7 @@ import { LOGIN_MUTATION } from "../graphql/loginMutation";
 import { useHistory } from "react-router";
 const SessionContext = createContext();
 
+
 export const SessionProvider = (props) => {
   const { children } = props;
   const history = useHistory();

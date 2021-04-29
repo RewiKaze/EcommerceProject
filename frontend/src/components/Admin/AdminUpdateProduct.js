@@ -1,7 +1,7 @@
 import React from "react";
 import {Grid, Button, TextField, InputLabel,Select, FormControl,MenuItem } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
-import {Link} from "react-router-dom";
+import {Link,useParams} from "react-router-dom";
 import {useHistory} from "react-router";
 import {useQuery} from "@apollo/client";
 import {PRODUCT_QUERY} from "../../graphql/productQuery";
@@ -25,16 +25,9 @@ const useStyles = makeStyles((theme) => ({
 
 const AdminUpdateProduct = (props) => {
     const history = useHistory()
-    const id = props?.match?.params?.id
     const classes = useStyles();
-    const {loading, data, error} = useQuery(PRODUCT_QUERY,{
-        variables:{id: id}
-    });
-    const refetchQuery ={
-        refetchQueries:[{
-            query:PRODUCT_QUERY
-        }]
-    }
+    const { _id } = useParams();
+    const { loading, data, error } = useQuery(PRODUCT_QUERY, { variables: { _id } , fetchPolicy: 'network-only'})
     if (loading) {
         return 'Loading ...'
     }
@@ -43,9 +36,10 @@ const AdminUpdateProduct = (props) => {
     }
 
     return (
+        data?.products?.map((product) => (
         <React.Fragment>
             {/*Dashboard*/}
-            <h1 style={{color:'#202C39'}}>EDIT PRODUCT (ID: )</h1>
+            <h1 style={{color:'#202C39'}}>EDIT PRODUCT (ID:{product._id} )</h1>
             <hr/>
 
             <form
@@ -58,6 +52,7 @@ const AdminUpdateProduct = (props) => {
                             variant="outlined"
                             style={{ width: "100%"}}
                             type="text"
+                            placeholder={product.name}
                             // value={name}
                             // onChange={handleNameChange}
                             required
@@ -91,6 +86,7 @@ const AdminUpdateProduct = (props) => {
                             variant="outlined"
                             style={{ width: "100%"}}
                             type="text"
+                            placeholder={product.description}
                             // value={description}
                             // onChange={handleDescriptionChange}
                             required
@@ -102,6 +98,7 @@ const AdminUpdateProduct = (props) => {
                             variant="outlined"
                             style={{ width: "100%"}}
                             type="text"
+                            placeholder={product.price}
                             // value={price}
                             // onChange={handlePriceChange}
                             required
@@ -113,6 +110,7 @@ const AdminUpdateProduct = (props) => {
                             variant="outlined"
                             style={{ width: "100%"}}
                             type="text"
+                            placeholder={product.quantity}
                             // value={quantity}
                             // onChange={handleQuantityChange}
                             required
@@ -124,18 +122,19 @@ const AdminUpdateProduct = (props) => {
                             variant="outlined"
                             style={{ width: "100%"}}
                             type="text"
+                            placeholder={product.imageUrl}
                             // value={imageUrl}
                             // onChange={handleImageUrlChange}
                             required
                         />
                     </Grid>
-                    <Grid item xs={5}>
-                        <TextField
-                            label="Tag"
-                            variant="outlined"
-                            style={{ width: "100%"}}
-                        />
-                    </Grid>
+                    {/*<Grid item xs={5}>*/}
+                    {/*    <TextField*/}
+                    {/*        label="Tag"*/}
+                    {/*        variant="outlined"*/}
+                    {/*        style={{ width: "100%"}}*/}
+                    {/*    />*/}
+                    {/*</Grid>*/}
                 </Grid>
                 <br/>
                 <hr/>
@@ -152,6 +151,7 @@ const AdminUpdateProduct = (props) => {
                 </Link>
             </form>
         </React.Fragment>
+        ))
     );
 };
 

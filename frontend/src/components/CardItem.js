@@ -39,7 +39,7 @@ const CardItem = () => {
   const { addProductToCart, userCookie, cart } = useSession();
   const classes = useStyles();
   const history = useHistory();
-  const { loading, error, data } = useQuery(PRODUCT_QUERY);
+  const { loading, error, data } = useQuery(PRODUCT_QUERY, { fetchPolicy: 'network-only' });
   if (loading) {
     return "Loading ...";
   }

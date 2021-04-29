@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme)=>({
 
 const PromotionItem = () => {
     const classes = useStyles();
-    const { loading, error, data } = useQuery(PROMOTION_QUERY)
+    const { loading, error, data } = useQuery(PROMOTION_QUERY, { fetchPolicy: 'network-only' })
     if (loading) {
         return 'Loading ...'
     }

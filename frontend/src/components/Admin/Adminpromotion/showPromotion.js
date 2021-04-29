@@ -6,7 +6,7 @@ import {DELETE_PROMOTION_MUTATION} from "../../../graphql/deletePromotion";
 import {Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography} from "@material-ui/core";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
-
+import {Link} from "react-router-dom";
 
 
 const useStyles = makeStyles((theme)=>({
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme)=>({
 
 const PromotionItem = () =>  {
     const classes = useStyles();
-    const { loading, error, data } = useQuery(PROMOTION_QUERY)
+    const { loading, error, data } = useQuery(PROMOTION_QUERY, { fetchPolicy: 'network-only' })
     const [deletePromotion] = useMutation(DELETE_PROMOTION_MUTATION)
     const removePromotion = async (id) =>{
         try{
@@ -76,9 +76,13 @@ const PromotionItem = () =>  {
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
+                        <Link to={{
+                            pathname: `/admin/promotions/${promo._id}`,
+                        }} style={{ textDecoration: "none" }}>
                             <Button size="small" color="primary" variant="contained">
                                 <EditIcon fontSize="small"/>Edit
                             </Button>
+                        </Link>
                         <Button size="small" variant="outlined" style={{color:"red"}} onClick={() => removePromotion(promo._id)}>
                             <DeleteIcon fontSize="small"/>Delete
                         </Button>

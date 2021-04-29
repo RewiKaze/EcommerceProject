@@ -29,6 +29,7 @@ const AdminUpdatePromotion = React.lazy(() =>
   import("../components/Admin/AdminUpdatePromotion")
 );
 const AdminCreateUser = React.lazy(()=>import('../components/Admin/AdminCreateUser'))
+const AdminOrder = React.lazy(()=>import('../components/Admin/AdminOrder'))
 
 
 const useStyles = makeStyles((theme) => ({
@@ -138,6 +139,9 @@ const Admin = () => {
             </Route>
             <Route path="/admin/create/user">
               <AdminCreateUser style={{ padding: 10 }} />
+            </Route>
+            <Route path="/admin/orders">
+              <AdminOrder style={{ padding: 10 }} />
             </Route>
           </Switch>
         </Grid>

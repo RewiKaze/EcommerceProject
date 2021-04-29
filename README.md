@@ -67,7 +67,7 @@
 - [x] Admin and Customer type implement User type
 - [x] Promotion type implement Product type
 - [ ] Admin update order status
-- [ ] Admin cancel order
+- [x] Admin cancel order
 - [ ] Update product stock when Customer make order
 ### 3. Implement Frontend, Backend and Database support pages and features
 - [ ] Done

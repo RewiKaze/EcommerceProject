@@ -38,6 +38,7 @@ const AdminUpdateProduct = (props) => {
     return (
         data?.products?.map((product) => (
         <React.Fragment>
+            {console.log(data.products)}
             {/*Dashboard*/}
             <h1 style={{color:'#202C39'}}>EDIT PRODUCT (ID:{product._id} )</h1>
             <hr/>

@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CardItem = () => {
+const CardItem = (prop) => {
   const { addProductToCart, userCookie, cart } = useSession();
   const classes = useStyles();
   const history = useHistory();
@@ -63,21 +63,23 @@ const CardItem = () => {
     addProductToCart(result);
   };
 
-  return data?.products?.map((product) => (
+  // return data?.products?.map((product) => (
+  return (
     <Grid item xs={3}>
+      {console.log(prop.product)}
       <Card className={classes.root2}>
         <CardActionArea>
           <CardMedia
             className={classes.media}
-            image={product.imageUrl}
+            image={prop.product.imageUrl}
             title="Contemplative Reptile"
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h3">
-              {product.name}
+              {prop.product.name}
             </Typography>
             <Typography style={{ color: "#f29559", fontSize: 19 }}>
-              {parseInt(product.price).toLocaleString("th-TH", {
+              {parseInt(prop.product.price).toLocaleString("th-TH", {
                 style: "currency",
                 currency: "THB",
               }) ?? ""}
@@ -88,7 +90,7 @@ const CardItem = () => {
               component="p"
               noWrap={true}
             >
-              {product.description}
+              {prop.product.description}
             </Typography>
             {/*<Typography variant="body2" color="textSecondary" component="p">*/}
             {/*    Tags:{product.tag}*/}
@@ -98,7 +100,7 @@ const CardItem = () => {
         <CardActions>
           <Link
             to={{
-              pathname: `/product/${product.slug}`,
+              pathname: `/product/${prop.product.slug}`,
             }}
             style={{ textDecoration: "none" }}
           >
@@ -108,7 +110,7 @@ const CardItem = () => {
           </Link>
           <Button
             onClick={() => {
-              handleAddCart(product._id);
+              handleAddCart(prop.product._id);
             }}
             size="small"
             color="primary"
@@ -119,6 +121,8 @@ const CardItem = () => {
         </CardActions>
       </Card>
     </Grid>
-  ));
+  );
 };
+// ));
+// };
 export default CardItem;

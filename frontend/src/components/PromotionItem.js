@@ -61,6 +61,9 @@ const PromotionItem = () => {
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
+                        <Button size="small" color="primary">
+                            Detail
+                        </Button>
                         <Button size="small" color="primary" variant="contained">
                             Add to cart
                         </Button>

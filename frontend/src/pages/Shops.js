@@ -25,9 +25,9 @@ const useStyles = makeStyles((theme) => ({
 
 const Shops = () => {
   const classes = useStyles();
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage, setProductsPerPage] = useState(3);
+  const [productsPerPage] = useState(3);
   const { loading, error, data } = useQuery(PRODUCT_QUERY);
   if (loading) {
     return "Loading ...";

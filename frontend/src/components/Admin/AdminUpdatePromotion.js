@@ -1,34 +1,10 @@
 import React from "react";
 import {Grid, Button, TextField} from "@material-ui/core";
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+
 import {useParams} from "react-router-dom";
 import {useQuery} from "@apollo/client";
 import {PROMOTION_QUERY} from "../../graphql/promotionQuery";
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 
-const StyledTableCell = withStyles((theme) => ({
-    head: {
-      backgroundColor: '#202C39',
-      color: theme.palette.common.white,
-    },
-    body: {
-      fontSize: 14,
-    },
-  }))(TableCell);
-  
-  const StyledTableRow = withStyles((theme) => ({
-    root: {
-      '&:nth-of-type(odd)': {
-        backgroundColor: theme.palette.action.hover,
-      },
-    },
-  }))(TableRow);
 
 const AdminUpdatePromotion = () => {
     const { _id } = useParams();
@@ -39,12 +15,11 @@ const AdminUpdatePromotion = () => {
     if (error) {
         return 'Error !!'
     }
-    const filteredData = data.promotions.find((each) => each._id === _id);
     return (
+        data?.promotions?.map((promo) => (
         <React.Fragment>
-            {console.log(filteredData)}
             {/*Dashboard*/}
-            <h1 style={{color:'#202C39'}}>EDIT PROMOTION (ID: {filteredData._id})</h1>
+            <h1 style={{color:'#202C39'}}>EDIT PROMOTION (ID: {promo._id})</h1>
             <hr/>
                 <form
                     // onSubmit={handleCreatePromotion}
@@ -56,7 +31,7 @@ const AdminUpdatePromotion = () => {
                                 variant="outlined"
                                 style={{ width: "100%"}}
                                 type="text"
-                                placeholder={filteredData.name}
+                                placeholder={promo.name}
                                 // value={name}
                                 // onChange={handleNameChange}
                                 required
@@ -68,7 +43,7 @@ const AdminUpdatePromotion = () => {
                                 variant="outlined"
                                 style={{ width: "100%"}}
                                 type="text"
-                                placeholder={filteredData.amount}
+                                placeholder={promo.amount}
                                 // value={amount}
                                 // onChange={handleAmountChange}
                                 required
@@ -80,7 +55,7 @@ const AdminUpdatePromotion = () => {
                                 variant="outlined"
                                 style={{ width: "100%"}}
                                 type="text"
-                                placeholder={filteredData.discount}
+                                placeholder={promo.discount}
                                 // value={discount}
                                 // onChange={handleDiscountChange}
                                 required
@@ -91,7 +66,7 @@ const AdminUpdatePromotion = () => {
                                 label="ProductID"
                                 variant="outlined"
                                 style={{ width: "100%"}}
-                                placeholder={filteredData.productId}
+                                placeholder={promo.productId}
                                 type="text"
                                 // value={productId}
                                 // onChange={handleProductIdChange}
@@ -99,57 +74,15 @@ const AdminUpdatePromotion = () => {
                             />
                         </Grid>
                     </Grid>
-                    <br></br>
-                    <TableContainer component={Paper}>
-      <Table aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Product Detail</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-            <StyledTableRow>
-              <StyledTableCell component="th" scope="row">
-              Product ID:
-              </StyledTableCell>
-              <StyledTableCell>{filteredData.product._id}</StyledTableCell>
-            </StyledTableRow>
-            <StyledTableRow>
-              <StyledTableCell component="th" scope="row">
-              Product Name:
-              </StyledTableCell>
-              <StyledTableCell>{filteredData.product.name}</StyledTableCell>
-            </StyledTableRow>
-            <StyledTableRow>
-              <StyledTableCell component="th" scope="row">
-              Product Type:
-              </StyledTableCell>
-              <StyledTableCell>{filteredData.product.type}</StyledTableCell>
-            </StyledTableRow>
-            <StyledTableRow>
-              <StyledTableCell component="th" scope="row">
-              Product Price:
-              </StyledTableCell>
-              <StyledTableCell>{filteredData.product.price}</StyledTableCell>
-            </StyledTableRow>
-            <StyledTableRow>
-              <StyledTableCell component="th" scope="row">
-              Product Image:
-              </StyledTableCell>
-              <StyledTableCell><img src={filteredData.product.imageUrl}/></StyledTableCell>
-            </StyledTableRow>
-            <StyledTableRow>
-              <StyledTableCell component="th" scope="row">
-              Product Description:
-              </StyledTableCell>
-              <StyledTableCell>{filteredData.product.description}</StyledTableCell>
-            </StyledTableRow>
-        
-        </TableBody>
-      </Table>
-    </TableContainer>
-    <hr></hr>
-                    
+                    <h2>Product Detail</h2>
+                    <b>Product ID: </b>{promo.product._id} <br/>
+                    <b>Product Name: </b>{promo.product.name} <br/>
+                    <b>Product Type: </b>{promo.product.type} <br/>
+                    <b>Product Price: </b>{promo.product.price} <br/>
+                    <b>Product Image: </b>{promo.product.imageUrl} <br/>
+                    <b>Product Description: </b>{promo.product.description} <br/>
+                    <br/>
+                    <hr/>
                     <Button variant="contained" color="primary" type="submit" value="Submit">
                         Create
                     </Button>
@@ -159,6 +92,7 @@ const AdminUpdatePromotion = () => {
                     </Button>
                 </form>
         </React.Fragment>
+        ))
     );
 };
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { setState, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Grid,
@@ -10,6 +10,9 @@ import {
 } from "@material-ui/core";
 import CardItem from "../components/CardItem";
 
+// query Item
+import { PRODUCT_QUERY } from "../graphql/productQuery";
+import { useQuery } from "@apollo/client";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -22,6 +25,23 @@ const useStyles = makeStyles((theme) => ({
 
 const Shops = () => {
   const classes = useStyles();
+  const [products, setProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage, setProductsPerPage] = useState(10);
+  const { loading, error, data } = useQuery(PRODUCT_QUERY);
+  if (loading) {
+    return "Loading ...";
+  }
+  if (error) {
+    return "Error !!";
+  }
+  // const indexOfLastProducts = currentPage * productsPerPage;
+  // const indexOfFirstProducts = indexOfLastProducts - productsPerPage;
+  // const currentProducts = products.slice(
+  //   indexOfFirstProducts,
+  //   indexOfLastProducts
+  // );
+
   return (
     <React.Fragment>
       <div className={classes.root}>
@@ -78,7 +98,12 @@ const Shops = () => {
           </Grid>
           <Grid item xs={9}>
             <Grid container spacing={3}>
-              <CardItem />
+              {console.log(data.products)}
+              {data.products.map((each) => {
+                return <CardItem product={each} />;
+              })}
+              <div>Pagination Here</div>
+              {/* <CardItem products={data} /> */}
             </Grid>
           </Grid>
         </Grid>

@@ -123,7 +123,7 @@ const Admin = () => {
             <Route exact path="/admin/product/create">
               <AdminCreateProduct style={{ padding: 10 }} />
             </Route>
-            <Route path="/admin/product/:id">
+            <Route path="/admin/product/:_id">
               <AdminUpdateProduct style={{ padding: 10 }} />
             </Route>
             <Route exact path="/admin/promotions">

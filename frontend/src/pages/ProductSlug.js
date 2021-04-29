@@ -1,6 +1,12 @@
-const ProductSlug = () => {
+import React from "react";
+import DetailProduct from "./DetailProduct"
+const ProductSlug = ({match}) => {
+    const lang = match.params.language;
     return(
-        <h1>Product slug</h1>
+        <div className="Box-detail">
+        <h1>{lang}</h1>
+        <DetailProduct lang={lang}></DetailProduct>
+        </div>
     )
 };
 

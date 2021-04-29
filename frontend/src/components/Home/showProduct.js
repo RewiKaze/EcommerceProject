@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import {Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography, Grid} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-
+import { Link} from "react-router-dom";
 // Query Data
 import { PRODUCT_QUERY } from "../../graphql/productQuery";
 import { useQuery } from '@apollo/client'
@@ -64,9 +64,12 @@ const CardItem = () => {
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
+                        {language}
+                        <Link to={"product/"+ language}>
                         <Button size="small" color="primary">
                             Detail
                         </Button>
+                        </Link>
                         <Button size="small" color="primary" variant="contained">
                             Add to cart
                         </Button>

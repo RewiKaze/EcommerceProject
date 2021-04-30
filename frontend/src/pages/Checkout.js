@@ -3,21 +3,15 @@ import BeenhereIcon from "@material-ui/icons/Beenhere";
 import { makeStyles } from "@material-ui/core/styles";
 import * as React from "react";
 import { DataGrid } from "@material-ui/data-grid";
-import TextField from "@material-ui/core/TextField";
-import EditIcon from "@material-ui/icons/Edit";
-import DeleteIcon from "@material-ui/icons/Delete";
-import Checkbox from "@material-ui/core/Checkbox";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Grid from "@material-ui/core/Grid";
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import PhoneIcon from '@material-ui/icons/Phone';
+import HomeIcon from '@material-ui/icons/Home';
 import { NavLink } from "react-router-dom";
 import { useSession } from "../contexts/SessionContext";
 import { PRODUCT_QUERY } from "../graphql/productQuery";
 import { useQuery } from "@apollo/client";
+import HomeWorkIcon from '@material-ui/icons/HomeWork';
+import EmailIcon from '@material-ui/icons/Email';
 
 import "../css/Checkout.css";
 const useStyles = makeStyles((theme) => ({
@@ -43,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 const Checkout = () => {
   const classes = useStyles();
   const { user,cart } = useSession();
-  const { loading, error, data } = useQuery(PRODUCT_QUERY, { fetchPolicy: 'network-only' });
+  const { loading, error, data } = useQuery(PRODUCT_QUERY);
   const [checked, setChecked] = React.useState(true);
   const [open, setOpen] = React.useState(false);
   if (loading) {
@@ -53,7 +47,7 @@ const Checkout = () => {
     return "Error !!";
   }
   const columns = [
-    { field: "id", headerName: "All", width: 900 },
+    { field: "id", headerName: "All", width: 880 },
     { field: "price", headerName: "Unit Price", width: 200 },
     {
       field: "quantity",
@@ -91,12 +85,14 @@ const Checkout = () => {
       <div className="HeaderCart">
         <Typography variant="h3" style={{ color: "#F29559" }}>
           Checkout
-          <BeenhereIcon className="IconC" />
-        </Typography>
+          </Typography>
+          <Typography variant="h3" style={{ color: "#F29559"}}>
+          <BeenhereIcon className="IconC" style={{ paddingTop: "40%", marginLeft : "15%" }}/>
+          </Typography>
       </div>
       <div className="footerAllCheck">
         <div className="footerCheck">
-          <div className="Deli-t">Delivery Address </div>
+          <div className="Deli-t" style={{fontWeight: "Bold"}}><HomeWorkIcon className="IconC"/> Delivery Address </div>
         </div>
       </div>
       <div className="HeaderDetail">
@@ -107,20 +103,20 @@ const Checkout = () => {
         {/*    inputProps={{ "aria-label": "primary checkbox" }}*/}
         {/*  />*/}
         {/*</div>*/}
-        <div className="NameAdds">
-          Address
+        <div className="NameAdds" style={{fontWeight: "600", paddingLeft: "2%"}}>
+                Address
         </div>
       </div>
       <div className="footerAllD">
         <div className="AddressD">
           <div className="Add-Des">
-            <span>K.{user.name}</span>
+            <span style={{ color: "#F29559",fontWeight: "Bold"}}><AccountCircleIcon className="IconC"/> K.{user.name}</span>
             <br />
-            <span>{user.address}</span>
+            <span style={{ color: "#F29559",fontWeight: "400"}}><HomeIcon className="IconC"/> {user.address}</span>
             <br />
-            <span>Tel. {user.tel}</span>
+            <span style={{ color: "#F29559",fontWeight: "400"}}><PhoneIcon className="IconC"/> {user.tel}</span>
             <br />
-            <span>{user.email}</span>
+            <span style={{ color: "#F29559",fontWeight: "400"}}><EmailIcon className="IconC"/> {user.email}</span>
           </div>
         </div>
         {/*<div className="Pro-button">*/}

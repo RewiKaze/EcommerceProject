@@ -91,7 +91,18 @@
   width: 9vw;
 }
 .footerSection {
-  width: 100vw;
   height: 4vw;
   background-color: #202c39;
+}
+.MuiDataGrid-root .MuiDataGrid-footer {
+  border : 1px transparent !important;
+}
+.MuiDataGrid-root {
+  border : 1px transparent !important;
+}
+.footerR{
+  display: flex !important;
+}
+.footerAll{
+  display: flex !important;
 }

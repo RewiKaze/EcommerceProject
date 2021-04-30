@@ -15,3 +15,17 @@ query{
   }
 }
 `
+export const PRODUCT_QUERY1 = gql`query($id: MongoID!) {
+    productByID(_id: $id) {
+     _id
+    name
+    slug
+    description
+    type
+    quantity
+    price
+    imageUrl
+    tags
+    timestamp
+    }
+  }`

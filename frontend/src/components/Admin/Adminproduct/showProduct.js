@@ -78,9 +78,9 @@ const CardItem = (props) => {
                             <Typography variant="body2" color="textSecondary" component="p" noWrap={true}>
                                 {product.description}
                             </Typography>
-                            {/*<Typography variant="body2" color="textSecondary" component="p">*/}
-                            {/*    Tags:{product.tag}*/}
-                            {/*</Typography>*/}
+                            <Typography variant="body2" color="textSecondary" component="p">
+                                {product.quantity > 0 ? <b style={{color:'darkgreen'}}>In Stock ({product.quantity}) </b>: <b style={{color:'red'}}>Out of Stock </b>}
+                            </Typography>
                         </CardContent>
                     </CardActionArea>
                     <CardActions>

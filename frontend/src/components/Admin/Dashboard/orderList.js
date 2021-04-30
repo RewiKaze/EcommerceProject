@@ -25,7 +25,9 @@ const OrderData = () => {
         data?.orders?.map((order) => (
             <tr style={{textAlign:"left" , color:"white"}}>
                 <td>{order._id}</td>
-                <td>{order.status == "INCOMPLETE"?<b style={{color:'red'}}>INCOMPLETE</b>:<b style={{color:'lightgreen'}}>COMPLETED</b>}</td>
+                <td>{order.status == "INCOMPLETE"?<b style={{color:'lightsalmon'}}>INCOMPLETE</b>
+                    : order.status == "CANCEL"? <b style={{color:'red'}}>CANCELED</b>
+                        : <b style={{color:'lightgreen'}}>COMPLETED</b>}</td>
             </tr>
         ))
     )

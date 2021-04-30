@@ -21,7 +21,7 @@ const StyledTableCell = withStyles((theme) => ({
       fontSize: 14,
     },
   }))(TableCell);
-  
+
   const StyledTableRow = withStyles((theme) => ({
     root: {
       '&:nth-of-type(odd)': {
@@ -99,7 +99,16 @@ const AdminUpdatePromotion = () => {
                             />
                         </Grid>
                     </Grid>
-                    <br></br>
+                    <hr/>
+                    <Button variant="contained" color="primary" type="submit" value="Submit">
+                        Update
+                    </Button>
+                    {'  '}
+                    <Button variant="outlined" color="secondary">
+                        Back
+                    </Button>
+                </form>
+            <br/>
                     <TableContainer component={Paper}>
       <Table aria-label="customized table">
         <TableHead>
@@ -144,20 +153,12 @@ const AdminUpdatePromotion = () => {
               </StyledTableCell>
               <StyledTableCell>{filteredData.product.description}</StyledTableCell>
             </StyledTableRow>
-        
+
         </TableBody>
       </Table>
     </TableContainer>
-    <hr></hr>
-                    
-                    <Button variant="contained" color="primary" type="submit" value="Submit">
-                        Create
-                    </Button>
-                    {'  '}
-                    <Button variant="outlined" color="secondary">
-                        Back
-                    </Button>
-                </form>
+
+
         </React.Fragment>
     );
 };

@@ -9,8 +9,8 @@ import { ORDER_QUERY} from "../../../graphql/orderQuery";
 import {useMutation, useQuery} from "@apollo/client";
 import CheckIcon from '@material-ui/icons/Check';
 import CloseIcon from '@material-ui/icons/Close';
-import {DELETE_PRODUCT_MUTATION} from "../../../graphql/deleteProduct";
-import {PRODUCT_QUERY} from "../../../graphql/productQuery";
+import DeleteIcon from '@material-ui/icons/Delete';
+
 
 
 
@@ -85,7 +85,9 @@ const OrderItem = (props) => {
                             }) ?? ""}
                             </Typography>
                             <Typography variant="body2" component="p">
-                                Status : {order.status == "INCOMPLETE"?<b style={{color:'red'}}>INCOMPLETE</b>:<b style={{color:'green'}}>COMPLETED</b>}
+                                Status : {order.status == "INCOMPLETE"?<b style={{color:'lightsalmon'}}>INCOMPLETE</b>
+                                : order.status == "CANCEL"? <b style={{color:'red'}}>CANCELED</b>
+                                : <b style={{color:'green'}}>COMPLETED</b>}
                             </Typography>
                         </CardContent>
                     </CardActionArea>
@@ -93,9 +95,12 @@ const OrderItem = (props) => {
                         <Button size="small"  variant="contained" style={{backgroundColor:"green", color:"white"}}>
                                             <CheckIcon fontSize="small"/>Confirm
                                         </Button>
-                        <Button size="small"  variant="contained" style={{backgroundColor:"red", color:"white"}} onClick={() => removeProduct(order._id)}>
+                        <Button size="small"  variant="contained" style={{backgroundColor:"red", color:"white"}}>
                                         <CloseIcon fontSize="small"/>Cancel
                                     </Button>
+                        <Button size="small"  variant="outlined" style={{color:"red"}} onClick={() => removeProduct(order._id)}>
+                            <DeleteIcon fontSize="small"/>Delete
+                        </Button>
                     </CardActions>
                 </Card>
                 {/*<Card className={classes.root2}>*/}

@@ -14,6 +14,7 @@ query{
       price
       imageUrl
       description
+      type
     }
     total
   }

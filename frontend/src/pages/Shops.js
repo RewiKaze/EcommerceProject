@@ -8,6 +8,9 @@ import {
   FormControl,
   Select,
 } from "@material-ui/core";
+import { useParams} from "react-router-dom";
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import CardItem from "../components/CardItem";
 import PageSelect from "../components/PageSelect";
 // query Item
@@ -26,9 +29,13 @@ const useStyles = makeStyles((theme) => ({
 const Shops = () => {
   const classes = useStyles();
   // const [products, setProducts] = useState([]);
+  const { type } = useParams();
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(3);
-  const { loading, error, data } = useQuery(PRODUCT_QUERY);
+  const { loading, data, error } = useQuery(PRODUCT_QUERY, {
+    variables: { type },
+    fetchPolicy: "network-only",
+  });
   if (loading) {
     return "Loading ...";
   }
@@ -45,6 +52,11 @@ const Shops = () => {
     setCurrentPage(pageNumber);
   };
 
+  const filteredData = data.products.find((each) => each.type === type);
+// const [checked, setchecked]
+// const handleToggle =(filteredData) =>{
+
+// }
   return (
     <React.Fragment>
       <div className={classes.root}>
@@ -91,12 +103,36 @@ const Shops = () => {
             >
               CATEGORY
               <hr />
-              <p style={{ fontWeight: "lighter" }}>All</p>
-              <p style={{ fontWeight: "lighter" }}>Bedroom</p>
-              <p style={{ fontWeight: "lighter" }}>Bathroom</p>
-              <p style={{ fontWeight: "lighter" }}>Kitchen</p>
-              <p style={{ fontWeight: "lighter" }}>Living room</p>
-              <p style={{ fontWeight: "lighter" }}>Other</p>
+              <FormControlLabel
+          value="All"
+          control={<Checkbox color="primary"/>}
+          label="All"
+          labelPlacement="All"
+        /><br></br>
+        <FormControlLabel
+        value="Bedroom"
+        control={<Checkbox color="primary" />}
+        label="Bedroom"
+        labelPlacement="Bedroom"
+      /><br></br>
+      <FormControlLabel
+      value="Bathroom"
+      control={<Checkbox color="primary" />}
+      label="Bathroom"
+      labelPlacement="Bathroom"
+    /><br></br>
+    <FormControlLabel
+    value="Kitchen"
+    control={<Checkbox color="primary" />}
+    label="Kitchen"
+    labelPlacement="Kitchen"
+  /><br></br>
+  <FormControlLabel
+      value="Living room"
+      control={<Checkbox color="primary" />}
+      label="Living room"
+      labelPlacement="Living room"
+    />
             </Paper>
           </Grid>
           <Grid item xs={9}>

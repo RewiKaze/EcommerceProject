@@ -38,7 +38,7 @@ const ProductData = () => {
                     style: 'currency',
                     currency: 'THB'
                 }) ?? ""} </td>
-                <td>{product.quantity > 0 ? <b style={{color:'lightgreen'}}>In Stock ({product.quantity}) </b>: <b style={{color:'red'}}>Out Stock </b>}</td>
+                <td>{product.quantity > 0 ? <b style={{color:'lightgreen'}}>In Stock ({product.quantity}) </b>: <b style={{color:'red'}}>Out of Stock </b>}</td>
                 <td>{product.timestamp}</td>
             </tr>
         ))

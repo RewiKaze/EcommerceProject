@@ -56,7 +56,7 @@ const PromotionItem = () => {
                                 Product: {promo.product.name}
                             </Typography>
                             <Typography variant="body2" component="p" noWrap={true} style={{color:"green"}}>
-                                Available: {promo.amount}
+                                <b>Available: {promo.amount}</b>
                             </Typography>
                         </CardContent>
                     </CardActionArea>

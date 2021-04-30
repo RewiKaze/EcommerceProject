@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useCallback} from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import {
   Grid,
   Button,
@@ -11,9 +11,9 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 import { Link, useParams } from "react-router-dom";
 import { useHistory } from "react-router";
-import { useQuery , useMutation} from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { PRODUCT_QUERY } from "../../graphql/productQuery";
-import {UPDATE_PRODUCT_MUTATION} from "../../graphql/updateProduct";
+import { UPDATE_PRODUCT_MUTATION } from "../../graphql/updateProduct";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,19 +37,18 @@ const AdminUpdateProduct = (props) => {
   const classes = useStyles();
   const { _id } = useParams();
 
-  const [name, setName]= useState("");
-  const [slug, setSlug]= useState("");
-  const [description, setDescription]= useState("");
-  const [price, setPrice]= useState("");
+  const [name, setName] = useState("");
+  const [slug, setSlug] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
   const [type, setType] = useState("");
-  const [quantity, setQuantity]= useState("");
-  const [imageUrl, setImageUrl]= useState("");
-  const [updateProduct] = useMutation(UPDATE_PRODUCT_MUTATION)
+  const [quantity, setQuantity] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [updateProduct] = useMutation(UPDATE_PRODUCT_MUTATION);
   const { loading, data, error } = useQuery(PRODUCT_QUERY, {
     variables: { _id },
     fetchPolicy: "network-only",
   });
-
   const handleNameChange = useCallback((e) => {
     setName(e.target.value);
   }, []);
@@ -73,27 +72,56 @@ const AdminUpdateProduct = (props) => {
   }, []);
 
   const saveProduct = async (e) => {
-        e.preventDefault();
-        try {
-          const variables = {
-            record:{updateProduct,_id: data?.products?._id ?? 0 ,name, description, price, type, quantity, imageUrl, slug}
-          };
-          await updateProduct({ variables,
-            refetchQueries: [{ query: PRODUCT_QUERY }]});
-          setName("");
-          setSlug("")
-          setDescription("");
-          setPrice("");
-          setType("");
-          setQuantity("");
-          setImageUrl("");
-          history.push("/admin/product");
-          alert("Update Product Success!!!");
-        } catch (err) {
-          console.log(err);
-          alert(err);
-        }}
-      // [updateProduct,name, description, price, type, quantity, imageUrl, slug]
+    e.preventDefault();
+    try {
+      //   const variables = {
+      //     record: {
+      //       updateProduct,
+      //       _id: data.products.find((each) => each._id === _id)._id,
+      //       name,
+      //       description,
+      //       price,
+      //       type,
+      //       quantity,
+      //       imageUrl,
+      //       slug,
+      //     },
+      //   };
+      //   console.log(variables);
+      console.log(data.products.find((each) => each._id === _id)._id);
+      await updateProduct({
+        // _id: 1,
+        // variables,
+        // // refetchQueries: [{ query: PRODUCT_QUERY }],
+        variables: {
+          id: data.products.find((each) => each._id === _id)._id ?? 0,
+          record: {
+            updateProduct,
+            name,
+            description,
+            price,
+            type,
+            quantity,
+            imageUrl,
+            slug,
+          },
+        },
+      });
+      setName("");
+      setSlug("");
+      setDescription("");
+      setPrice("");
+      setType("");
+      setQuantity("");
+      setImageUrl("");
+      history.push("/admin/product");
+      alert("Update Product Success!!!");
+    } catch (err) {
+      console.log(JSON.stringify(err, null, 2));
+      alert(err);
+    }
+  };
+  // [updateProduct,name, description, price, type, quantity, imageUrl, slug]
 
   // const saveProduct = async (e) => {
   //   e.preventDefault()
@@ -125,127 +153,131 @@ const AdminUpdateProduct = (props) => {
     <React.Fragment>
       {/*{console.log(filteredData)}*/}
       {/*Dashboard*/}
-      {data?(
-          <div>
-      <h1 style={{ color: "#202C39" }}>
-        EDIT PRODUCT (ID:{filteredData._id} )
-      </h1>
-      <hr />
+      {data ? (
+        <div>
+          <h1 style={{ color: "#202C39" }}>
+            EDIT PRODUCT (ID:{filteredData._id} )
+          </h1>
+          <hr />
 
-            <form
-                onSubmit={saveProduct}
-            >
-              <Grid container spacing={3}>
-                <Grid item xs={5}>
-                  <TextField
-                      label="Product Name"
-                      variant="outlined"
-                      style={{ width: "100%"}}
-                      type="text"
-                      value={name}
-                      onChange={handleNameChange}
-                      placeholder={filteredData.name}
-
-                  />
-                </Grid>
-                <Grid item xs={4}>
-                  <FormControl variant="outlined" className={classes.formControl}>
-                    <InputLabel id="demo-simple-select-outlined-label">Category</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-outlined-label"
-                        id="demo-simple-select-outlined"
-                        value={type}
-                        onChange={handleTypeChange}
-                        placeholder={filteredData.type}
-                        label="Type"
-
-                    >
-                      <MenuItem value="">
-                        <em>None</em>
-                      </MenuItem>
-                      <MenuItem value={'BEDROOM'}>Bedroom</MenuItem>
-                      <MenuItem value={'BATHROOM'}>Bathroom</MenuItem>
-                      <MenuItem value={'KITCHEN'}>Kitchen</MenuItem>
-                      <MenuItem value={'LIVINGROOM'}>Living Room</MenuItem>
-                      <MenuItem value={'OTHER'}>Other</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Grid>
-                <Grid item xs={4}>
-                  <TextField
-                      label="Slug"
-                      variant="outlined"
-                      style={{ width: "100%"}}
-                      type="text"
-                      value={slug}
-                      onChange={handleSlugChange}
-                      placeholder={filteredData.slug}
-
-                  />
-                </Grid>
-                <Grid item xs={5}>
-                  <TextField
-                      label="Description"
-                      variant="outlined"
-                      style={{ width: "100%"}}
-                      type="text"
-                      value={description}
-                      onChange={handleDescriptionChange}
-                      placeholder={filteredData.description}
-
-                  />
-                </Grid>
-                <Grid item xs={5}>
-                  <TextField
-                      label="Price (THB)"
-                      variant="outlined"
-                      style={{ width: "100%"}}
-                      type="text"
-                      value={price}
-                      onChange={handlePriceChange}
-                      placeholder={filteredData.price}
-
-                  />
-                </Grid>
-                <Grid item xs={4}>
-                  <TextField
-                      label="Quantity"
-                      variant="outlined"
-                      style={{ width: "100%"}}
-                      type="text"
-                      value={quantity}
-                      onChange={handleQuantityChange}
-
-                  />
-                </Grid>
-                <Grid item xs={9}>
-                  <TextField
-                      label="imageUrl"
-                      variant="outlined"
-                      style={{ width: "100%"}}
-                      type="text"
-                      value={imageUrl}
-                      onChange={handleImageUrlChange}
-                      placeholder={filteredData.imageUrl}
-
-                  />
-                </Grid>
+          <form onSubmit={saveProduct}>
+            <Grid container spacing={3}>
+              <Grid item xs={5}>
+                <TextField
+                  label="Product Name"
+                  variant="outlined"
+                  style={{ width: "100%" }}
+                  type="text"
+                  value={name}
+                  onChange={handleNameChange}
+                  placeholder={filteredData.name}
+                />
               </Grid>
-              <br/>
-              <hr/>
-              <Button variant="contained" color="primary" type="submit" value="Submit">
-                Update
-              </Button>
-              {'  '}
-              <Link to={{
+              <Grid item xs={4}>
+                <FormControl variant="outlined" className={classes.formControl}>
+                  <InputLabel id="demo-simple-select-outlined-label">
+                    Category
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-outlined-label"
+                    id="demo-simple-select-outlined"
+                    value={type}
+                    onChange={handleTypeChange}
+                    placeholder={filteredData.type}
+                    label="Type"
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={"BEDROOM"}>Bedroom</MenuItem>
+                    <MenuItem value={"BATHROOM"}>Bathroom</MenuItem>
+                    <MenuItem value={"KITCHEN"}>Kitchen</MenuItem>
+                    <MenuItem value={"LIVINGROOM"}>Living Room</MenuItem>
+                    <MenuItem value={"OTHER"}>Other</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={4}>
+                <TextField
+                  label="Slug"
+                  variant="outlined"
+                  style={{ width: "100%" }}
+                  type="text"
+                  value={slug}
+                  onChange={handleSlugChange}
+                  placeholder={filteredData.slug}
+                />
+              </Grid>
+              <Grid item xs={5}>
+                <TextField
+                  label="Description"
+                  variant="outlined"
+                  style={{ width: "100%" }}
+                  type="text"
+                  value={description}
+                  onChange={handleDescriptionChange}
+                  placeholder={filteredData.description}
+                />
+              </Grid>
+              <Grid item xs={5}>
+                <TextField
+                  label="Price (THB)"
+                  variant="outlined"
+                  style={{ width: "100%" }}
+                  type="text"
+                  value={price}
+                  onChange={handlePriceChange}
+                  placeholder={filteredData.price}
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <TextField
+                  label="Quantity"
+                  variant="outlined"
+                  style={{ width: "100%" }}
+                  type="text"
+                  value={quantity}
+                  onChange={handleQuantityChange}
+                />
+              </Grid>
+              <Grid item xs={9}>
+                <TextField
+                  label="imageUrl"
+                  variant="outlined"
+                  style={{ width: "100%" }}
+                  type="text"
+                  value={imageUrl}
+                  onChange={handleImageUrlChange}
+                  placeholder={filteredData.imageUrl}
+                />
+              </Grid>
+            </Grid>
+            <br />
+            <hr />
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+              value="Submit"
+            >
+              Update
+            </Button>
+            {"  "}
+            <Link
+              to={{
                 pathname: `/admin/product`,
-              }} style={{ textDecoration: "none" }}>
-                <Button variant="outlined" color="secondary">
-                  Back
-                </Button>
-              </Link>
-            </form>
-          </div>):(<React.Fragment></React.Fragment>)}
+              }}
+              style={{ textDecoration: "none" }}
+            >
+              <Button variant="outlined" color="secondary">
+                Back
+              </Button>
+            </Link>
+          </form>
+        </div>
+      ) : (
+        <React.Fragment></React.Fragment>
+      )}
     </React.Fragment>
   );
 };

@@ -30,35 +30,35 @@ const App = () => {
               <ShopsPage />
               <Footer />
             </Route>
-            <Route exact path="/product/:slug">
+            <Route  path="/product/:slug">
               <ProductSlug />
               <Footer />
             </Route>
-            <Route exact path="/promotion">
+            <Route  path="/promotion">
               <PromotionPage />
               <Footer />
             </Route>
-            <Route exact path="/customer">
+            <Route  path="/customer">
               <UserPage />
               <Footer />
             </Route>
-            <Route exact path="/cart">
+            <Route  path="/cart">
               <CartPage />
               <Footer />
             </Route>
-            <Route exact path="/Checkout">
+            <Route  path="/Checkout">
               <CheckoutPage />
             </Route>
-            <Route exact path="/Payment">
+            <Route  path="/Payment">
               <PaymentPage />
             </Route>
-            <Route exact path="/login">
+            <Route  path="/login">
               <LoginPage />
             </Route>
-            <Route exact path="/register">
+            <Route  path="/register">
               <RegisterPage />
             </Route>
-            <Route exact path="/admin">
+            <Route  path="/admin">
               <AdminPage />
             </Route>
           </Switch>

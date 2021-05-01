@@ -109,12 +109,17 @@
     
 }
 .FeeText2{
-    padding: 1%;
+    padding: 2%;
     font-size: 1.3em;
+    width: 20vw;
 }
-.Totalshipping{
-    color: #F29559;
-
+.Totalshipping {
+    color: #202c39;
+    background-color: #F29559;
+    padding: 2%;
+    border-radius: 10%;
+    padding-left: 20%;
+    padding-right: 20%;
 }
 .Totalp{
     color: #F29559;
@@ -135,7 +140,6 @@
 .Payment-button{
     color: #F29559;
     padding: 2%;
-    width: 9vw;
 }
 .footerAllR{
     display:flex;
@@ -160,3 +164,17 @@
     color: #F29559;
     font-size: 1.3em;
 }
+.footerR{
+    display: flex !important;
+}
+.footerAll{
+    display: flex !important;
+    justify-content: flex-end;
+}
+.MuiDataGrid-root .MuiDataGrid-footer {
+    border : 1px transparent !important;
+  }
+.MuiDataGrid-root {
+    border : 1px transparent !important;
+  }
+  

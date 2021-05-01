@@ -41,18 +41,10 @@ const Cart = () => {
     };
   });
   const columns = [
-    { field: "id", headerName: "All", width: 900 },
+    { field: "id", headerName: "All", width: 880 },
     { field: "price", headerName: "Unit Price", width: 200 },
-    {
-      field: "quantity",
-      headerName: "Quantity",
-      width: 220,
-    },
-    {
-      field: "total",
-      headerName: "Total Price",
-      width: 220,
-    },
+    {field: "quantity",headerName: "Quantity",width: 220},
+    {field: "total",headerName: "total",width: 220},
     // {
     //   field: "DeleteI",
     //   headerName: "Delete",
@@ -63,12 +55,14 @@ const Cart = () => {
   return (
     <div className="CartPage">
       <div className="HeaderCart">
-        <Typography variant="h3" style={{ color: "#F29559" }}>
+        <Typography variant="h3" style={{ color: "#F29559", marginLeft : "1%", marginTop : "1%"}}>
           Shopping Cart
-          <ShoppingCartIcon className="IconC" />
+        </Typography>
+        <Typography variant="h3" style={{ color: "#F29559"}}>
+          <ShoppingCartIcon className="IconC" style={{ paddingTop: "40%", marginLeft : "15%" }}/>
         </Typography>
       </div>
-      <div style={{ height: 400, width: "100%" }}>
+      <div style={{ height: 400 , width: "100vw", border: "transparent !important"}}>
         <DataGrid
           rows={rows}
           columns={columns}

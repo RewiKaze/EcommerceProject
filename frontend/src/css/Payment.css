@@ -54,8 +54,9 @@
 .Total-S{
     padding: 1%;
     width: 15vw;
-    font-size: 120%;
+    font-size: 1.5vw;
     justify-content: flex-start;
+    font-weight: bold;
 }
 .Total-E{
     padding: 1%;
@@ -86,17 +87,19 @@
 .Pay-Des{
     display:block;
     width: 30vw;
+    font-size: 1vw;
 }
 .Pay-Des2{
     display:block;
     width: 30vw;
+    font-size: 1vw;
 }
 .Pay-Des3{
     display:block;
     width: 30vw;
     color:#F29559;
-    font-size: 200%;
     font-weight: bold;
+    font-size: 2vw;
 }
 .footerAllD{
     display:flex;

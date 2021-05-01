@@ -10,9 +10,12 @@ const StatusType = {
 };
 
 const OrderSchema = new Schema({
+    // name: { type: String, require: true, index: true  },
+    // address: { type: String, require: true, index: true },
+    // email: { type: String, require: true, index: true},
+    // tel: { type: String, require: true, index: true},
     userID: {
         type: String,
-        required: true,
         index: true,
         ref: "User",
     },
@@ -21,23 +24,32 @@ const OrderSchema = new Schema({
         index: true,
         ref: "Promotion",
     },
-    productsID: {
+    productID: {
         type: String,
         index: true,
         ref: "Product",
     },
+    // productsID: [
+    //     {
+    //         id:{
+    //             type: String,
+    //             index: true,
+    //         }
+    //     }
+    // ],
     timestamp: {
         type: Date,
         default: Date.now,
     },
     subtotal: {
-        type: Number,
+        type: String,
         required: true,
     },
     total: {
-        type: Number,
+        type: String,
         required: true,
     },
+
     status: {
         type: String,
         enum: Object.keys(StatusType),

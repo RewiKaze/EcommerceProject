@@ -13,7 +13,6 @@ import { LOGIN_MUTATION } from "../graphql/loginMutation";
 import { useHistory } from "react-router";
 const SessionContext = createContext();
 
-
 export const SessionProvider = (props) => {
   const { children } = props;
   const history = useHistory();
@@ -44,6 +43,7 @@ export const SessionProvider = (props) => {
             path: "/",
           });
           setUser(res?.data?.login?.user);
+          console.log(res?.data?.login?.user);
           history.push("/");
         }
       } catch (err) {
@@ -55,6 +55,7 @@ export const SessionProvider = (props) => {
     [login, removeCookie, setCookie, history]
   );
   useEffect(() => {
+    console.log(userData);
     if (userData) {
       setUser(userData);
     }
@@ -62,6 +63,7 @@ export const SessionProvider = (props) => {
   }, [cookie]);
 
   useEffect(() => {
+    console.log(data?.user);
     if (data?.user) {
       setUser(data?.user);
     }
@@ -72,6 +74,8 @@ export const SessionProvider = (props) => {
         const id = userData?._id ?? "0";
         const res = await loadMe();
         // await loadMe()
+        console.log(data?.user);
+        setUser(data?.user);
       } catch (err) {
         removeCookie("token", { maxAge: 86400 });
         removeCookie("user", { maxAge: 86400 });
@@ -80,14 +84,13 @@ export const SessionProvider = (props) => {
     loadData();
   }, [loadMe, removeCookie]);
 
-
   const handleLogout = useCallback(() => {
     setUser(null);
     removeCookie("token", { maxAge: 86400 });
     removeCookie("user", { maxAge: 86400 });
     removeCookie("cart", { maxAge: 86400 });
     history.push("/");
-  },[user, removeCookie,history]);
+  }, [user, removeCookie, history]);
 
   const handleAddCart = (product) => {
     console.log("CART", cart);

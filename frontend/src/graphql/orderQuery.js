@@ -2,12 +2,24 @@ import { gql } from "@apollo/client";
 
 export const ORDER_QUERY = gql`
 query{
-  orders{
+  orders (sort: _ID_DESC){
     _id
+    userID
     user{
       name
+      address
+      email
+      tel
+      type
     }
-  productsID
+    productID
+    product{
+      name
+      description
+      type
+      price
+    }
+    timestamp
     subtotal
     total
     status

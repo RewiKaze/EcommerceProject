@@ -23,22 +23,22 @@
 - [x] Register **`/register`** *Register form*
 - [ ] Products **`/products`** *Display all product with pagination* **rew**
 - [ ] Product detail **`/product/:productSlug`** *Display product detail by slug* **pam,note**
-- [x] Promotions **`/promotions`** *Display all promotion*
-- [x] Cart **`/cart`** *Display products in cart*
-- [x] Checkout **`/checkout`** *Checkout form* 
-- [x] Payment **`/payment`** *Payment form* 
-- [x] Customer info **`/customer`** *Display customer detail* 
+- [ ] Promotions **`/promotions`** *Display all promotion*
+- [ ] Cart **`/cart`** *Display products in cart*
+- [ ] Checkout **`/checkout`** *Checkout form* 
+- [ ] Payment **`/payment`** *Payment form* 
+- [ ] Customer info **`/customer`** *Display customer detail* 
 - [ ] Customer orders **`/customer/orders`** *Display customer orders*
 - [ ] Customer order detail **`/customer/order/:orderId`** *Display order detail by order id*
 - [x] Admin dashboard **`/admin`** *Display admin dashboard* 
 - [x] Admin products **`/admin/products`** *Display all product*
 - [x] Admin create product **`/admin/product/create`** *Create product from*
-- [ ] Admin update product **`/admin/product/:productId`** *Update product form*
+- [x] Admin update product **`/admin/product/:productId`** *Update product form*
 - [x] Admin promotions **`/admin/promotions`** *Display all promotion*
 - [x] Admin create promotion **`/admin/promotion/create`** *Create promotion from*
-- [ ] Admin update promotion **`/admin/promotion/:promotionId`** *Update promotion form* 
+- [x] Admin update promotion **`/admin/promotion/:promotionId`** *Update promotion form* 
 - [x] Admin orders **`/admin/orders`** *Display all orders*
-- [ ] Admin order detail **`/admin/order/:orderId`** *Display order detail by order id*
+- [x] Admin order detail **`/admin/order/:orderId`** *Display order detail by order id*
 ### 2. Page detail and features
 #### Pages
 - [x] Home
@@ -53,20 +53,20 @@
 - [ ] Customer info
 - [ ] Customer orders
 - [ ] Customer order detail
-- [ ] Admin dashboard
-- [ ] Admin products
+- [x] Admin dashboard
+- [x] Admin products
 - [x] Admin create product
-- [ ] Admin update product
-- [ ] Admin promotions
+- [x] Admin update product
+- [x] Admin promotions
 - [x] Admin create promotion
-- [ ] Admin update promotion
-- [ ] Admin orders
-- [ ] Admin order detail
+- [x] Admin update promotion
+- [x] Admin orders
+- [x] Admin order detail
 #### Features
-- [ ] Token base auth
+- [x] Token base auth
 - [x] Admin and Customer type implement User type
 - [x] Promotion type implement Product type
-- [ ] Admin update order status
+- [x] Admin update order status
 - [x] Admin cancel order
 - [ ] Update product stock when Customer make order
 ### 3. Implement Frontend, Backend and Database support pages and features

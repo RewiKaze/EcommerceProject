@@ -30,6 +30,7 @@ const AdminUpdatePromotion = React.lazy(() =>
 );
 const AdminCreateUser = React.lazy(()=>import('../components/Admin/AdminCreateUser'))
 const AdminOrder = React.lazy(()=>import('../components/Admin/AdminOrder'))
+const AdminOrderDetail = React.lazy(()=>import('../components/Admin/AdminOrderDetail'))
 
 
 const useStyles = makeStyles((theme) => ({
@@ -137,11 +138,14 @@ const Admin = () => {
             <Route exact path="/admin/promotions/:_id">
               <AdminUpdatePromotion style={{ padding: 10 }} />
             </Route>
-            <Route path="/admin/create/user">
+            <Route exact path="/admin/create/user">
               <AdminCreateUser style={{ padding: 10 }} />
             </Route>
-            <Route path="/admin/orders">
+            <Route exact path="/admin/orders">
               <AdminOrder style={{ padding: 10 }} />
+            </Route>
+            <Route exact path="/admin/orders/:_id">
+              <AdminOrderDetail style={{ padding: 10 }} />
             </Route>
           </Switch>
         </Grid>

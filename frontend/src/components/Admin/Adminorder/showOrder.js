@@ -10,6 +10,7 @@ import {useMutation, useQuery} from "@apollo/client";
 import CheckIcon from '@material-ui/icons/Check';
 import CloseIcon from '@material-ui/icons/Close';
 import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from "@material-ui/icons/Edit";
 
 
 
@@ -38,7 +39,7 @@ const OrderItem = (props) => {
     const classes = useStyles();
     const { loading, error, data } = useQuery(ORDER_QUERY, { fetchPolicy: 'network-only' })
     const [deleteOrder] = useMutation(DELETE_ORDER_MUTATION)
-    const removeProduct = async (id) =>{
+    const removeOrder = async (id) =>{
         try{
             await deleteOrder({variables:{id}, refetchQueries: [{ query: ORDER_QUERY }]})
             alert("Delete Order Success")
@@ -47,17 +48,6 @@ const OrderItem = (props) => {
             alert("Delete Order Failed")
         }
     }
-
-    // const [deleteProduct] = useMutation(DELETE_PRODUCT_MUTATION)
-    // const removeProduct = async (id) =>{
-    //     try{
-    //         await deleteProduct({variables:{id}, refetchQueries: [{ query: PRODUCT_QUERY }]})
-    //         alert("Delete Product Success")
-    //     }catch (err){
-    //         console.log(err)
-    //         alert("Delete Product Failed")
-    //     }
-    // }
 
     if (loading) {
         return 'Loading ...'
@@ -79,27 +69,47 @@ const OrderItem = (props) => {
                             </Typography>
                             <hr/>
                             <Typography variant="body2" component="p">
-                                Total: {(parseInt(order.total)).toLocaleString('th-TH', {
+                               <b>Name: </b>  {order.user.name}
+                            </Typography>
+                            <Typography variant="body2" component="p">
+                                <b>Tel: </b> {order.user.tel}
+                            </Typography>
+                            <Typography variant="body2" component="p">
+                                <b>Total: </b> {(parseInt(order.total)).toLocaleString('th-TH', {
                                 style: 'currency',
                                 currency: 'THB'
                             }) ?? ""}
                             </Typography>
                             <Typography variant="body2" component="p">
-                                Status : {order.status == "INCOMPLETE"?<b style={{color:'lightsalmon'}}>INCOMPLETE</b>
+                                <b>Status: </b> {order.status == "INCOMPLETE"?<b style={{color:'lightsalmon'}}>INCOMPLETE</b>
                                 : order.status == "CANCEL"? <b style={{color:'red'}}>CANCELED</b>
                                 : <b style={{color:'green'}}>COMPLETED</b>}
+                            </Typography>
+                            <Typography variant="body2" component="p">
+                                <b>Lassted: </b> {order.timestamp}
                             </Typography>
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <Button size="small"  variant="contained" style={{backgroundColor:"green", color:"white"}}>
-                                            <CheckIcon fontSize="small"/>Confirm
-                                        </Button>
-                        <Button size="small"  variant="contained" style={{backgroundColor:"red", color:"white"}}>
-                                        <CloseIcon fontSize="small"/>Cancel
-                                    </Button>
-                        <Button size="small"  variant="outlined" style={{color:"red"}} onClick={() => removeProduct(order._id)}>
-                            <DeleteIcon fontSize="small"/>Delete
+                        <Link
+                            to={{
+                                pathname: `/admin/orders/${order._id}`,
+                            }}
+                            style={{ textDecoration: "none" }}
+                        >
+                            <Button size="small" color="primary" variant="contained">
+                                <EditIcon fontSize="small" />
+                                Edit
+                            </Button>
+                        </Link>
+                        <Button
+                            size="small"
+                            variant="outlined"
+                            style={{ color: "red" }}
+                            onClick={() => removeOrder(order._id)}
+                        >
+                            <DeleteIcon fontSize="small" />
+                            Delete
                         </Button>
                     </CardActions>
                 </Card>

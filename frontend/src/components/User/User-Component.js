@@ -101,13 +101,13 @@ const User = () => {
                             <Route exact path="/customer">
                                 <Account />
                             </Route>
-                            <Route path="/customer/address">
+                            <Route exact path="/customer/address">
                                 <Address />
                             </Route>
-                            <Route path="/customer/orders">
+                            <Route exact path="/customer/orders">
                                 <Order />
                             </Route>
-                            <Route path="/customer/order/:id">
+                            <Route exact path="/customer/order/:id">
                                 <OrderID />
                             </Route>
                         </Switch>

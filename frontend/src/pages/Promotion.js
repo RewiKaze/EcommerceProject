@@ -20,16 +20,16 @@ const Promotion = () => {
       <React.Fragment>
         <div className={classes.root}>
           <Grid container spacing={3} style={{marginTop:10}}>
-            <Grid item xs={3}>
-              <Paper className={classes.paper} style={{ color: "#f29559", fontWeight:'bold'}}>FILTER<hr/>
-                <TextField
-                    label="Search"
-                    variant="outlined"
-                    style={{ width: "100%", marginBottom:10}}
-                />
-              </Paper>
-            </Grid>
-            <Grid item xs={9}>
+            {/*<Grid item xs={3}>*/}
+            {/*  <Paper className={classes.paper} style={{ color: "#f29559", fontWeight:'bold'}}>FILTER<hr/>*/}
+            {/*    <TextField*/}
+            {/*        label="Search"*/}
+            {/*        variant="outlined"*/}
+            {/*        style={{ width: "100%", marginBottom:10}}*/}
+            {/*    />*/}
+            {/*  </Paper>*/}
+            {/*</Grid>*/}
+            <Grid item xs={12} style={{paddingInline:20}}>
               <h1 style={{color:'#f29559'}}>Hot Deal!!!!</h1>
               <hr/>
               <Grid container spacing={3}>

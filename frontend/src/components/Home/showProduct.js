@@ -65,7 +65,7 @@ const CardItem = () => {
                             title="Contemplative Reptile"
                         />
                         <CardContent>
-                            <Typography gutterBottom variant="h5" component="h3">
+                            <Typography gutterBottom variant="h5" component="h3" noWrap={true}>
                                 {product.name}
                             </Typography>
                             <Typography style={{color:'#f29559', fontSize:19}}>
@@ -85,10 +85,11 @@ const CardItem = () => {
                     </CardActionArea>
                     <CardActions>
 
-                        <Button size="small" color="primary" variant="contained"
+                        <Button size="small"  variant="contained"
                                 onClick={() => {
                                     handleAddCart(product._id);
                                 }}
+                                style={{backgroundColor:"#f29559", borderRadius:0, color:'white'}}
                         >
                             Add to cart
                         </Button>

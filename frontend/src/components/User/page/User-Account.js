@@ -61,7 +61,7 @@ const Account = () => {
                         <div style={{ display: "flex", flexDirection: 'column' }}>
                             <div style={{ display: 'flex' }}>
                             <Avatar style={{ backgroundColor: "#F2D492", width: '4.5rem', height: '4.5rem' }}>{user?.name[0]}</Avatar>{'  '}
-                            <p style={{marginLeft:'2rem',color:'black',fontWeight:'500'}}>Your Avatar</p>
+                            <p style={{marginLeft:'2rem',color:'black',fontWeight:'500'}}>Hello, Khun.{user.name}</p>
                             </div>
                             <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'space-between' }}>
                                 <FormControl variant="outlined" style={{ width: '40%' }}>
@@ -69,16 +69,14 @@ const Account = () => {
                                         type="text"
                                         variant="outlined"
                                         margin="normal"
-                                        disabled
                                         value={user.name} label="Full Name"
                                     />
                                 </FormControl>
                                 <FormControl variant="outlined" style={{ width: '40%' }}>
                                     <TextField
-                                        type="search"
+                                        type="text"
                                         variant="outlined"
                                         margin="normal"
-                                        disabled
                                         value={user.name} label="Username"
                                     />
                                 </FormControl>
@@ -86,19 +84,17 @@ const Account = () => {
                             <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'space-between' }}>
                                 <FormControl variant="outlined" style={{ width: '40%' }}>
                                     <TextField
-                                        type="search"
+                                        type="text"
                                         variant="outlined"
                                         margin="normal"
-                                        disabled
                                         value={user.email} label="Email"
                                     />
                                 </FormControl>
                                 <FormControl variant="outlined" style={{ width: '40%' }}>
                                     <TextField
-                                        type="search"
+                                        type="text"
                                         variant="outlined"
                                         margin="normal"
-                                        disabled
                                         value={user.tel} label="Tel"
                                     />
                                 </FormControl>
@@ -106,10 +102,10 @@ const Account = () => {
                             <div style={{ marginTop: '2rem', display: 'flex'}}>
                                 <FormControl variant="outlined" style={{ width: '100%' }}>
                                     <TextField
-                                        type="search"
+                                        type="text"
                                         variant="outlined"
                                         margin="normal"
-                                        disabled
+
                                         value={user.address} label="Address"
                                     />
                                 </FormControl>

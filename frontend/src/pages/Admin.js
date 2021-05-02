@@ -48,7 +48,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#202C39",
     padding: theme.spacing(2),
     borderRadius: 0,
-    height: "calc(100vh - 0.65em)",
+    height: "calc(180vh - 0.65em)",
+    // height: "auto",
   },
 }));
 

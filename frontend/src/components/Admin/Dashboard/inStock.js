@@ -66,7 +66,7 @@ const InStock = () => {
                     <hr/>
                     <table style={{width:'100%', textAlign:'left', borderSpacing:"5px"}}>
                         <tr>
-                            <th>Name</th>
+                            <th style={{width:100}}>Name</th>
                             <th>Type</th>
                             <th>Price</th>
                             <th>Status</th>

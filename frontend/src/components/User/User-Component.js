@@ -84,7 +84,7 @@ const User = () => {
                   <ListItemText primary="My Order" />
                 </ListItem>
               </List>
-              <Button className="logout">Log Out</Button>
+              {/*<Button className="logout">Log Out</Button>*/}
             </Paper>
           </Grid>
           <Grid item xs={9}>

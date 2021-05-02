@@ -75,7 +75,7 @@ const CardItem = (props) => {
             title="Contemplative Reptile"
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="h3">
+            <Typography gutterBottom variant="h5" component="h3" noWrap={true}>
               {product.name}
             </Typography>
             <Typography style={{ color: "#f29559", fontSize: 19 }}>

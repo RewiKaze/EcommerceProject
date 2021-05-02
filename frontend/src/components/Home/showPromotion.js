@@ -60,7 +60,7 @@ const PromotionItem = () => {
                     <div className="best-sell">
                         <img className="best-sell-img" alt={"test"} src={promo.product.imageUrl} />
                         <div className="best-sell-content">
-                            <span className="best-sell-name">{promo.product.name}</span>
+                            <span className="best-sell-name" noWrap={true}>{promo.product.name}</span>
                         </div>
                         <span className="best-sell-price">{(parseInt(promo.total)).toLocaleString('th-TH', {
                             style: 'currency',

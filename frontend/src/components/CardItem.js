@@ -73,7 +73,7 @@ const CardItem = (prop) => {
             title="Contemplative Reptile"
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="h3">
+            <Typography gutterBottom variant="h5" component="h3" noWrap={true}>
               {prop.product.name}
             </Typography>
             <Typography style={{ color: "#f29559", fontSize: 19 }}>
@@ -110,7 +110,7 @@ const CardItem = (prop) => {
               handleAddCart(prop.product._id);
             }}
             size="small"
-            color="primary"
+            style={{backgroundColor:"#f29559", borderRadius:0, color:'white'}}
             variant="contained"
           >
             Add to cart

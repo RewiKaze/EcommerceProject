@@ -78,9 +78,10 @@ const PromotionItem = () => {
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <Button size="small" color="primary" variant="contained" onClick={() => {
+                        <Button size="small"  variant="contained" onClick={() => {
                             handleAddCart(promo.product._id);
-                        }}>
+                        }}
+                                style={{backgroundColor:"#f29559", borderRadius:0, color:'white'}}>
                             Add to cart
                         </Button>
                     </CardActions>

@@ -43,7 +43,7 @@ const Order = () => {
         if (user) {
             return (
                 data?.orders?.map((order) => (
-                    <table>
+
                         <tr>
                             {/*{order.user._id === user._id?*/}
                             <td>{order.user._id === user._id ? order._id : ""}</td>
@@ -63,7 +63,7 @@ const Order = () => {
                             </td>
                             {/*:null}*/}
                         </tr>
-                    </table>
+
                 ))
             )
         }

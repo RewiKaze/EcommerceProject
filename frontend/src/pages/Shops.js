@@ -100,6 +100,8 @@ const Shops = () => {
           {/*  </Paper>*/}
           {/*</Grid>*/}
           <Grid item xs={12} style={{paddingInline:20}}>
+            <h1 style={{color:'#f29559'}}>All Product</h1>
+            <hr/>
             <Grid container spacing={3}>
               {/* {console.log(data.products)} */}
               {currentProducts.map((each) => {

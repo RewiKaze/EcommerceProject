@@ -10,6 +10,7 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { PRODUCT_QUERY } from "../graphql/productQuery";
 import { useQuery } from "@apollo/client";
 import { useParams, } from "react-router-dom";
+import {useSession} from "../contexts/SessionContext";
 // function Item(props) {
 //   return (
 //     <Paper>
@@ -18,7 +19,8 @@ import { useParams, } from "react-router-dom";
 //   );
 // }
 
-const ProductSlug = () => {
+const ProductSlug = (prop) => {
+  const { addProductToCart, userCookie, cart } = useSession();
   // const [piece, setPiece] = React.useState(0);
   const { slug } = useParams();
   const { loading, data, error } = useQuery(PRODUCT_QUERY, {
@@ -31,6 +33,21 @@ const ProductSlug = () => {
   if (error) {
     return "Error !!";
   }
+  const handleAddCart = (id) => {
+    console.log(id, cart);
+    // if (cart?.find((each) => each.id === id)) {
+    //   const result = {
+    //     id: id,
+    //     amount: cart[cart.indexOf(id)].amount + 1,
+    //   };
+    //   addProductToCart(result);
+    // } else {
+    const result = {
+      id: id,
+      amount: 1,
+    };
+    addProductToCart(result);
+  };
   //
   // const pieceChange = (event) => {
   //   setPiece(event.target.value);
@@ -55,7 +72,7 @@ const ProductSlug = () => {
   return (
     <React.Fragment>
       <div className="Product-sell">
-        <ArrowBackIosIcon></ArrowBackIosIcon>
+        {/*<ArrowBackIosIcon></ArrowBackIosIcon>*/}
         <Grid item xs={6}>
           <p className="head-name">{filteredData.name}</p>
           <hr></hr>
@@ -95,6 +112,9 @@ const ProductSlug = () => {
             <Button
               className="Button1"
               style={{ width: "30%", marginRight: "1rem" }}
+              onClick={() => {
+                handleAddCart(filteredData._id);
+              }}
             >
               <ShoppingCartIcon></ShoppingCartIcon>
               &nbsp;ADD to CART

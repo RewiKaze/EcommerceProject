@@ -50,8 +50,10 @@
     font-size: xx-large;
 }
 .img-product{
+    /*height: 28rem;*/
+    /*width: fit-content;*/
     height: 28rem;
-    width: fit-content;
+    width: 28rem;
     align-self: center;
 }
 

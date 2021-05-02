@@ -19,6 +19,7 @@ query{
       description
       type
       price
+      imageUrl
     }
     timestamp
     subtotal

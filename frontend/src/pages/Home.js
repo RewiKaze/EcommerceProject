@@ -149,7 +149,7 @@ const Home = () => {
         </Grid>
         <div className="third-foot">
           <Link to={{
-            pathname: `/product/`,
+            pathname: `/product`,
           }} style={{ textDecoration: "none" }}>
             <Button className="button1 third-but">See All Products</Button>
           </Link>
@@ -179,7 +179,7 @@ const Home = () => {
         </div>
         <div className="third-foot">
           <Link to={{
-            pathname: `/product/`,
+            pathname: `/product`,
           }} style={{ textDecoration: "none" }}>
             <Button className="button1 third-but">See All Products</Button>
           </Link>
@@ -187,40 +187,44 @@ const Home = () => {
       </div>
 
       {/* fourth */}
-      {/*<div className="fourthSection">*/}
-      {/*  <div className="fourth-topic">*/}
-      {/*    <div style={{ display: 'flex' }}>*/}
-      {/*      <span className="text-topic">Promotion of the day</span>*/}
-      {/*    </div>*/}
-      {/*    <div>*/}
-      {/*      <span className="text-title" style={{ color: '#F2D492' }}>The special gift for you</span>*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-        {/*<div className="fourth-promo">*/}
-        {/*  <Grid item xs={8} className="left-promo">*/}
-        {/*    <div className="left-promo-content">*/}
-        {/*      <span style={{ fontSize: 'xxx-large', letterSpacing: '1rem', fontWeight: '600', marginBottom: '0.5rem' }}>Limited For You</span>*/}
-        {/*      <div className="promo-card">*/}
-        {/*        <div className="promo-card-left">-20%</div>*/}
-        {/*        <div className="promo-line"></div>*/}
-        {/*        <div className="promo-card-right">*/}
-        {/*          <span className="promo-text1">Sale for</span>*/}
-        {/*          <span className="promo-text2">First time</span>*/}
-        {/*          <span className="promo-text1">Opening</span>*/}
-        {/*        </div>*/}
-        {/*      </div>*/}
-        {/*    </div>*/}
-        {/*  </Grid>*/}
-        {/*  <Grid item xs={4} className="right-promo">*/}
-        {/*    <span className="promo-special">Special</span>*/}
-        {/*    <span className="promo-promo">Promotion</span>*/}
-        {/*    <div className="promo-total">*/}
-        {/*      <span>4</span><span>&nbsp;total</span>*/}
-        {/*    </div>*/}
-        {/*    <Button className="promo-button">See more !</Button>*/}
-        {/*  </Grid>*/}
-        {/*</div>*/}
-      {/*</div>*/}
+      <div className="fourthSection">
+        <div className="fourth-topic">
+          <div style={{ display: 'flex' }}>
+            <span className="text-topic">Promotion of the day</span>
+          </div>
+          <div>
+            <span className="text-title" style={{ color: '#F2D492' }}>The special gift for you</span>
+          </div>
+        </div>
+        <div className="fourth-promo">
+          <Grid item xs={8} className="left-promo">
+            <div className="left-promo-content">
+              <span style={{ fontSize: 'xxx-large', letterSpacing: '1rem', fontWeight: '600', marginBottom: '0.5rem' }}>Limited For You</span>
+              <div className="promo-card">
+                <div className="promo-card-left">XX%</div>
+                <div className="promo-line"></div>
+                <div className="promo-card-right">
+                  <span className="promo-text1">Sale for</span>
+                  <span className="promo-text2">First time</span>
+                  <span className="promo-text1">Opening</span>
+                </div>
+              </div>
+            </div>
+          </Grid>
+          <Grid item xs={4} className="right-promo">
+            <span className="promo-special">Special</span>
+            <span className="promo-promo">Promotion</span>
+            <div className="promo-total">
+              <span>On Sale!!!</span>
+            </div>
+            <Link to={{
+              pathname: `/promotion`,
+            }} style={{ textDecoration: "none" }}>
+            <Button className="promo-button">See more !</Button>
+            </Link>
+          </Grid>
+        </div>
+      </div>
 
 
       {/* fifth */}

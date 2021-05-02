@@ -117,7 +117,7 @@ const User = () => {
               <Route path="/customer/orders">
                 <Order />
               </Route>
-              <Route path="/customer/order/:id">
+              <Route path="/customer/order/:_id">
                 <OrderID />
               </Route>
             </Switch>

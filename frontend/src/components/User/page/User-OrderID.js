@@ -9,7 +9,7 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {useQuery} from "@apollo/client";
 import {ORDER_QUERY} from "../../../graphql/orderQuery";
 
@@ -34,9 +34,9 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function getSteps() {
-    return ['Request order', 'Shipping Order', 'Success'];
-}
+// function getSteps() {
+//     return ['Request order', 'Shipping Order', 'Success'];
+// }
 
 const OrderID = () => {
     const { _id } = useParams();
@@ -44,7 +44,7 @@ const OrderID = () => {
         variables: { _id },
         fetchPolicy: "network-only",
     });
-    const steps = getSteps();
+    // const steps = getSteps();
     const classes = useStyles();
     if (loading) {
         return "Loading ...";
@@ -63,63 +63,71 @@ const OrderID = () => {
             <Paper className={classes.paper}>
                 <div style={{ display: 'flex' }}>
                     <Grid item xs={1}>
+                        <Link
+                            to={{
+                                pathname: `/customer/orders`,
+                            }}
+                            style={{ textDecoration: "none" }}
+                        >
+                            <Button>
                         <ArrowBackIosIcon style={{ color: '#202C39' }}></ArrowBackIosIcon>
+                            </Button>
+                        </Link>
                     </Grid>
                     <Grid item xs={10}>
-                        <span style={{ fontWeight: '700', color: '#202C39' }}>My Order</span>
+                        <span style={{ fontWeight: '700', color: '#202C39' }}>My Order: {filteredData._id}</span>
                     </Grid>
                     <Grid item xs={1}></Grid>
                 </div>
-                <hr style={{ height: '0.005rem', backgroundColor: '#E5E5E5', borderWidth: '0', margin: '1rem' }}></hr>
+                <hr/>
+                {/*<hr style={{ height: '0.005rem', backgroundColor: '#E5E5E5', borderWidth: '0', margin: '1rem' }}></hr>*/}
                 {/*<p>{filteredData.user.name}</p>*/}
-                <div style={{ color: '#C4C4C4', textAlign: 'left', marginLeft: '1rem', fontSize: '0.75rem' }}><span>My Order /</span><span> Delivered on 17 Jan 2021</span></div>
-                <Stepper alternativeLabel activeStep="3" >
-                    {steps.map((label) => (
-                        <Step key={label}>
-                            <StepLabel>{label}</StepLabel>
-                        </Step>
-                    ))}
-                </Stepper>
+                <div style={{ color: '#C4C4C4', textAlign: 'left', marginLeft: '1rem', fontSize: '0.75rem' }}><span>My Order /</span><span> Created on {filteredData.timestamp}</span></div>
+                {/*<Stepper alternativeLabel activeStep="3" >*/}
+                {/*    {steps.map((label) => (*/}
+                {/*        <Step key={label}>*/}
+                {/*            <StepLabel>{label}</StepLabel>*/}
+                {/*        </Step>*/}
+                {/*    ))}*/}
+                {/*</Stepper>*/}
                 <div>
                     <div>
                         <div id="order1" style={{ display: 'flex', justifyContent: 'space-between', margin: '1rem' }}>
                             <div style={{ display: 'flex', marginLeft: '1rem' }}>
-                                <img src={product1} style={{ width: '4rem' }} />
+                                <img src={filteredData.product.imageUrl} style={{ width: '4rem' }} />
                                 <div style={{ textAlign: 'left', marginLeft: '1rem' }}>
-                                    <span style={{ fontWeight: '600', color: '#202C39' }}>ตู้หนังสือ ขนาด 80 ซม. รุ่น Lybrary สีขาว</span><br></br>
-                                    <span style={{ fontWeight: '600', color: '#202C39' }}>X1</span><br></br>
+                                    <span style={{ fontWeight: '600', color: '#202C39' }}>{filteredData.product.name}</span><br></br>
+                                    <span style={{ fontWeight: '600', color: '#202C39' }}>{filteredData.product.description}</span><br></br>
                                 </div>
                             </div>
-                            <span style={{ fontWeight: '600', color: '#202C39' }}>$39</span>
-                        </div>
-                        <div id="order1" style={{ display: 'flex', justifyContent: 'space-between', margin: '1rem' }}>
-                            <div style={{ display: 'flex', marginLeft: '1rem' }}>
-                                <img src={product1} style={{ width: '4rem' }} />
-                                <div style={{ textAlign: 'left', marginLeft: '1rem' }}>
-                                    <span style={{ fontWeight: '600', color: '#202C39' }}>ตู้หนังสือ ขนาด 80 ซม. รุ่น Lybrary สีขาว</span><br></br>
-                                    <span style={{ fontWeight: '600', color: '#202C39' }}>X1</span><br></br>
-                                </div>
-                            </div>
-                            <span style={{ fontWeight: '600', color: '#202C39' }}>$39</span>
+                            <span style={{ fontWeight: '600', color: '#202C39' }}>{parseInt(filteredData.product.price).toLocaleString("th-TH", {
+                                style: "currency",
+                                currency: "THB",
+                            }) ?? ""}</span>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between', margin: '1rem', marginLeft: '2rem' }}>
-                            <span style={{ fontWeight: '600', color: '#202C39' }}>Order</span>
-                            <span style={{ fontWeight: '600', color: '#202C39' }}>$78</span>
+                            <span style={{ fontWeight: '600', color: '#202C39' }}>Status</span>
+                            <span style={{ fontWeight: '600', color: '#202C39' }}>{filteredData.status == "INCOMPLETE"?<b style={{color:'lightsalmon'}}>INCOMPLETE</b>
+                                : filteredData.status == "CANCEL"? <b style={{color:'red'}}>CANCELED</b>
+                                    : <b style={{color:'green'}}>COMPLETED</b>}</span>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between', margin: '1rem', marginLeft: '2rem' }}>
                             <span style={{ fontWeight: '600', color: '#202C39' }}>Shipping</span>
-                            <span style={{ fontWeight: '600', color: '#202C39' }}>$0</span>
+                            <span style={{ fontWeight: '600', color: '#202C39' }}>Free</span>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between', margin: '1rem', marginLeft: '2rem' }}>
                             <span style={{ fontWeight: '800', color: '#202C39' }}>Total</span>
-                            <span style={{ fontWeight: '800', color: '#202C39' }}>$78</span>
+                            <span style={{ fontWeight: '800', color: '#202C39' }}>{parseInt(filteredData.total).toLocaleString("th-TH", {
+                                style: "currency",
+                                currency: "THB",
+                            }) ?? ""}</span>
                         </div>
                         <div style={{ display: 'flex', marginTop: '2.5rem', borderRadius: '0.5rem' }}>
                             <Grid item xs={4} style={{ backgroundColor: '#202C39', color: 'white', padding: '1rem' }}>
                                 Payment Method
                                 </Grid>
                             <Grid item xs={8} style={{ backgroundColor: '#E5E5E5', color: '#F29559', padding: '1rem' }}>
-                                Siam Commercial Bank Public Company Limited (SCB)
+                                Transfer Banking
                                 </Grid>
                         </div>
                     </div>

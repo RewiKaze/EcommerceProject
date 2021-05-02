@@ -24,19 +24,20 @@ const OrderSchema = new Schema({
         index: true,
         ref: "Promotion",
     },
-    productID: {
-        type: String,
-        index: true,
-        ref: "Product",
-    },
-    // productsID: [
-    //     {
-    //         id:{
-    //             type: String,
-    //             index: true,
-    //         }
-    //     }
-    // ],
+   productID: {
+         type: String,
+         index: true,
+         ref: "Product",
+     },
+   //  productID: [
+   //      {
+   //          id:{
+   //              type: String,
+   //              index: true,
+   //              ref: "Product",
+   //          }
+   //      }
+   //  ],
     timestamp: {
         type: Date,
         default: Date.now,

@@ -74,34 +74,6 @@ const AdminCreateProduct = () => {
   const handleImageUrlChange = useCallback((e) => {
     setImageUrl(e.target.value);
   }, []);
-  // const handleTaghange = useCallback((e) => {
-  //     setTag(e.target.value);
-  // }, []);
-
-  // const handleCreateProduct = useCallback(
-  //     async (e) => {
-  //         e.preventDefault();
-  //         const variables = {
-  //             record: {createProduct,name, description, price, type, quantity, imageUrl, slug
-  //             },
-  //         };
-  //         await createProduct({
-  //             variables,
-  //             refetchQueries: [{ query: PRODUCT_QUERY }],
-  //         });
-  //         setName("");
-  //         setSlug("")
-  //         setDescription("");
-  //         setPrice("");
-  //         setType("");
-  //         setQuantity("");
-  //         setImageUrl("");
-  //         history.push("/admin/product");
-  //         // setTag("")
-  //     },
-  //     [createProduct,name, description, price, type, quantity, imageUrl, slug
-  //     ]
-  // );
 
   const handleCreateProduct = useCallback(
     async (e) => {
@@ -237,17 +209,6 @@ const AdminCreateProduct = () => {
               required
             />
           </Grid>
-          {/*<Grid item xs={5}>*/}
-          {/*    <TextField*/}
-          {/*        label="Tag"*/}
-          {/*        variant="outlined"*/}
-          {/*        style={{ width: "100%"}}*/}
-          {/*        type="text"*/}
-          {/*        value={tag}*/}
-          {/*        onChange={handleTaghange}*/}
-          {/*        required*/}
-          {/*    />*/}
-          {/*</Grid>*/}
         </Grid>
         <br />
         <hr />
@@ -271,9 +232,6 @@ const AdminCreateProduct = () => {
           </Button>
         </Link>
       </form>
-      {/*<h1 style={{color:'#202C39'}}>CREATE PRODUCT DEMO</h1>*/}
-      {/*<hr/>*/}
-      {/*<ProductCreateDemo/>*/}
     </React.Fragment>
   );
 };

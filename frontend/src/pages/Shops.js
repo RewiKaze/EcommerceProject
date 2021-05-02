@@ -2,11 +2,6 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Grid,
-  TextField,
-  Paper,
-  InputLabel,
-  FormControl,
-  Select,
 } from "@material-ui/core";
 import CardItem from "../components/CardItem";
 import PageSelect from "../components/PageSelect";
@@ -25,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Shops = () => {
   const classes = useStyles();
-  // const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(8);
   const { loading, error, data } = useQuery(PRODUCT_QUERY);
@@ -49,61 +43,10 @@ const Shops = () => {
     <React.Fragment>
       <div className={classes.root}>
         <Grid container spacing={3} style={{ marginTop: 10 }}>
-          {/*<Grid item xs={12}>*/}
-          {/*  <Grid container spacing={3}>*/}
-          {/*    <Grid item xs={8}>*/}
-          {/*      <TextField*/}
-          {/*        label="Search"*/}
-          {/*        variant="outlined"*/}
-          {/*        style={{ width: "100%" }}*/}
-          {/*      />*/}
-          {/*    </Grid>*/}
-          {/*    <Grid item xs={2}>*/}
-          {/*      <FormControl variant="outlined" style={{ width: "100%" }}>*/}
-          {/*        <InputLabel htmlFor="outlined-age-native-simple">*/}
-          {/*          Category*/}
-          {/*        </InputLabel>*/}
-          {/*        <Select*/}
-          {/*          native*/}
-          {/*          label="Category"*/}
-          {/*          inputProps={{*/}
-          {/*            name: "Category",*/}
-          {/*            id: "outlined-age-native-simple",*/}
-          {/*          }}*/}
-          {/*        >*/}
-          {/*          <option aria-label="None" />*/}
-          {/*        </Select>*/}
-          {/*      </FormControl>*/}
-          {/*    </Grid>*/}
-          {/*    <Grid item xs={2}>*/}
-          {/*      <TextField*/}
-          {/*        label="Tags"*/}
-          {/*        variant="outlined"*/}
-          {/*        style={{ width: "100%" }}*/}
-          {/*      />*/}
-          {/*    </Grid>*/}
-          {/*  </Grid>*/}
-          {/*</Grid>*/}
-          {/*<Grid item xs={3}>*/}
-          {/*  <Paper*/}
-          {/*    className={classes.paper}*/}
-          {/*    style={{ color: "#f29559", fontWeight: "bold" }}*/}
-          {/*  >*/}
-          {/*    CATEGORY*/}
-          {/*    <hr />*/}
-          {/*    <p style={{ fontWeight: "lighter" }}>All</p>*/}
-          {/*    <p style={{ fontWeight: "lighter" }}>Bedroom</p>*/}
-          {/*    <p style={{ fontWeight: "lighter" }}>Bathroom</p>*/}
-          {/*    <p style={{ fontWeight: "lighter" }}>Kitchen</p>*/}
-          {/*    <p style={{ fontWeight: "lighter" }}>Living room</p>*/}
-          {/*    <p style={{ fontWeight: "lighter" }}>Other</p>*/}
-          {/*  </Paper>*/}
-          {/*</Grid>*/}
           <Grid item xs={12} style={{paddingInline:20}}>
             <h1 style={{color:'#f29559'}}>All Product</h1>
             <hr/>
             <Grid container spacing={3}>
-              {/* {console.log(data.products)} */}
               {currentProducts.map((each) => {
                 return <CardItem product={each} />;
               })}

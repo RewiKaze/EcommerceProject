@@ -1,12 +1,9 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import proflie from "./../image/proflie.png";
-import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from "@material-ui/core/TextField";
-import InputAdornment from "@material-ui/core/InputAdornment";
 import { useSession } from "../../../contexts/SessionContext";
 import Avatar from "@material-ui/core/Avatar";
 
@@ -34,22 +31,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Account = () => {
     const classes = useStyles();
-    const [name, setName] = React.useState('');
-    const [email, setEmail] = React.useState('');
-    const [date, setDate] = React.useState('');
-    const [phone, setPhone] = React.useState('');
-    const handleChange = (event) => {
-        setName(event.target.value);
-    };
-    const mailChange = (event) => {
-        setEmail(event.target.value);
-    };
-    const dateChange = (event) => {
-        setDate(event.target.value);
-    };
-    const phoneChange = (event) => {
-        setPhone(event.target.value);
-    };
     const { user } = useSession();
     if (user) {
         return (

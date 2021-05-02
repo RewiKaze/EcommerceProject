@@ -59,11 +59,6 @@ const Cart = () => {
     { field: "price", headerName: "Unit Price", width: 200 },
     { field: "quantity", headerName: "Quantity", width: 220 },
     { field: "total", headerName: "total", width: 220 },
-    // {
-    //   field: "DeleteI",
-    //   headerName: "Delete",
-    //   width: 200,
-    // },
   ];
 
   return (
@@ -92,18 +87,6 @@ const Cart = () => {
         <DataGrid rows={rows} columns={columns} pageSize={5} />
       </div>
       <div className="footerAll">
-        {/* <div className="footerT">
-          <div className="FeeText">
-            <LocalShippingIcon className="IconShipping" />
-            Fee shipping on orders{" "}
-          </div>
-          <div className="feeBox">
-            Standard delivery{" "}
-            <span className="Receive">Receive by 13 April - 15 April</span>
-          </div>
-          <div className="FeePrice">$0.5-$1.5 </div>
-        </div> */}
-        {/* <div className="footerR"> */}
         <div className="FeeText2">
           Total (
           <span>
@@ -120,7 +103,6 @@ const Cart = () => {
             style: "currency",
             currency: "THB",
           }) ?? ""}
-          {/*{rows.reduce((total, obj) => obj.total + total, 0) + " Baht"}*/}
         </div>
         <div className="C-button">
           <Button
@@ -131,21 +113,9 @@ const Cart = () => {
           >
             Check out
           </Button>
-          {/* <Link to="/checkout">
-            <Button variant="outlined" className={classes.button}>
-              CHECK OUT
-            </Button>
-          </Link> */}
         </div>
-        {/* </div> */}
       </div>
       <div className="footerSection"></div>
-      {/* <div className="footerR">
-    <div className="FeeText2">Merchandise Subtotal (<span>3</span>items) : </div>
-    <div className="Totalp">$268.00</div>
-    <div className="C-button">
-      <Button variant="outlined" className={classes.button}>CHECK OUT</Button></div>
-</div> */}
     </div>
   );
 };

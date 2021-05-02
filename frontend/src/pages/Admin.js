@@ -49,7 +49,6 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     borderRadius: 0,
     height: "calc(180vh - 0.65em)",
-    // height: "auto",
   },
 }));
 

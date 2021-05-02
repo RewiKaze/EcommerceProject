@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
 
   },
   paper: {
-    // padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
@@ -47,24 +46,7 @@ const Home = () => {
       image: third
     }
   ]
-  // var items2 = [
-  //   {
-  //     logo: logo,
-  //     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, auctor viverra viverra est. Id enim consectetur elit fermentum ultricies sed. Aliquam in odio nunc, mauris, senectus ut. Viverra pharetra tortor consectetur orci libero tincidunt et."
-  //   },
-  //   {
-  //     logo: logo,
-  //     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, auctor viverra viverra est. Id enim consectetur elit fermentum ultricies sed. Aliquam in odio nunc, mauris, senectus ut. Viverra pharetra tortor consectetur orci libero tincidunt et."
-  //   },
-  //   {
-  //     logo: logo,
-  //     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, auctor viverra viverra est. Id enim consectetur elit fermentum ultricies sed. Aliquam in odio nunc, mauris, senectus ut. Viverra pharetra tortor consectetur orci libero tincidunt et."
-  //   },
-  //   {
-  //     logo: logo,
-  //     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, auctor viverra viverra est. Id enim consectetur elit fermentum ultricies sed. Aliquam in odio nunc, mauris, senectus ut. Viverra pharetra tortor consectetur orci libero tincidunt et."
-  //   },
-  // ]
+
 
   return (
     <React.Fragment>
@@ -95,39 +77,7 @@ const Home = () => {
           </div>
           <div className="second-content">
             <PromotionItem />
-            {/*<div className="best-sell">*/}
-            {/*  <img className="best-sell-img" src={fourth} />*/}
-            {/*  <div className="best-sell-content">*/}
-            {/*    <span className="best-sell-name">Sofa</span>*/}
-            {/*    <img className="heart" src={heart} />*/}
-            {/*  </div>*/}
-            {/*  <span className="best-sell-price">$ 300.00</span>*/}
-            {/*</div>*/}
-            {/*<div className="best-sell">*/}
-            {/*  <img className="best-sell-img" src={fourth} />*/}
-            {/*  <div className="best-sell-content">*/}
-            {/*    <span className="best-sell-name">Sofa</span>*/}
-            {/*    <img className="heart" src={heart} />*/}
-            {/*  </div>*/}
-            {/*  <span className="best-sell-price">$ 300.00</span>*/}
-            {/*</div>*/}
-            {/*<div className="best-sell">*/}
-            {/*  <img className="best-sell-img" src={fourth} />*/}
-            {/*  <div className="best-sell-content">*/}
-            {/*    <span className="best-sell-name">Sofa</span>*/}
-            {/*    <img className="heart" src={heart} />*/}
-            {/*  </div>*/}
-            {/*  <span className="best-sell-price">$ 300.00</span>*/}
-            {/*</div>*/}
 
-            {/*<div className="best-sell">*/}
-            {/*  <img className="best-sell-img" src={fourth} />*/}
-            {/*  <div className="best-sell-content">*/}
-            {/*    <span className="best-sell-name">Sofa</span>*/}
-            {/*    <img className="heart" src={heart} />*/}
-            {/*  </div>*/}
-            {/*  <span className="best-sell-price">$ 300.00</span>*/}
-            {/*</div>*/}
           </div>
         </Container>
       </div>
@@ -137,12 +87,9 @@ const Home = () => {
             <h1>Product Latest</h1>
             <hr />
             <Grid container  spacing={3}>
-              {/*<Grid item xs={12}>*/}
-              {/*/!*<h1>Hot Deal</h1>*!/*/}
-              {/*</Grid>*/}
-              {/*<PromotionItem/>*/}
+
               <CardItem />
-            {/*</Grid>*/}
+
             </Grid>
           </Grid>
         </Grid>
@@ -155,8 +102,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/*<h1 className="text-topic"></h1>*/}
-      {/* third */}
+
       <div className="thirdSection">
         <div className="third-topic">
           <div style={{ display: 'flex' }}>
@@ -233,13 +179,7 @@ const Home = () => {
             <span className="text-topic" style={{ letterSpacing: '0.3rem' }}>Your Happiness = Our Happiness</span>
           </div>
         </div>
-        {/*<div className="fifth-Carou">*/}
-        {/*  <Carousel maxWidth="sm">*/}
-        {/*    {*/}
-        {/*      items2.map((item, i) => <Item2 key={i} item2={item} />)*/}
-        {/*    }*/}
-        {/*  </Carousel>*/}
-        {/*</div>*/}
+
         <hr style={{width:'80%',marginTop:'2rem',marginBottom:'2rem'}}></hr>
         <div className="fifth-spon">
           <img src={s1} alt={"test"} />
@@ -289,17 +229,5 @@ function Item(props) {
   )
 }
 
-// function Item2(props) {
-//   return (
-//     <Paper className="carousel-head" style={{ display:'flex',marginLeft:'6rem',marginRight:'6rem',padding:'2rem'}}>
-//       <div>
-//         <img src={props.item2.logo} style={{width:'20rem'}}/>
-//       </div>
-//       <div>
-//         <p>{props.item2.description}</p>
-//       </div>
-//     </Paper>
-//   )
-// }
 
 export default Home;

@@ -61,7 +61,6 @@ const PromotionList = () => {
                     <th>Status</th>
                     <th>Discount</th>
                     <th>Price (Discount)</th>
-                    {/*<th style={{ color:'white'}}>Date Added</th>*/}
                 </tr>
                 {promotionItem()}
             </table>

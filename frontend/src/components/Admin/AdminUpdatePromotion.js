@@ -176,12 +176,6 @@ const AdminUpdatePromotion = () => {
           <p>Amount: {filteredData.amount}</p>
           <p>Discount(%): {filteredData.discount}</p>
           <p>Product ID: {filteredData.productId}</p>
-          {/*<p>Price: {parseInt(filteredData.price).toLocaleString("th-TH", {*/}
-          {/*    style: "currency",*/}
-          {/*    currency: "THB",*/}
-          {/*}) ?? ""}</p>*/}
-          {/*<p>Quantity: {filteredData.quantity}</p>*/}
-          {/*<p>imageUrl: {filteredData.imageUrl}</p>*/}
         </Grid>
       </Grid>
 

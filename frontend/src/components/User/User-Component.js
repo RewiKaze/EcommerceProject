@@ -1,18 +1,13 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Fragment, Suspense } from "react";
+import { Route, Switch } from "react-router-dom";
 import Home from "../../pages/Home";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { NavLink } from "react-router-dom";
-import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Avatar from "@material-ui/core/Avatar";
 import "./User-Component.css";
-import BorderColorRoundedIcon from "@material-ui/icons/BorderColorRounded";
-import Button from "@material-ui/core/Button";
 import PersonOutlineOutlinedIcon from "@material-ui/icons/PersonOutlineOutlined";
-import EventAvailableOutlinedIcon from "@material-ui/icons/EventAvailableOutlined";
 import InsertDriveFileOutlinedIcon from "@material-ui/icons/InsertDriveFileOutlined";
 import { useSession } from "../../contexts/SessionContext";
 import List from '@material-ui/core/List';
@@ -48,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 
 const User = () => {
   const classes = useStyles();
-  const { user, logout: handleLogout } = useSession();
+  const { user} = useSession();
   if (user) {
     return (
       <React.Fragment>
@@ -63,7 +58,6 @@ const User = () => {
                 boxShadow: "0 0",
               }}
             >
-              {/* <h1>My Profile</h1> */}
               <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <div>
                   <Avatar style={{ backgroundColor: "#F2D492", width: '4.5rem', height: '4.5rem' }}>{user?.name[0]}</Avatar>{'  '}
@@ -84,11 +78,9 @@ const User = () => {
                   <ListItemText primary="My Order" />
                 </ListItem>
               </List>
-              {/*<Button className="logout">Log Out</Button>*/}
             </Paper>
           </Grid>
           <Grid item xs={9}>
-            {/* <Suspense fallback="Loading ..."> */}
             <Switch>
               <Route exact path="/customer">
                 <Account />
@@ -103,7 +95,6 @@ const User = () => {
                 <OrderID />
               </Route>
             </Switch>
-            {/* </Suspense> */}
           </Grid>
         </div>
       </React.Fragment>

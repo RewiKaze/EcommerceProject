@@ -28,8 +28,8 @@
 - [x] Checkout **`/checkout`** *Checkout form* 
 - [x] Payment **`/payment`** *Payment form* 
 - [x] Customer info **`/customer`** *Display customer detail* 
-- [ ] Customer orders **`/customer/orders`** *Display customer orders*
-- [ ] Customer order detail **`/customer/order/:orderId`** *Display order detail by order id*
+- [x] Customer orders **`/customer/orders`** *Display customer orders*
+- [x] Customer order detail **`/customer/order/:orderId`** *Display order detail by order id*
 - [x] Admin dashboard **`/admin`** *Display admin dashboard* 
 - [x] Admin products **`/admin/products`** *Display all product*
 - [x] Admin create product **`/admin/product/create`** *Create product from*
@@ -51,8 +51,8 @@
 - [x] Checkout
 - [x] Payment
 - [x] Customer info
-- [ ] Customer orders
-- [ ] Customer order detail
+- [x] Customer orders
+- [x] Customer order detail
 - [x] Admin dashboard
 - [x] Admin products
 - [x] Admin create product

@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { NavLink, useLocation, matchPath } from "react-router-dom";
+import { NavLink, } from "react-router-dom";
 import { AppBar, Toolbar, Button, Avatar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
@@ -89,11 +89,6 @@ const NavBar = () => {
 
   const classes = useStyles();
 
-  // if (
-  //   matchPath(location.pathname, {
-  //     path: "/admin",
-  //   }) == null
-  // ) {
   return (
     <>
       <AppBar position="fixed" className={classes.styleBar}>
@@ -135,10 +130,7 @@ const NavBar = () => {
       <Toolbar />
     </>
   );
-  // }
-  // else {
-  //   return null;
-  // }
+
 };
 
 export default NavBar;

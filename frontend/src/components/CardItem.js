@@ -47,13 +47,6 @@ const CardItem = (prop) => {
 
   const handleAddCart = (id) => {
     console.log(id, cart);
-    // if (cart?.find((each) => each.id === id)) {
-    //   const result = {
-    //     id: id,
-    //     amount: cart[cart.indexOf(id)].amount + 1,
-    //   };
-    //   addProductToCart(result);
-    // } else {
     const result = {
       id: id,
       amount: 1,
@@ -61,7 +54,6 @@ const CardItem = (prop) => {
     addProductToCart(result);
   };
 
-  // return data?.products?.map((product) => (
   return (
     <Grid item xs={3}>
       {console.log(prop.product)}
@@ -120,6 +112,5 @@ const CardItem = (prop) => {
     </Grid>
   );
 };
-// ));
-// };
+
 export default CardItem;

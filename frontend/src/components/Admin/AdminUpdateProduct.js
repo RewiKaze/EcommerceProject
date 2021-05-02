@@ -74,25 +74,8 @@ const AdminUpdateProduct = (props) => {
   const saveProduct = async (e) => {
     e.preventDefault();
     try {
-      //   const variables = {
-      //     record: {
-      //       updateProduct,
-      //       _id: data.products.find((each) => each._id === _id)._id,
-      //       name,
-      //       description,
-      //       price,
-      //       type,
-      //       quantity,
-      //       imageUrl,
-      //       slug,
-      //     },
-      //   };
-      //   console.log(variables);
       console.log(data.products.find((each) => each._id === _id)._id);
       await updateProduct({
-        // _id: 1,
-        // variables,
-        // // refetchQueries: [{ query: PRODUCT_QUERY }],
         variables: {
           id: data.products.find((each) => each._id === _id)._id ?? 0,
           record: {
@@ -122,25 +105,7 @@ const AdminUpdateProduct = (props) => {
       alert("Update Product Failed!!!");
     }
   };
-  // [updateProduct,name, description, price, type, quantity, imageUrl, slug]
 
-  // const saveProduct = async (e) => {
-  //   e.preventDefault()
-  //   console.log(productData)
-  //   try {
-  //     await updateProduct({
-  //       variables: {
-  //         id: data?.products?._id ?? 0,
-  //         record: productData
-  //       }
-  //     })
-  //     history.push("/admin/product");
-  //     alert("Update Product Success!!!");
-  //   } catch (error) {
-  //     console.log(error)
-  //     alert("Update Product Fail!!!");
-  //   }
-  // }
 
   if (loading) {
     return "Loading ...";
@@ -152,8 +117,6 @@ const AdminUpdateProduct = (props) => {
 
   return (
     <React.Fragment>
-      {/*{console.log(filteredData)}*/}
-      {/*Dashboard*/}
       {data ? (
         <div>
           <h1 style={{ color: "#202C39" }}>

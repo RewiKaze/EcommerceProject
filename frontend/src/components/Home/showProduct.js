@@ -39,14 +39,6 @@ const CardItem = () => {
     }
 
     const handleAddCart = (id) => {
-        // console.log(id, cart);
-        // if (cart?.find((each) => each.id === id)) {
-        //   const result = {
-        //     id: id,
-        //     amount: cart[cart.indexOf(id)].amount + 1,
-        //   };
-        //   addProductToCart(result);
-        // } else {
         const result = {
             id: id,
             amount: 1,
@@ -77,9 +69,6 @@ const CardItem = () => {
                             <Typography variant="body2" color="textSecondary" component="p" noWrap={true}>
                                 {product.description}
                             </Typography>
-                            {/*<Typography variant="body2" color="textSecondary" component="p">*/}
-                            {/*    Tags:{product.tag}*/}
-                            {/*</Typography>*/}
 
                         </CardContent>
                     </CardActionArea>

@@ -6,22 +6,15 @@ import LocalShippingIcon from "@material-ui/icons/LocalShipping";
 import LocalAtmIcon from "@material-ui/icons/LocalAtm";
 import Button from "@material-ui/core/Button";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-// import product1 from "./../image/product/product1.png";
+
 import { PRODUCT_QUERY } from "../graphql/productQuery";
 import { useQuery } from "@apollo/client";
 import { useParams, } from "react-router-dom";
 import {useSession} from "../contexts/SessionContext";
-// function Item(props) {
-//   return (
-//     <Paper>
-//       <img style={{ width: "5rem" }} src={props.item.image} />
-//     </Paper>
-//   );
-// }
+
 
 const ProductSlug = (prop) => {
   const { addProductToCart, cart } = useSession();
-  // const [piece, setPiece] = React.useState(0);
   const { slug } = useParams();
   const { loading, data, error } = useQuery(PRODUCT_QUERY, {
     variables: { slug },
@@ -35,50 +28,25 @@ const ProductSlug = (prop) => {
   }
   const handleAddCart = (id) => {
     console.log(id, cart);
-    // if (cart?.find((each) => each.id === id)) {
-    //   const result = {
-    //     id: id,
-    //     amount: cart[cart.indexOf(id)].amount + 1,
-    //   };
-    //   addProductToCart(result);
-    // } else {
+
     const result = {
       id: id,
       amount: 1,
     };
     addProductToCart(result);
   };
-  //
-  // const pieceChange = (event) => {
-  //   setPiece(event.target.value);
-  // };
-  // var items = [
-  //   {
-  //     image: product1,
-  //   },
-  // ];
+
   const filteredData = data.products.find((each) => each.slug === slug);
-  // {
-  //   /* {console.log(
-  //       slug,
-  //       data.products.find((each) => each.slug === slug)
-  //     )}
-  //     <div>{JSON.stringify(filteredData)}</div> */
-  //   {
-  //     /* {console.log(slug)} */
-  //   }
-  // }
+
 
   return (
     <React.Fragment>
       <div className="Product-sell">
-        {/*<ArrowBackIosIcon></ArrowBackIosIcon>*/}
         <Grid item xs={6}>
           <p className="head-name">{filteredData.name}</p>
           <hr></hr>
           <div style={{ display: "flex" }}>
-            {/* <span>1K&nbsp;</span>
-                        <span style={{ color: '#9E9E9E' }}>&nbsp;Sold |&nbsp;</span> */}
+
             <div className="tag-product">{filteredData.type}</div>
           </div>
           <p className="price-product">
@@ -103,7 +71,6 @@ const ProductSlug = (prop) => {
                   <LocalAtmIcon style={{ color: "#F29559" }}></LocalAtmIcon>
                   <span style={{ color: "#9E9E9E" }}>&nbsp;Shipping Fee</span>
                 </div>
-                {/* <span style={{ color: '#9E9E9E' }}>500 THB</span> */}
               </div>
             </div>
           </div>

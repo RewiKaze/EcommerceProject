@@ -63,7 +63,6 @@ const CardItem = (props) => {
   if (error) {
     return "Error !!";
   }
-  // console.log(productId)
 
   return data?.products?.map((product) => (
     <Grid item xs={3}>

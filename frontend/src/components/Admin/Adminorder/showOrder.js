@@ -111,35 +111,6 @@ const OrderItem = (props) => {
                         </Button>
                     </CardActions>
                 </Card>
-                {/*<Card className={classes.root2}>*/}
-                {/*    <CardActionArea>*/}
-                {/*        <CardContent>*/}
-                {/*            <Typography gutterBottom variant="h5" component="h3">*/}
-                {/*                {order._id}*/}
-                {/*            </Typography>*/}
-                {/*            <Typography style={{color:'#f29559', fontSize:19}}>*/}
-                {/*                {(parseInt(order.total)).toLocaleString('th-TH', {*/}
-                {/*                    style: 'currency',*/}
-                {/*                    currency: 'THB'*/}
-                {/*                }) ?? ""}*/}
-                {/*            </Typography>*/}
-                {/*            <Typography variant="body2" color="textSecondary" component="p" noWrap={true}>*/}
-                {/*                {order.productsID}*/}
-                {/*            </Typography>*/}
-                {/*            /!*<Typography variant="body2" color="textSecondary" component="p">*!/*/}
-                {/*            /!*    Tags:{product.tag}*!/*/}
-                {/*            /!*</Typography>*!/*/}
-                {/*        </CardContent>*/}
-                {/*    </CardActionArea>*/}
-                {/*    <CardActions>*/}
-                {/*            <Button size="small"  variant="contained" style={{backgroundColor:"green", color:"white"}}>*/}
-                {/*                <CheckIcon fontSize="small"/>Confirm*/}
-                {/*            </Button>*/}
-                {/*        <Button size="small"  variant="contained" style={{backgroundColor:"red", color:"white"}}>*/}
-                {/*            <CloseIcon fontSize="small"/>Cancel*/}
-                {/*        </Button>*/}
-                {/*    </CardActions>*/}
-                {/*</Card>*/}
             </Grid>
         ))
     )

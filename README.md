@@ -21,13 +21,13 @@
 - [x] Home **`/`** *Display banner, latest promotion and products* 
 - [x] Login **`/login`** *Login form*
 - [x] Register **`/register`** *Register form*
-- [ ] Products **`/products`** *Display all product with pagination* **rew**
-- [ ] Product detail **`/product/:productSlug`** *Display product detail by slug* **pam,note**
-- [ ] Promotions **`/promotions`** *Display all promotion*
-- [ ] Cart **`/cart`** *Display products in cart*
-- [ ] Checkout **`/checkout`** *Checkout form* 
-- [ ] Payment **`/payment`** *Payment form* 
-- [ ] Customer info **`/customer`** *Display customer detail* 
+- [x] Products **`/products`** *Display all product with pagination* **rew**
+- [x] Product detail **`/product/:productSlug`** *Display product detail by slug* **pam,note**
+- [x] Promotions **`/promotions`** *Display all promotion*
+- [x] Cart **`/cart`** *Display products in cart*
+- [x] Checkout **`/checkout`** *Checkout form* 
+- [x] Payment **`/payment`** *Payment form* 
+- [x] Customer info **`/customer`** *Display customer detail* 
 - [ ] Customer orders **`/customer/orders`** *Display customer orders*
 - [ ] Customer order detail **`/customer/order/:orderId`** *Display order detail by order id*
 - [x] Admin dashboard **`/admin`** *Display admin dashboard* 
@@ -44,13 +44,13 @@
 - [x] Home
 - [x] Login
 - [x] Register
-- [ ] Products
-- [ ] Product detail
-- [ ] Promotions
-- [ ] Cart
-- [ ] Checkout
-- [ ] Payment
-- [ ] Customer info
+- [x] Products
+- [x] Product detail
+- [x] Promotions
+- [x] Cart
+- [x] Checkout
+- [x] Payment
+- [x] Customer info
 - [ ] Customer orders
 - [ ] Customer order detail
 - [x] Admin dashboard
@@ -70,6 +70,6 @@
 - [x] Admin cancel order
 - [ ] Update product stock when Customer make order
 ### 3. Implement Frontend, Backend and Database support pages and features
-- [ ] Done
+- [x] Done
 ### 4. Deploy Frontend, Backend and Database to server
 - [ ] Done

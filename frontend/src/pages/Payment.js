@@ -4,8 +4,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import * as React from "react";
-import TextField from "@material-ui/core/TextField";
-import MenuItem from "@material-ui/core/MenuItem";
+// import TextField from "@material-ui/core/TextField";
+// import MenuItem from "@material-ui/core/MenuItem";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -38,29 +38,29 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-const currencies = [
-  {
-    value: "BBL",
-    label: "BANGKOK BANK PUBLIC COMPANY LIMITED",
-  },
-  {
-    value: "KBANK",
-    label: "Kasikornbank Public Company Limited (KBANK)",
-  },
-  {
-    value: "SCB",
-    label: "Siam Commercial Bank Public Company Limited (SCB)",
-  },
-  {
-    value: "KTB",
-    label: "Krung Thai Bank Public Company Limited (KTB)",
-  },
-];
+// const currencies = [
+//   {
+//     value: "BBL",
+//     label: "BANGKOK BANK PUBLIC COMPANY LIMITED",
+//   },
+//   {
+//     value: "KBANK",
+//     label: "Kasikornbank Public Company Limited (KBANK)",
+//   },
+//   {
+//     value: "SCB",
+//     label: "Siam Commercial Bank Public Company Limited (SCB)",
+//   },
+//   {
+//     value: "KTB",
+//     label: "Krung Thai Bank Public Company Limited (KTB)",
+//   },
+// ];
 const Payment = () => {
   const history = useHistory();
   const classes = useStyles();
   const { loading, error, data } = useQuery(PRODUCT_QUERY);
-  const [currency, setCurrency] = React.useState("SCB");
+  // const [currency, setCurrency] = React.useState("SCB");
   const { cart, clearCart } = useSession();
   const [open, setOpen] = React.useState(false);
   if (loading) {
@@ -79,9 +79,9 @@ const Payment = () => {
     history.push("/");
   };
 
-  const handleChange = (event) => {
-    setCurrency(event.target.value);
-  };
+  // const handleChange = (event) => {
+  //   setCurrency(event.target.value);
+  // };
   const rows = cart.map((each) => {
     const eachData = data?.products.find((o) => o._id === each.id);
     return {

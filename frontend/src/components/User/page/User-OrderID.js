@@ -66,7 +66,7 @@ const OrderID = () => {
                         <ArrowBackIosIcon style={{ color: '#202C39' }}></ArrowBackIosIcon>
                     </Grid>
                     <Grid item xs={10}>
-                        <span style={{ fontWeight: '700', color: '#202C39' }}>My Order:</span>
+                        <span style={{ fontWeight: '700', color: '#202C39' }}>My Order</span>
                     </Grid>
                     <Grid item xs={1}></Grid>
                 </div>

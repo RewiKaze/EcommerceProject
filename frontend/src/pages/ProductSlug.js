@@ -1,28 +1,25 @@
 import React from "react";
 import "./../css/ProductSlug.css";
-import { Grid, Paper } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import LocalShippingIcon from "@material-ui/icons/LocalShipping";
 import LocalAtmIcon from "@material-ui/icons/LocalAtm";
-import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import Carousel from "react-material-ui-carousel";
-import product1 from "./../image/product/product1.png";
-import { useHistory } from "react-router-dom";
+// import product1 from "./../image/product/product1.png";
 import { PRODUCT_QUERY } from "../graphql/productQuery";
 import { useQuery } from "@apollo/client";
-import { useParams, Link } from "react-router-dom";
-function Item(props) {
-  return (
-    <Paper>
-      <img style={{ width: "5rem" }} src={props.item.image} />
-    </Paper>
-  );
-}
+import { useParams, } from "react-router-dom";
+// function Item(props) {
+//   return (
+//     <Paper>
+//       <img style={{ width: "5rem" }} src={props.item.image} />
+//     </Paper>
+//   );
+// }
 
 const ProductSlug = () => {
-  const [piece, setPiece] = React.useState(0);
+  // const [piece, setPiece] = React.useState(0);
   const { slug } = useParams();
   const { loading, data, error } = useQuery(PRODUCT_QUERY, {
     variables: { slug },
@@ -34,26 +31,26 @@ const ProductSlug = () => {
   if (error) {
     return "Error !!";
   }
-
-  const pieceChange = (event) => {
-    setPiece(event.target.value);
-  };
-  var items = [
-    {
-      image: product1,
-    },
-  ];
+  //
+  // const pieceChange = (event) => {
+  //   setPiece(event.target.value);
+  // };
+  // var items = [
+  //   {
+  //     image: product1,
+  //   },
+  // ];
   const filteredData = data.products.find((each) => each.slug === slug);
-  {
-    /* {console.log(
-        slug,
-        data.products.find((each) => each.slug === slug)
-      )}
-      <div>{JSON.stringify(filteredData)}</div> */
-    {
-      /* {console.log(slug)} */
-    }
-  }
+  // {
+  //   /* {console.log(
+  //       slug,
+  //       data.products.find((each) => each.slug === slug)
+  //     )}
+  //     <div>{JSON.stringify(filteredData)}</div> */
+  //   {
+  //     /* {console.log(slug)} */
+  //   }
+  // }
 
   return (
     <React.Fragment>
@@ -113,7 +110,7 @@ const ProductSlug = () => {
             flexDirection: "column",
           }}
         >
-          <img src={filteredData.imageUrl} className="img-product" />
+          <img src={filteredData.imageUrl} alt={filteredData.name} className="img-product" />
         </Grid>
       </div>
 

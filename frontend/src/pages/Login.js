@@ -8,7 +8,7 @@ import Lottie from "lottie-react";
 import waveAnimation from "../animation/wave.json";
 import { useHistory } from "react-router-dom";
 import { useSession } from "../contexts/SessionContext";
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback } from "react";
 
 const useStyles = makeStyles((theme) => ({
   loginPage: {

@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CardItem = () => {
     const classes = useStyles();
-    const { loading, error, data } = useQuery(PRODUCT_QUERY, { fetchPolicy: 'network-only' })
+    const { loading, error, data } = useQuery(PRODUCT_QUERY)
 
     if (loading) {
         return 'Loading ...'
@@ -35,7 +35,7 @@ const CardItem = () => {
         return 'Error !!'
     }
     return (
-        data?.products?.slice(0, 8).map((product) => (
+        data?.products?.slice(0, 6).map((product) => (
             <Grid item xs={3}>
                 <Card className={classes.root2}>
                     <CardActionArea>

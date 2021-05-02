@@ -1,15 +1,15 @@
 import React from 'react'
 import "../../css/Home.css"
-import {Card, Button, Grid, CardActionArea, CardMedia, CardContent, Typography, CardActions} from '@material-ui/core';
+import { Card, Button, Grid, CardActionArea, CardMedia, CardContent, Typography, CardActions } from '@material-ui/core';
 // Query Data
-import {PROMOTION_QUERY} from "../../graphql/promotionQuery";
+import { PROMOTION_QUERY } from "../../graphql/promotionQuery";
 import { useQuery } from '@apollo/client'
 import { makeStyles } from '@material-ui/core/styles';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-const useStyles = makeStyles((theme)=>({
+const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: "100%",
     },
@@ -21,11 +21,16 @@ const useStyles = makeStyles((theme)=>({
         textAlign: 'center',
         color: theme.palette.text.secondary,
     },
+    Button1: {
+        color: "white",
+        backgroundColor: "#F29559",
+        border: "solid #F29559",
+    },
 }));
 
 const PromotionItem = () => {
     const classes = useStyles();
-    const { loading, error, data } = useQuery(PROMOTION_QUERY, { fetchPolicy: 'network-only' })
+    const { loading, error, data } = useQuery(PROMOTION_QUERY)
     if (loading) {
         return 'Loading ...'
     }
@@ -38,29 +43,29 @@ const PromotionItem = () => {
                 {promo.product._id ?
                     // <Card className={classes.root2}>
                     <div className="best-sell">
-                      <img className="best-sell-img" src={promo.product.imageUrl} />
-                      <div className="best-sell-content">
-                        <span className="best-sell-name">{promo.product.name}</span>
-                        {/*<img className="heart" src={heart} />*/}
-                      </div>
-                      <span className="best-sell-price">{(parseInt(promo.total)).toLocaleString('th-TH', {
-                          style: 'currency',
-                          currency: 'THB'
-                      }) ?? ""}{"     "}
-                          <span style={{fontSize:14, color:"black", textDecoration:'line-through'}}>{(parseInt(promo.product.price)).toLocaleString('th-TH', {
-                              style: 'currency',
-                              currency: 'THB'
-                          }) ?? ""}</span></span> <hr/>
-                        <div style={{alignItems:'center'}}>
+                        <img className="best-sell-img" src={promo.product.imageUrl} />
+                        <div className="best-sell-content">
+                            <span className="best-sell-name">{promo.product.name}</span>
+                            {/*<img className="heart" src={heart} />*/}
+                        </div>
+                        <span className="best-sell-price">{(parseInt(promo.total)).toLocaleString('th-TH', {
+                            style: 'currency',
+                            currency: 'THB'
+                        }) ?? ""}{"     "}
+                            <span style={{ fontSize: 14, color: "black", textDecoration: 'line-through' }}>{(parseInt(promo.product.price)).toLocaleString('th-TH', {
+                                style: 'currency',
+                                currency: 'THB'
+                            }) ?? ""}</span></span> <hr />
+                        <div style={{ alignItems: 'center' }}>
                             <Button size="small" color="primary">
                                 Detail
                             </Button>
-                            <Button size="small" color="primary" variant="contained">
+                            <Button class={classes.Button1} size="small" color="primary" variant="contained">
                                 Add to cart
                             </Button>
                         </div>
 
-                    </div>:null}
+                    </div> : null}
                 {/*    <CardActionArea>*/}
                 {/*        <CardMedia*/}
                 {/*            className={classes.media}*/}

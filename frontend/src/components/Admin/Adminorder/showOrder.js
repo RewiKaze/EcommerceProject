@@ -86,7 +86,7 @@ const OrderItem = (props) => {
                                 : <b style={{color:'green'}}>COMPLETED</b>}
                             </Typography>
                             <Typography variant="body2" component="p">
-                                <b>Lassted: </b> {order.timestamp}
+                                <b>Lasted: </b> {order.timestamp}
                             </Typography>
                         </CardContent>
                     </CardActionArea>

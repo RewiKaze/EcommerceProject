@@ -10,7 +10,7 @@ import { useCookies } from "react-cookie";
 
 import { ME_QUERY } from "../graphql/meQuery";
 import { LOGIN_MUTATION } from "../graphql/loginMutation";
-import { useHistory } from "react-router";
+import { Redirect, useHistory } from "react-router";
 const SessionContext = createContext();
 
 export const SessionProvider = (props) => {
@@ -93,7 +93,8 @@ export const SessionProvider = (props) => {
     removeCookie("token", { maxAge: 86400 });
     removeCookie("user", { maxAge: 86400 });
     removeCookie("cart", { maxAge: 86400 });
-    history.push("/");
+    // history.push("/");
+    window.location.href = "/";
   }, [user, removeCookie, history]);
 
   const handleAddCart = (product) => {

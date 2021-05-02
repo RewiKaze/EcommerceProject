@@ -166,29 +166,32 @@ const AdminUpdateProduct = (props) => {
                 <Grid container spacing={3}>
                   <Grid item xs={7}>
                     <TextField
-                        label="Product Name"
-                        variant="outlined"
-                        style={{ width: "100%" }}
-                        type="text"
-                        value={name}
-                        onChange={handleNameChange}
-                        placeholder={filteredData.name}
-                        required
+                      label="Product Name"
+                      variant="outlined"
+                      style={{ width: "100%" }}
+                      type="text"
+                      value={name}
+                      onChange={handleNameChange}
+                      placeholder={filteredData.name}
+                      required
                     />
                   </Grid>
                   <Grid item xs={5}>
-                    <FormControl variant="outlined" className={classes.formControl}>
+                    <FormControl
+                      variant="outlined"
+                      className={classes.formControl}
+                    >
                       <InputLabel id="demo-simple-select-outlined-label">
                         Category
                       </InputLabel>
                       <Select
-                          labelId="demo-simple-select-outlined-label"
-                          id="demo-simple-select-outlined"
-                          value={type}
-                          onChange={handleTypeChange}
-                          placeholder={filteredData.type}
-                          label="Type"
-                          required
+                        labelId="demo-simple-select-outlined-label"
+                        id="demo-simple-select-outlined"
+                        value={type}
+                        onChange={handleTypeChange}
+                        placeholder={filteredData.type}
+                        label="Type"
+                        required
                       >
                         <MenuItem value="">
                           <em>None</em>
@@ -203,81 +206,81 @@ const AdminUpdateProduct = (props) => {
                   </Grid>
                   <Grid item xs={5}>
                     <TextField
-                        label="Slug"
-                        variant="outlined"
-                        style={{ width: "100%" }}
-                        type="text"
-                        value={slug}
-                        onChange={handleSlugChange}
-                        placeholder={filteredData.slug}
-                        required
+                      label="Slug"
+                      variant="outlined"
+                      style={{ width: "100%" }}
+                      type="text"
+                      value={slug}
+                      onChange={handleSlugChange}
+                      placeholder={filteredData.slug}
+                      required
                     />
                   </Grid>
                   <Grid item xs={7}>
                     <TextField
-                        label="Description"
-                        variant="outlined"
-                        style={{ width: "100%" }}
-                        type="text"
-                        value={description}
-                        onChange={handleDescriptionChange}
-                        placeholder={filteredData.description}
-                        required
+                      label="Description"
+                      variant="outlined"
+                      style={{ width: "100%" }}
+                      type="text"
+                      value={description}
+                      onChange={handleDescriptionChange}
+                      placeholder={filteredData.description}
+                      required
                     />
                   </Grid>
                   <Grid item xs={7}>
                     <TextField
-                        label="Price (THB)"
-                        variant="outlined"
-                        style={{ width: "100%" }}
-                        type="text"
-                        value={price}
-                        onChange={handlePriceChange}
-                        required
-                        placeholder={filteredData.price}
+                      label="Price (THB)"
+                      variant="outlined"
+                      style={{ width: "100%" }}
+                      type="number"
+                      value={price}
+                      onChange={handlePriceChange}
+                      required
+                      placeholder={filteredData.price}
                     />
                   </Grid>
                   <Grid item xs={5}>
                     <TextField
-                        label="Quantity"
-                        variant="outlined"
-                        style={{ width: "100%" }}
-                        type="text"
-                        value={quantity}
-                        onChange={handleQuantityChange}
-                        placeholder={filteredData.quantity}
-                        required
+                      label="Quantity"
+                      variant="outlined"
+                      style={{ width: "100%" }}
+                      type="number"
+                      value={quantity}
+                      onChange={handleQuantityChange}
+                      placeholder={filteredData.quantity}
+                      required
                     />
                   </Grid>
                   <Grid item xs={12}>
                     <TextField
-                        label="imageUrl"
-                        variant="outlined"
-                        style={{ width: "100%" }}
-                        type="text"
-                        value={imageUrl}
-                        onChange={handleImageUrlChange}
-                        placeholder={filteredData.imageUrl}
-                        required
+                      label="imageUrl"
+                      variant="outlined"
+                      style={{ width: "100%" }}
+                      type="text"
+                      value={imageUrl}
+                      onChange={handleImageUrlChange}
+                      placeholder={filteredData.imageUrl}
+                      required
                     />
                   </Grid>
                 </Grid>
                 <br />
                 <hr />
                 <Button
-                    variant="contained"
-                    color="primary"
-                    type="submit"
-                    value="Submit"
+                  variant="contained"
+                  color="primary"
+                  type="submit"
+                  value="Submit"
                 >
                   Update
                 </Button>
                 {"  "}
                 <Link
-                    to={{
-                      pathname: `/admin/product`,
-                    }}
-                    style={{ textDecoration: "none" }}
+                  to={{
+                    pathname: `/admin/product`,
+                  }}
+                  style={{ textDecoration: "none" }}
                 >
                   <Button variant="outlined" color="secondary">
                     Back
@@ -287,21 +290,22 @@ const AdminUpdateProduct = (props) => {
             </Grid>
             <Grid item xs={4}>
               <h3>Product Details</h3>
-              <hr/>
+              <hr />
               <p>Product Name: {filteredData.name}</p>
               <p>Type: {filteredData.type}</p>
               <p>Slug: {filteredData.slug}</p>
               <p>Description: {filteredData.description}</p>
-              <p>Price: {parseInt(filteredData.price).toLocaleString("th-TH", {
-                style: "currency",
-                currency: "THB",
-              }) ?? ""}</p>
+              <p>
+                Price:{" "}
+                {parseInt(filteredData.price).toLocaleString("th-TH", {
+                  style: "currency",
+                  currency: "THB",
+                }) ?? ""}
+              </p>
               <p>Quantity: {filteredData.quantity}</p>
               <p>imageUrl: {filteredData.imageUrl}</p>
-
             </Grid>
-            </Grid>
-
+          </Grid>
         </div>
       ) : (
         <React.Fragment></React.Fragment>

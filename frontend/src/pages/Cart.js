@@ -67,7 +67,6 @@ const Cart = () => {
           rows={rows}
           columns={columns}
           pageSize={5}
-          checkboxSelection
         />
       </div>
       <div className="footerAll">
@@ -84,12 +83,16 @@ const Cart = () => {
         </div> */}
         {/* <div className="footerR"> */}
         <div className="FeeText2">
-          Merchandise Subtotal (
+          Total (
           <span>{cart.reduce((total, obj) => obj.amount + total, 0)}</span>{" "}
           items) :{" "}
         </div>
         <div className="Totalp">
-          {rows.reduce((total, obj) => obj.total + total, 0) + " Baht"}
+          {(parseInt(rows.reduce((total, obj) => obj.total + total, 0))).toLocaleString('th-TH', {
+            style: 'currency',
+            currency: 'THB'
+          }) ?? ""}
+          {/*{rows.reduce((total, obj) => obj.total + total, 0) + " Baht"}*/}
         </div>
         <div className="C-button">
           <Button

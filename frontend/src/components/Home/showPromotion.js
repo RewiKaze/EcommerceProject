@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
+import {useSession} from "../../contexts/SessionContext";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -30,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 const PromotionItem = () => {
     const classes = useStyles();
+    const { addProductToCart, userCookie, cart } = useSession();
     const { loading, error, data } = useQuery(PROMOTION_QUERY)
     if (loading) {
         return 'Loading ...'
@@ -37,6 +39,22 @@ const PromotionItem = () => {
     if (error) {
         return 'Error !!'
     }
+
+    const handleAddCart = (id) => {
+        // console.log(id, cart);
+        // if (cart?.find((each) => each.id === id)) {
+        //   const result = {
+        //     id: id,
+        //     amount: cart[cart.indexOf(id)].amount + 1,
+        //   };
+        //   addProductToCart(result);
+        // } else {
+        const result = {
+            id: id,
+            amount: 1,
+        };
+        addProductToCart(result);
+    };
     return (
         data?.promotions?.slice(0, 4).map((promo) => (
             <Grid item xs={3}>
@@ -60,7 +78,10 @@ const PromotionItem = () => {
                             <Button size="small" color="primary">
                                 Detail
                             </Button>
-                            <Button class={classes.Button1} size="small" color="primary" variant="contained">
+                            <Button class={classes.Button1} size="small" color="primary" variant="contained"
+                                    onClick={() => {
+                                        handleAddCart(promo.product._id);
+                                    }}>
                                 Add to cart
                             </Button>
                         </div>

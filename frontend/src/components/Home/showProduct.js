@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 // Query Data
 import { PRODUCT_QUERY } from "../../graphql/productQuery";
 import { useQuery } from '@apollo/client'
+import {useSession} from "../../contexts/SessionContext";
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -24,9 +25,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+
 const CardItem = () => {
     const classes = useStyles();
-    const { loading, error, data } = useQuery(PRODUCT_QUERY)
+    const { addProductToCart, userCookie, cart } = useSession();
+    const { loading, error, data } = useQuery(PRODUCT_QUERY, { fetchPolicy: 'network-only' })
 
     if (loading) {
         return 'Loading ...'
@@ -34,8 +37,25 @@ const CardItem = () => {
     if (error) {
         return 'Error !!'
     }
+
+    const handleAddCart = (id) => {
+        // console.log(id, cart);
+        // if (cart?.find((each) => each.id === id)) {
+        //   const result = {
+        //     id: id,
+        //     amount: cart[cart.indexOf(id)].amount + 1,
+        //   };
+        //   addProductToCart(result);
+        // } else {
+        const result = {
+            id: id,
+            amount: 1,
+        };
+        addProductToCart(result);
+    };
+
     return (
-        data?.products?.slice(0, 6).map((product) => (
+        data?.products?.slice(0, 8).map((product) => (
             <Grid item xs={3}>
                 <Card className={classes.root2}>
                     <CardActionArea>
@@ -67,7 +87,11 @@ const CardItem = () => {
                         <Button size="small" color="primary">
                             Detail
                         </Button>
-                        <Button size="small" color="primary" variant="contained">
+                        <Button size="small" color="primary" variant="contained"
+                                onClick={() => {
+                                    handleAddCart(product._id);
+                                }}
+                        >
                             Add to cart
                         </Button>
                     </CardActions>

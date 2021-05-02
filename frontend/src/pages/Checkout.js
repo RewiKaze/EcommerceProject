@@ -289,18 +289,18 @@ const Checkout = () => {
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid rows={rows} columns={columns} pageSize={5} />
       </div>
-      <div className="footerAllCheck">
-        <div className="footerT">
-          <div className="footerCheck">
-            <div className="FeeText-F">
-              Shipping option : standard delivery{" "}
-            </div>
-          </div>
-        </div>
-        <div className="footerG">
-          <div className="Totalshipping">$2.00</div>
-        </div>
-      </div>
+      {/*<div className="footerAllCheck">*/}
+      {/*  <div className="footerT">*/}
+      {/*    <div className="footerCheck">*/}
+      {/*      <div className="FeeText-F">*/}
+      {/*        Shipping option : standard delivery{" "}*/}
+      {/*      </div>*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*  <div className="footerG">*/}
+      {/*    <div className="Totalshipping"></div>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
 
       <div className="footerAll">
         {/*<div className="footerT">*/}
@@ -326,7 +326,10 @@ const Checkout = () => {
             <span>{cart.reduce((total, obj) => obj.amount + total, 0)}</span>{" "}
             items) :{" "}
           </div>
-          <div className="Totalp">$272.00</div>
+          <div className="Totalp">{(parseInt(rows.reduce((total, obj) => obj.total + total, 0))).toLocaleString('th-TH', {
+            style: 'currency',
+            currency: 'THB'
+          }) ?? ""}</div>
           <div className="Payment-button">
             <Button
               component={NavLink}

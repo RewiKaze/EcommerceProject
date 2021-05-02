@@ -15,6 +15,9 @@ import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 
 import "../css/Payment.css";
 import {useHistory} from "react-router";
+import {useSession} from "../contexts/SessionContext";
+import {useQuery} from "@apollo/client";
+import {PRODUCT_QUERY} from "../graphql/productQuery";
 const useStyles = makeStyles((theme) => ({
   button: {
     color: "#f29559",
@@ -55,10 +58,17 @@ const currencies = [
 ];
 const Payment = () => {
   const history = useHistory();
+  const classes = useStyles();
+  const { loading, error, data } = useQuery(PRODUCT_QUERY);
   const [currency, setCurrency] = React.useState("SCB");
-
+  const { user,cart } = useSession();
   const [open, setOpen] = React.useState(false);
-
+  if (loading) {
+    return "Loading ...";
+  }
+  if (error) {
+    return "Error !!";
+  }
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -71,8 +81,16 @@ const Payment = () => {
   const handleChange = (event) => {
     setCurrency(event.target.value);
   };
+  const rows = cart.map((each) => {
+    const eachData = data?.products.find((o) => o._id === each.id);
+    return {
+      id: eachData.name,
+      price: eachData.price,
+      quantity: each.amount,
+      total: each.amount * eachData.price,
+    };
+  });
 
-  const classes = useStyles();
   return (
     <div className="CartPage">
       <div className="HeaderCart">
@@ -86,7 +104,10 @@ const Payment = () => {
           <div className="Total-S">Total Payment </div>
         </div>
         <div className="footerPayment">
-          <div className="Total-S">$272.00</div>
+          <div className="Total-S">{(parseInt(rows.reduce((total, obj) => obj.total + total, 0))).toLocaleString('th-TH', {
+            style: 'currency',
+            currency: 'THB'
+          }) ?? ""}</div>
         </div>
       </div>
       <div className="HeaderDetail">

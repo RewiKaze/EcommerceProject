@@ -9,13 +9,16 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Avatar from "@material-ui/core/Avatar";
 import "./User-Component.css";
-import proflie from "./image/proflie.png";
 import BorderColorRoundedIcon from "@material-ui/icons/BorderColorRounded";
 import Button from "@material-ui/core/Button";
 import PersonOutlineOutlinedIcon from "@material-ui/icons/PersonOutlineOutlined";
 import EventAvailableOutlinedIcon from "@material-ui/icons/EventAvailableOutlined";
 import InsertDriveFileOutlinedIcon from "@material-ui/icons/InsertDriveFileOutlined";
 import { useSession } from "../../contexts/SessionContext";
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 
 const Account = React.lazy(() => import("./page/User-Account"));
 const Address = React.lazy(() => import("./page/User-Address"));
@@ -60,49 +63,28 @@ const User = () => {
                 boxShadow: "0 0",
               }}
             >
-              <h1>My Profile</h1>
-              {/*<div style={{ display: 'flex' }}>*/}
-              {/*    <div>*/}
-              {/*        <Avatar>{user?.name[0].toUpperCase()}</Avatar>*/}
-              {/*        /!*<img src={proflie} style={{ width: "4.5rem" }} />*!/*/}
-              {/*    </div>*/}
-              {/*    <div style={{ display: 'flex', flexDirection: 'column', marginLeft: "1rem", textAlign: "left" }}>*/}
-              {/*        <p className="head-title">{user?.name}</p>*/}
-              {/*        /!*<Link href="#">*!/*/}
-              {/*        /!*    <BorderColorRoundedIcon style={{ color: "#9E9E9E", height: '0.7rem' }}></BorderColorRoundedIcon><span style={{ fontSize: "0.7rem" }}>Change your profile</span>*!/*/}
-              {/*        /!*</Link>*!/*/}
-              {/*    </div>*/}
-              {/*</div>*/}
-              <Button
-                className={classes.button}
-                component={NavLink}
-                activeStyle={{ color: "#F29559" }}
-                to="/customer"
-                exact
-              >
-                <PersonOutlineOutlinedIcon></PersonOutlineOutlinedIcon>
-                <span> My Account</span>
-              </Button>
-              {/*<Button*/}
-              {/*    className={classes.button}*/}
-              {/*    component={NavLink}*/}
-              {/*    activeStyle={{ color: "#F29559" }}*/}
-              {/*    to="/customer/address"*/}
-              {/*    exact*/}
-              {/*>*/}
-              {/*    <EventAvailableOutlinedIcon></EventAvailableOutlinedIcon><span> My Address</span>*/}
-              {/*</Button>*/}
-              <Button
-                className={classes.button}
-                component={NavLink}
-                activeStyle={{ color: "#F29559" }}
-                to="/customer/orders"
-                exact
-              >
-                <InsertDriveFileOutlinedIcon></InsertDriveFileOutlinedIcon>
-                <span> My Order</span>
-              </Button>
-              {/*<Button className="logout" onClick={handleLogout}>Log out</Button>*/}
+              {/* <h1>My Profile</h1> */}
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <div>
+                  <Avatar style={{ backgroundColor: "#F2D492", width: '4.5rem', height: '4.5rem' }}>{user?.name[0]}</Avatar>{'  '}
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', marginLeft: "1rem", textAlign: "left" }}>
+                  <span className="head-title">{user?.name}</span>
+                  <span style={{ color: '9E9E9E', fontSize: 'small' }}>ข้อมูลส่วนตัวของคุณ</span>
+                </div>
+              </div>
+              <hr style={{ width: "80%", marginTop: '2rem', marginBottom: '1rem' }}></hr>
+              <List>
+                <ListItem button component={NavLink} to="/customer" style={{color:'#202C39'}} activeStyle={{ color:'#F29559' }} exact>
+                  <ListItemIcon><PersonOutlineOutlinedIcon></PersonOutlineOutlinedIcon></ListItemIcon>
+                  <ListItemText primary="My Account" />
+                </ListItem>
+                <ListItem button component={NavLink} to="/customer/orders" style={{color:'#202C39'}} activeStyle={{ color:'#F29559' }}>
+                  <ListItemIcon><InsertDriveFileOutlinedIcon></InsertDriveFileOutlinedIcon></ListItemIcon>
+                  <ListItemText primary="My Order" />
+                </ListItem>
+              </List>
+              <Button className="logout">Log Out</Button>
             </Paper>
           </Grid>
           <Grid item xs={9}>

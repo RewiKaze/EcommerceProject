@@ -7,7 +7,8 @@ import Grid from '@material-ui/core/Grid';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import {useSession} from "../../../contexts/SessionContext";
+import { useSession } from "../../../contexts/SessionContext";
+import Avatar from "@material-ui/core/Avatar";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -15,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     },
     paper: {
         padding: theme.spacing(3),
-        // textAlign: 'center',
+        textAlign: 'center',
         color: theme.palette.text.secondary,
         margin: '2rem',
         height: '80vh',
@@ -33,115 +34,88 @@ const useStyles = makeStyles((theme) => ({
 
 const Account = () => {
     const classes = useStyles();
-    // const [name, setName] = React.useState('');
-    // const [email, setEmail] = React.useState('');
-    // const [date, setDate] = React.useState('');
-    // const [phone, setPhone] = React.useState('');
-    // const handleChange = (event) => {
-    //     setName(event.target.value);
-    // };
-    // const mailChange = (event) => {
-    //     setEmail(event.target.value);
-    // };
-    // const dateChange = (event) => {
-    //     setDate(event.target.value);
-    // };
-    // const phoneChange = (event) => {
-    //     setPhone(event.target.value);
-    // };
+    const [name, setName] = React.useState('');
+    const [email, setEmail] = React.useState('');
+    const [date, setDate] = React.useState('');
+    const [phone, setPhone] = React.useState('');
+    const handleChange = (event) => {
+        setName(event.target.value);
+    };
+    const mailChange = (event) => {
+        setEmail(event.target.value);
+    };
+    const dateChange = (event) => {
+        setDate(event.target.value);
+    };
+    const phoneChange = (event) => {
+        setPhone(event.target.value);
+    };
     const { user } = useSession();
     if (user) {
         return (
             <Grid item xs={9}>
                 <Paper className={classes.paper}>
-                    <h2 style={{ fontWeight: '700', color: '#202C39' }}>My Account</h2>
-                    <hr/>
-                    <p><b>Name: </b>{user.name}</p>
-                    <p><b>Username: </b>{user.name}</p>
-                    <p><b>Type: </b>{user.type}</p>
-                    <p><b>Address: </b>{user.address}</p>
-                    <p><b>Email: </b>{user.email}</p>
-                    <p><b>Tel: </b>{user.tel}</p>
-                    {/*<hr style={{ height: '0.005rem', backgroundColor: '#E5E5E5', borderWidth: '0', margin: '1rem' }}></hr>*/}
-
-                    {/*<div style={{ padding: '2.5rem' }}>*/}
-                    {/*    <div style={{ display: "flex", flexDirection: 'column' }}>*/}
-                    {/*        <div style={{ display: 'flex' }}>*/}
-                    {/*            <img src={proflie} style={{ width: '5.5rem' }} />*/}
-                    {/*            <div style={{ marginLeft: '1rem' }}>*/}
-                    {/*                <Button variant="contained" component="label">*/}
-                    {/*                    Change image*/}
-                    {/*            <input*/}
-                    {/*                        type="file"*/}
-                    {/*                        hidden*/}
-                    {/*                    />*/}
-                    {/*                </Button><br></br>*/}
-                    {/*                <span style={{ textAlign: 'left' }}>Less than 1 MB<br></br>File type : .JPEG, .PNG</span>*/}
-                    {/*            </div>*/}
-                    {/*        </div>*/}
-                    {/*        <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'space-between' }}>*/}
-                    {/*            <FormControl variant="outlined" style={{ width: '40%' }}>*/}
-                    {/*                <TextField*/}
-                    {/*                    type="search"*/}
-                    {/*                    variant="outlined"*/}
-                    {/*                    margin="normal"*/}
-                    {/*                    InputProps={{*/}
-                    {/*                        startAdornment: (*/}
-                    {/*                            <InputAdornment position="start">*/}
-                    {/*                            </InputAdornment>*/}
-                    {/*                        )*/}
-                    {/*                    }}*/}
-                    {/*                    value={name} onChange={handleChange} label="Full Name"*/}
-                    {/*                />*/}
-                    {/*            </FormControl>*/}
-                    {/*            <FormControl variant="outlined" style={{ width: '40%' }}>*/}
-                    {/*                <TextField*/}
-                    {/*                    type="search"*/}
-                    {/*                    variant="outlined"*/}
-                    {/*                    margin="normal"*/}
-                    {/*                    InputProps={{*/}
-                    {/*                        startAdornment: (*/}
-                    {/*                            <InputAdornment position="start">*/}
-                    {/*                            </InputAdornment>*/}
-                    {/*                        )*/}
-                    {/*                    }}*/}
-                    {/*                    value={email} onChange={mailChange} label="Email"*/}
-                    {/*                />*/}
-                    {/*            </FormControl>*/}
-                    {/*        </div>*/}
-                    {/*        <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'space-between' }}>*/}
-                    {/*            <FormControl variant="outlined" style={{ width: '40%' }}>*/}
-                    {/*                <TextField*/}
-                    {/*                    type="date"*/}
-                    {/*                    variant="outlined"*/}
-                    {/*                    margin="normal"*/}
-                    {/*                    InputProps={{*/}
-                    {/*                        startAdornment: (*/}
-                    {/*                            <InputAdornment position="start">*/}
-                    {/*                            </InputAdornment>*/}
-                    {/*                        )*/}
-                    {/*                    }}*/}
-                    {/*                    value={date} onChange={dateChange} label="Birthday"*/}
-                    {/*                />*/}
-                    {/*            </FormControl>*/}
-                    {/*            <FormControl variant="outlined" style={{ width: '40%' }}>*/}
-                    {/*                <TextField*/}
-                    {/*                    type="search"*/}
-                    {/*                    variant="outlined"*/}
-                    {/*                    margin="normal"*/}
-                    {/*                    InputProps={{*/}
-                    {/*                        startAdornment: (*/}
-                    {/*                            <InputAdornment position="start">*/}
-                    {/*                            </InputAdornment>*/}
-                    {/*                        )*/}
-                    {/*                    }}*/}
-                    {/*                    value={phone} onChange={phoneChange} label="Phone Number"*/}
-                    {/*                />*/}
-                    {/*            </FormControl>*/}
-                    {/*        </div>*/}
-                    {/*        <Button style={{ marginTop: '2rem', width: 'fit-content', padding: '0.5rem', backgroundColor: '#202C39', color: 'white' }}>Save Change</Button>*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
+                    <span style={{ fontWeight: '700', color: '#202C39', marginTop: '0' }}>My Account</span>
+                    <hr />
+                    <div style={{ padding: '2rem' }}>
+                        <div style={{ display: "flex", flexDirection: 'column' }}>
+                            <div style={{ display: 'flex' }}>
+                            <Avatar style={{ backgroundColor: "#F2D492", width: '4.5rem', height: '4.5rem' }}>{user?.name[0]}</Avatar>{'  '}
+                            <p style={{marginLeft:'2rem',color:'black',fontWeight:'500'}}>Your Avatar</p>
+                            </div>
+                            <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'space-between' }}>
+                                <FormControl variant="outlined" style={{ width: '40%' }}>
+                                    <TextField
+                                        type="text"
+                                        variant="outlined"
+                                        margin="normal"
+                                        disabled
+                                        value={user.name} label="Full Name"
+                                    />
+                                </FormControl>
+                                <FormControl variant="outlined" style={{ width: '40%' }}>
+                                    <TextField
+                                        type="search"
+                                        variant="outlined"
+                                        margin="normal"
+                                        disabled
+                                        value={user.name} label="Username"
+                                    />
+                                </FormControl>
+                            </div>
+                            <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'space-between' }}>
+                                <FormControl variant="outlined" style={{ width: '40%' }}>
+                                    <TextField
+                                        type="search"
+                                        variant="outlined"
+                                        margin="normal"
+                                        disabled
+                                        value={user.email} label="Email"
+                                    />
+                                </FormControl>
+                                <FormControl variant="outlined" style={{ width: '40%' }}>
+                                    <TextField
+                                        type="search"
+                                        variant="outlined"
+                                        margin="normal"
+                                        disabled
+                                        value={user.tel} label="Tel"
+                                    />
+                                </FormControl>
+                            </div>
+                            <div style={{ marginTop: '2rem', display: 'flex'}}>
+                                <FormControl variant="outlined" style={{ width: '100%' }}>
+                                    <TextField
+                                        type="search"
+                                        variant="outlined"
+                                        margin="normal"
+                                        disabled
+                                        value={user.address} label="Address"
+                                    />
+                                </FormControl>
+                            </div>
+                        </div>
+                    </div>
                 </Paper>
             </Grid>
         );

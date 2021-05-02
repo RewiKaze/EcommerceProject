@@ -14,12 +14,11 @@ body{
 .logout{
     color: white;
     background-color: var(--color3);
-    border-radius: 0em;
+    border-radius: solid var(--color3);
 }
 .logout:hover{
     color: var(--color3);
     background-color: white;
-    border-color: var(--color3);
 }
 .addNewAddress{
     margin-top: 2rem;

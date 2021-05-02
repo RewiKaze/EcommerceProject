@@ -29,6 +29,10 @@ export const SessionProvider = (props) => {
     fetchPolicy: "network-only",
   });
   const [login] = useMutation(LOGIN_MUTATION);
+  const handleClearCart = () => {
+    removeCookie("cart", { maxAge: 86400 });
+    history.push("/");
+  };
   const handleLogin = useCallback(
     async (username, password) => {
       try {
@@ -125,6 +129,7 @@ export const SessionProvider = (props) => {
         token: token,
         cart: cart,
         addProductToCart: handleAddCart,
+        clearCart: handleClearCart,
       }}
     >
       {children}

@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { Grid, Button, TextField } from "@material-ui/core";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import { useParams } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/client";
 import { PROMOTION_QUERY } from "../../graphql/promotionQuery";
@@ -228,7 +228,7 @@ const AdminUpdatePromotion = () => {
                 Product Image:
               </StyledTableCell>
               <StyledTableCell>
-                <img src={filteredData.product.imageUrl} />
+                <img src={filteredData.product.imageUrl} alt={filteredData.product.name}/>
               </StyledTableCell>
             </StyledTableRow>
             <StyledTableRow>

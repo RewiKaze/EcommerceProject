@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {Paper, Card, CardActionArea, CardActions, CardContent, Button, Typography, Grid} from '@material-ui/core';
+import {Paper, Button} from '@material-ui/core';
 import {useQuery} from "@apollo/client";
 import {PROMOTION_QUERY} from "../../../graphql/promotionQuery";
 import {Link} from "react-router-dom";

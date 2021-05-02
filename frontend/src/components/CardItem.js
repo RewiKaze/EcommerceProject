@@ -11,7 +11,6 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { useSession } from "../contexts/SessionContext";
-import { useHistory } from "react-router-dom";
 
 // Query Data
 import { PRODUCT_QUERY } from "../graphql/productQuery";
@@ -36,9 +35,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CardItem = (prop) => {
-  const { addProductToCart, userCookie, cart } = useSession();
+  const { addProductToCart, cart } = useSession();
   const classes = useStyles();
-  const history = useHistory();
   const { loading, error, data } = useQuery(PRODUCT_QUERY, { fetchPolicy: 'network-only' });
   if (loading) {
     return "Loading ...";

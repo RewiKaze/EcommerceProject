@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme)=>({
 
 const PromotionItem = () => {
     const classes = useStyles();
-    const { addProductToCart, userCookie, cart } = useSession();
+    const { addProductToCart} = useSession();
     const { loading, error, data } = useQuery(PROMOTION_QUERY, { fetchPolicy: 'network-only' })
     if (loading) {
         return 'Loading ...'

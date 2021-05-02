@@ -1,13 +1,10 @@
 import React from 'react'
 import "../../css/Home.css"
-import { Card, Button, Grid, CardActionArea, CardMedia, CardContent, Typography, CardActions } from '@material-ui/core';
+import { Button, Grid} from '@material-ui/core';
 // Query Data
 import { PROMOTION_QUERY } from "../../graphql/promotionQuery";
 import { useQuery } from '@apollo/client'
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from "react-router-dom";
-import EditIcon from "@material-ui/icons/Edit";
-import DeleteIcon from "@material-ui/icons/Delete";
 import {useSession} from "../../contexts/SessionContext";
 
 const useStyles = makeStyles((theme) => ({
@@ -31,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 
 const PromotionItem = () => {
     const classes = useStyles();
-    const { addProductToCart, userCookie, cart } = useSession();
+    const { addProductToCart } = useSession();
     const { loading, error, data } = useQuery(PROMOTION_QUERY)
     if (loading) {
         return 'Loading ...'
@@ -61,10 +58,9 @@ const PromotionItem = () => {
                 {promo.product._id ?
                     // <Card className={classes.root2}>
                     <div className="best-sell">
-                        <img className="best-sell-img" src={promo.product.imageUrl} />
+                        <img className="best-sell-img" alt={"test"} src={promo.product.imageUrl} />
                         <div className="best-sell-content">
                             <span className="best-sell-name">{promo.product.name}</span>
-                            {/*<img className="heart" src={heart} />*/}
                         </div>
                         <span className="best-sell-price">{(parseInt(promo.total)).toLocaleString('th-TH', {
                             style: 'currency',
@@ -75,9 +71,9 @@ const PromotionItem = () => {
                                 currency: 'THB'
                             }) ?? ""}</span></span> <hr />
                         <div style={{ alignItems: 'center' }}>
-                            <Button size="small" color="primary">
-                                Detail
-                            </Button>
+                            {/*<Button size="small" color="primary">*/}
+                            {/*    Detail*/}
+                            {/*</Button>*/}
                             <Button class={classes.Button1} size="small" color="primary" variant="contained"
                                     onClick={() => {
                                         handleAddCart(promo.product._id);

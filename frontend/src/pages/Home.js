@@ -9,7 +9,6 @@ import third from "../image/home/3.png"
 import fifth from "../image/home/5.png"
 import sixth from "../image/home/6.png"
 import sevth from "../image/home/7.png"
-import logo from "./../image/logo.png"
 import s1 from "./../image/home/s1.png"
 import s2 from "./../image/home/s2.png"
 import s3 from "./../image/home/s3.png"
@@ -48,24 +47,24 @@ const Home = () => {
       image: third
     }
   ]
-  var items2 = [
-    {
-      logo: logo,
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, auctor viverra viverra est. Id enim consectetur elit fermentum ultricies sed. Aliquam in odio nunc, mauris, senectus ut. Viverra pharetra tortor consectetur orci libero tincidunt et."
-    },
-    {
-      logo: logo,
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, auctor viverra viverra est. Id enim consectetur elit fermentum ultricies sed. Aliquam in odio nunc, mauris, senectus ut. Viverra pharetra tortor consectetur orci libero tincidunt et."
-    },
-    {
-      logo: logo,
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, auctor viverra viverra est. Id enim consectetur elit fermentum ultricies sed. Aliquam in odio nunc, mauris, senectus ut. Viverra pharetra tortor consectetur orci libero tincidunt et."
-    },
-    {
-      logo: logo,
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, auctor viverra viverra est. Id enim consectetur elit fermentum ultricies sed. Aliquam in odio nunc, mauris, senectus ut. Viverra pharetra tortor consectetur orci libero tincidunt et."
-    },
-  ]
+  // var items2 = [
+  //   {
+  //     logo: logo,
+  //     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, auctor viverra viverra est. Id enim consectetur elit fermentum ultricies sed. Aliquam in odio nunc, mauris, senectus ut. Viverra pharetra tortor consectetur orci libero tincidunt et."
+  //   },
+  //   {
+  //     logo: logo,
+  //     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, auctor viverra viverra est. Id enim consectetur elit fermentum ultricies sed. Aliquam in odio nunc, mauris, senectus ut. Viverra pharetra tortor consectetur orci libero tincidunt et."
+  //   },
+  //   {
+  //     logo: logo,
+  //     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, auctor viverra viverra est. Id enim consectetur elit fermentum ultricies sed. Aliquam in odio nunc, mauris, senectus ut. Viverra pharetra tortor consectetur orci libero tincidunt et."
+  //   },
+  //   {
+  //     logo: logo,
+  //     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, auctor viverra viverra est. Id enim consectetur elit fermentum ultricies sed. Aliquam in odio nunc, mauris, senectus ut. Viverra pharetra tortor consectetur orci libero tincidunt et."
+  //   },
+  // ]
 
   return (
     <React.Fragment>
@@ -170,11 +169,11 @@ const Home = () => {
         </div>
         <div className="third-content">
           <div className="third-content-left">
-            <img src={fifth} className="third-img left" />
+            <img src={fifth} alt={"test"} className="third-img left" />
           </div>
           <div className="third-content-right">
-            <img src={sixth} className="third-img right" style={{ marginBottom: '1rem' }} />
-            <img src={sevth} className="third-img right" />
+            <img src={sixth} alt={"test"} className="third-img right" style={{ marginBottom: '1rem' }} />
+            <img src={sevth} alt={"test"} className="third-img right" />
           </div>
         </div>
         <div className="third-foot">
@@ -243,10 +242,10 @@ const Home = () => {
         {/*</div>*/}
         <hr style={{width:'80%',marginTop:'2rem',marginBottom:'2rem'}}></hr>
         <div className="fifth-spon">
-          <img src={s1} />
-          <img src={s2} />
-          <img src={s3} />
-          <img src={s4} />
+          <img src={s1} alt={"test"} />
+          <img src={s2} alt={"test"} />
+          <img src={s3} alt={"test"} />
+          <img src={s4} alt={"test"} />
         </div>
         <div className="fifth-footer">
           <div className="fifth-footer-topic">
@@ -255,21 +254,21 @@ const Home = () => {
           </div>
           <div className="fifth-footer-content">
             <div className="fifth-head">
-              <img src={f1} className="fifth-img" />
+              <img src={f1} alt={"test"} className="fifth-img" />
               <div style={{ display: 'flex', flexDirection: 'column', marginLeft: "1rem" }}>
                 <span className="fifth-trans">Easy shop</span>
                 <span>Online shopping</span>
               </div>
             </div>
             <div className="fifth-head">
-              <img src={f2} className="fifth-img" />
+              <img src={f2} alt={"test"} className="fifth-img" />
               <div style={{ display: 'flex', flexDirection: 'column', marginLeft: "1rem" }}>
                 <span className="fifth-trans">Easy paid</span>
                 <span>Payment Medthod</span>
               </div>
             </div>
             <div className="fifth-head">
-              <img src={f3} className="fifth-img" />
+              <img src={f3} alt={"test"} className="fifth-img" />
               <div style={{ display: 'flex', flexDirection: 'column', marginLeft: "1rem" }}>
                 <span className="fifth-trans">Stay home</span>
                 <span>Stay safe from COVID-19</span>
@@ -285,22 +284,22 @@ const Home = () => {
 function Item(props) {
   return (
     <Paper className="carousel-head">
-      <img className="image-head" src={props.item.image} />
+      <img className="image-head" alt={"test"} src={props.item.image} />
     </Paper>
   )
 }
 
-function Item2(props) {
-  return (
-    <Paper className="carousel-head" style={{ display:'flex',marginLeft:'6rem',marginRight:'6rem',padding:'2rem'}}>
-      <div>
-        <img src={props.item2.logo} style={{width:'20rem'}}/>
-      </div>
-      <div>
-        <p>{props.item2.description}</p>
-      </div>
-    </Paper>
-  )
-}
+// function Item2(props) {
+//   return (
+//     <Paper className="carousel-head" style={{ display:'flex',marginLeft:'6rem',marginRight:'6rem',padding:'2rem'}}>
+//       <div>
+//         <img src={props.item2.logo} style={{width:'20rem'}}/>
+//       </div>
+//       <div>
+//         <p>{props.item2.description}</p>
+//       </div>
+//     </Paper>
+//   )
+// }
 
 export default Home;

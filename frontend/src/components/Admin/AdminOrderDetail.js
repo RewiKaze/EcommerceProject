@@ -103,8 +103,8 @@ export default function RecipeReviewCard() {
                     <br/>
                     <h3>Order Detail</h3>
                     <hr/>
-                    <p><b>Status: </b> {filteredData.status == "INCOMPLETE"?<b style={{color:'lightsalmon'}}>INCOMPLETE</b>
-                        : filteredData.status == "CANCEL"? <b style={{color:'red'}}>CANCELED</b>
+                    <p><b>Status: </b> {filteredData.status === "INCOMPLETE"?<b style={{color:'lightsalmon'}}>INCOMPLETE</b>
+                        : filteredData.status === "CANCEL"? <b style={{color:'red'}}>CANCELED</b>
                             : <b style={{color:'green'}}>COMPLETED</b>}</p>
                     <p><b>Lasted: </b> {filteredData.timestamp}</p>
                     <p style={{textAlign:'right'}}><b>Total: </b> {parseInt(filteredData.total).toLocaleString("th-TH", {
@@ -122,8 +122,8 @@ export default function RecipeReviewCard() {
                         <Typography>
                             <h3>Update Status</h3>
                             <hr/>
-                            <p><b>Lasted: </b> {filteredData.status == "INCOMPLETE"?<b style={{color:'lightsalmon'}}>INCOMPLETE</b>
-                                : filteredData.status == "CANCEL"? <b style={{color:'red'}}>CANCELED</b>
+                            <p><b>Lasted: </b> {filteredData.status === "INCOMPLETE"?<b style={{color:'lightsalmon'}}>INCOMPLETE</b>
+                                : filteredData.status === "CANCEL"? <b style={{color:'red'}}>CANCELED</b>
                                     : <b style={{color:'green'}}>COMPLETED</b>}</p>
                             <form onSubmit={saveOrder}>
                                 <FormControl variant="outlined" className={classes.formControl}>

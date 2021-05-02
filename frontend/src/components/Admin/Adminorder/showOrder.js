@@ -1,5 +1,5 @@
-import React, {useMemo, useCallback, useState} from 'react';
-import {Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography, Grid} from '@material-ui/core';
+import React from 'react';
+import {Card, CardActionArea, CardActions, CardContent, Button, Typography, Grid} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
 
@@ -7,8 +7,6 @@ import { Link } from "react-router-dom";
 import {DELETE_ORDER_MUTATION} from "../../../graphql/deleteOrder";
 import { ORDER_QUERY} from "../../../graphql/orderQuery";
 import {useMutation, useQuery} from "@apollo/client";
-import CheckIcon from '@material-ui/icons/Check';
-import CloseIcon from '@material-ui/icons/Close';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from "@material-ui/icons/Edit";
 
@@ -81,8 +79,8 @@ const OrderItem = (props) => {
                             }) ?? ""}
                             </Typography>
                             <Typography variant="body2" component="p">
-                                <b>Status: </b> {order.status == "INCOMPLETE"?<b style={{color:'lightsalmon'}}>INCOMPLETE</b>
-                                : order.status == "CANCEL"? <b style={{color:'red'}}>CANCELED</b>
+                                <b>Status: </b> {order.status === "INCOMPLETE"?<b style={{color:'lightsalmon'}}>INCOMPLETE</b>
+                                : order.status === "CANCEL"? <b style={{color:'red'}}>CANCELED</b>
                                 : <b style={{color:'green'}}>COMPLETED</b>}
                             </Typography>
                             <Typography variant="body2" component="p">

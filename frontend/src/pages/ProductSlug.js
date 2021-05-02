@@ -1,7 +1,7 @@
 import React from "react";
 import "./../css/ProductSlug.css";
 import { Grid } from "@material-ui/core";
-import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+
 import LocalShippingIcon from "@material-ui/icons/LocalShipping";
 import LocalAtmIcon from "@material-ui/icons/LocalAtm";
 import Button from "@material-ui/core/Button";
@@ -20,7 +20,7 @@ import {useSession} from "../contexts/SessionContext";
 // }
 
 const ProductSlug = (prop) => {
-  const { addProductToCart, userCookie, cart } = useSession();
+  const { addProductToCart, cart } = useSession();
   // const [piece, setPiece] = React.useState(0);
   const { slug } = useParams();
   const { loading, data, error } = useQuery(PRODUCT_QUERY, {

@@ -1,6 +1,5 @@
-import { Typography, Button, Link } from "@material-ui/core";
+import { Typography, Button} from "@material-ui/core";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import LocalShippingIcon from "@material-ui/icons/LocalShipping";
 import { makeStyles } from "@material-ui/core/styles";
 import { NavLink } from "react-router-dom";
 import * as React from "react";

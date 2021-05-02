@@ -2,18 +2,11 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Select from '@material-ui/core/Select';
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import product1 from './../image/product1.png'
-import product2 from './../image/product2.png'
 import {useQuery} from "@apollo/client";
 import {ORDER_QUERY} from "../../../graphql/orderQuery";
-import {CardActions, Typography} from "@material-ui/core";
 import {useSession} from "../../../contexts/SessionContext";
 import Button from '@material-ui/core/Button';
-import {Link, useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -37,13 +30,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Order = () => {
-    const [sort, setSort] = React.useState('');
     const classes = useStyles();
-
     const { user } = useSession();
-    const handleChange = (event) => {
-        setSort(event.target.value);
-    };
     const OrderData = () => {
         const {loading, error, data} = useQuery(ORDER_QUERY, { fetchPolicy: 'network-only' })
         if (loading) {
@@ -57,11 +45,11 @@ const Order = () => {
             data?.orders?.map((order) => (
                 <tr style={{textAlign:"left"}}>
                     {/*{order.user._id === user._id?*/}
-                    <td>{order.user._id == user._id ? order._id: ""}</td>
-                    <td>{order.user._id == user._id ? order.user._id == user._id && order.status == "INCOMPLETE"?<b style={{color:'lightsalmon'}}>INCOMPLETE</b>
-                        : order.status == "CANCEL"? <b style={{color:'red'}}>CANCELED</b>
+                    <td>{order.user._id === user._id ? order._id: ""}</td>
+                    <td>{order.user._id === user._id ? order.user._id === user._id && order.status === "INCOMPLETE"?<b style={{color:'lightsalmon'}}>INCOMPLETE</b>
+                        : order.status === "CANCEL"? <b style={{color:'red'}}>CANCELED</b>
                             : <b style={{color:'lightgreen'}}>COMPLETED</b>: ""}</td>
-                    <td>{order.user._id == user._id ?
+                    <td>{order.user._id === user._id ?
                         <Link
                             to={{
                                 pathname: `/customer/order/${order._id}`,

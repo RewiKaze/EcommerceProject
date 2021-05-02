@@ -1,11 +1,10 @@
 import Paper from "@material-ui/core/Paper";
 import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
-import {Button, Grid} from "@material-ui/core";
+import {Button} from "@material-ui/core";
 import {Link} from "react-router-dom";
 import { ORDER_QUERY} from "../../../graphql/orderQuery";
 import {useQuery} from "@apollo/client";
-import {PRODUCT_QUERY} from "../../../graphql/productQuery";
 
 const useStyles = makeStyles((theme) => ({
     paper1: {
@@ -25,8 +24,8 @@ const OrderData = () => {
         data?.orders?.map((order) => (
             <tr style={{textAlign:"left" , color:"white"}}>
                 <td>{order._id}</td>
-                <td>{order.status == "INCOMPLETE"?<b style={{color:'lightsalmon'}}>INCOMPLETE</b>
-                    : order.status == "CANCEL"? <b style={{color:'red'}}>CANCELED</b>
+                <td>{order.status === "INCOMPLETE"?<b style={{color:'lightsalmon'}}>INCOMPLETE</b>
+                    : order.status === "CANCEL"? <b style={{color:'red'}}>CANCELED</b>
                         : <b style={{color:'lightgreen'}}>COMPLETED</b>}</td>
             </tr>
         ))

@@ -1,4 +1,4 @@
-import React, { Fragment, useMemo } from "react";
+import React, { useMemo } from "react";
 import { NavLink, useLocation, matchPath } from "react-router-dom";
 import { AppBar, Toolbar, Button, Avatar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -88,7 +88,6 @@ const NavBar = () => {
   }, [handleLogout, loading, user]);
 
   const classes = useStyles();
-  const location = useLocation();
 
   // if (
   //   matchPath(location.pathname, {
@@ -101,7 +100,7 @@ const NavBar = () => {
         <Toolbar>
           <div>
             <Button className={classes.button} component={NavLink} to="/" exact>
-              <img src={logo} width="50vw" />
+              <img src={logo} alt={"test"} width="50vw" />
             </Button>
             <Button
               className={classes.button}

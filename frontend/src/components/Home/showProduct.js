@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React from 'react';
 import {Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography, Grid} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CardItem = () => {
     const classes = useStyles();
-    const { addProductToCart, userCookie, cart } = useSession();
+    const { addProductToCart} = useSession();
     const { loading, error, data } = useQuery(PRODUCT_QUERY, { fetchPolicy: 'network-only' })
 
     if (loading) {
@@ -84,9 +84,7 @@ const CardItem = () => {
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <Button size="small" color="primary">
-                            Detail
-                        </Button>
+
                         <Button size="small" color="primary" variant="contained"
                                 onClick={() => {
                                     handleAddCart(product._id);

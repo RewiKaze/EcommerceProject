@@ -127,8 +127,8 @@ const Promotion = () => {
             {/*  </Paper>*/}
             {/*</Grid>*/}
             <Grid item xs={12} style={{paddingInline:20}}>
-              <h1 style={{color:'#f29559'}}>Hot Deal!!!!</h1>
-              <hr/>
+              {/*<h1 style={{color:'#f29559'}}>Hot Deal!!!!</h1>*/}
+              {/*<hr/>*/}
               <Grid container spacing={3}>
                 <PromotionItem/>
               </Grid>

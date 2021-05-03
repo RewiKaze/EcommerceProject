@@ -49,6 +49,7 @@ const Order = () => {
                             <td>{order.user._id === user._id ? order.user._id === user._id && order.status === "INCOMPLETE" ? <b style={{ color: 'lightsalmon' }}>INCOMPLETE</b>
                                 : order.status === "CANCEL" ? <b style={{ color: 'red' }}>CANCELED</b>
                                     : <b style={{ color: 'lightgreen' }}>COMPLETED</b> : ""}</td>
+                            <td>{order.user._id === user._id ? order.timestamp : ""}</td>
                             <td>{order.user._id === user._id ?
                                 <Link
                                     to={{
@@ -78,6 +79,7 @@ const Order = () => {
                     <tr>
                         <th>Order ID</th>
                         <th>Status</th>
+                        <th>Date</th>
                         <th>View Detail</th>
                     </tr>
                     {OrderData()}

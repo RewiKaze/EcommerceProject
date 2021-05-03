@@ -10,7 +10,6 @@ query{
     quantity
     price
     imageUrl
-    tags
     timestamp
   }
 }

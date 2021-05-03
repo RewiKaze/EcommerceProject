@@ -66,7 +66,7 @@ const CardItem = () => {
                                     currency: 'THB'
                                 }) ?? ""}
                             </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p" noWrap={true}>
+                            <Typography variant="body2"  component="p" noWrap={true}>
                                 {product.description}
                             </Typography>
 

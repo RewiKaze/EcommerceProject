@@ -12,7 +12,6 @@
 }
 .image-head-shop{
     width: 34rem;
-    height: 20rem;
 }
 .topic-shop{
     font-weight:700;
@@ -26,4 +25,8 @@
 }
 .set-pic{
     display: flex;
+}
+.set-pic>*{
+    width: 4rem;
+    padding-right: 0.5rem;
 }

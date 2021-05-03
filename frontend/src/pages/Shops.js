@@ -144,7 +144,10 @@ const Shops = () => {
             <span className="topic-shop">Your Home</span>
             <p className="content-shop">The best shopping online of furniture, create the world by your hand</p>
             <div className="set-pic">
-
+              <img src={h1} />
+              <img src={h2} />
+              <img src={h3} />
+              <img src={h4} />
             </div>
           </Typography>
           <div>

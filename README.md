@@ -21,8 +21,8 @@
 - [x] Home **`/`** *Display banner, latest promotion and products* 
 - [x] Login **`/login`** *Login form*
 - [x] Register **`/register`** *Register form*
-- [x] Products **`/products`** *Display all product with pagination* **rew**
-- [x] Product detail **`/product/:productSlug`** *Display product detail by slug* **pam,note**
+- [x] Products **`/products`** *Display all product with pagination* 
+- [x] Product detail **`/product/:productSlug`** *Display product detail by slug* 
 - [x] Promotions **`/promotions`** *Display all promotion*
 - [x] Cart **`/cart`** *Display products in cart*
 - [x] Checkout **`/checkout`** *Checkout form* 

@@ -95,7 +95,7 @@ const Home = () => {
         </Grid>
         <div className="third-foot">
           <Link to={{
-            pathname: `/product`,
+            pathname: `/products`,
           }} style={{ textDecoration: "none" }}>
             <Button className="button1 third-but">See All Products</Button>
           </Link>
@@ -124,7 +124,7 @@ const Home = () => {
         </div>
         <div className="third-foot">
           <Link to={{
-            pathname: `/product`,
+            pathname: `/products`,
           }} style={{ textDecoration: "none" }}>
             <Button className="button1 third-but">See All Products</Button>
           </Link>
@@ -163,7 +163,7 @@ const Home = () => {
               <span>On Sale!!!</span>
             </div>
             <Link to={{
-              pathname: `/promotion`,
+              pathname: `/promotions`,
             }} style={{ textDecoration: "none" }}>
             <Button className="promo-button">See more !</Button>
             </Link>

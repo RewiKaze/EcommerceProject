@@ -102,7 +102,7 @@ const AdminCreateProduct = () => {
         setType("");
         setQuantity("");
         setImageUrl("");
-        history.push("/admin/product");
+        history.push("/admin/products");
         alert("Add Product Success!!!");
       } catch (err) {
         console.log(err);
@@ -223,7 +223,7 @@ const AdminCreateProduct = () => {
         {"  "}
         <Link
           to={{
-            pathname: `/admin/product`,
+            pathname: `/admin/products`,
           }}
           style={{ textDecoration: "none" }}
         >

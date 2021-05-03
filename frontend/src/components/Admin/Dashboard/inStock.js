@@ -55,7 +55,7 @@ const InStock = () => {
                 <Grid item xs={12}>
                     <h3 style={{color:'white'}}>Product List<span>
                                 <Link to={{
-                                    pathname: `/admin/product/`,
+                                    pathname: `/admin/products`,
                                 }} style={{ textDecoration: "none" }}>{'   '}
                                 <Button style={{backgroundColor:"#F29559", borderRadius:0}} size="small" variant="contained">
                                     See more

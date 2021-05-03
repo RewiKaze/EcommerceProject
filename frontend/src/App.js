@@ -26,7 +26,7 @@ const App = () => {
               <HomePage />
               <Footer />
             </Route>
-            <Route exact path="/product">
+            <Route exact path="/products">
               <ShopsPage />
               <Footer />
             </Route>
@@ -34,7 +34,7 @@ const App = () => {
               <ProductSlug />
               <Footer />
             </Route>
-            <Route  path="/promotion">
+            <Route  path="/promotions">
               <PromotionPage />
               <Footer />
             </Route>
@@ -46,10 +46,10 @@ const App = () => {
               <CartPage />
               <Footer />
             </Route>
-            <Route  path="/Checkout">
+            <Route  path="/checkout">
               <CheckoutPage />
             </Route>
-            <Route  path="/Payment">
+            <Route  path="/payment">
               <PaymentPage />
             </Route>
             <Route  path="/login">

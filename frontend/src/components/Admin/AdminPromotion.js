@@ -11,7 +11,7 @@ const AdminPromotion = () => {
         <span>
           <Button
             component={NavLink}
-            to="/admin/promotions/create"
+            to="/admin/promotion/create"
             variant="contained"
             style={{ backgroundColor: "#F2DC92" }}
           >

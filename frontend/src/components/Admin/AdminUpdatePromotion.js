@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { Grid, Button, TextField } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import { useParams } from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/client";
 import { PROMOTION_QUERY } from "../../graphql/promotionQuery";
 import Table from "@material-ui/core/Table";
@@ -164,9 +164,16 @@ const AdminUpdatePromotion = () => {
               Update
             </Button>
             {"  "}
+            <Link
+                to={{
+                  pathname: `/admin/promotions`,
+                }}
+                style={{ textDecoration: "none" }}
+            >
             <Button variant="outlined" color="secondary">
               Back
             </Button>
+            </Link>
           </form>
         </Grid>
         <Grid item xs={4}>

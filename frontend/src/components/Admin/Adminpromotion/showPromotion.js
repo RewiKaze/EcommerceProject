@@ -77,7 +77,7 @@ const PromotionItem = () =>  {
                     </CardActionArea>
                     <CardActions>
                         <Link to={{
-                            pathname: `/admin/promotions/${promo._id}`,
+                            pathname: `/admin/promotion/${promo._id}`,
                         }} style={{ textDecoration: "none" }}>
                             <Button size="small" color="primary" variant="contained">
                                 <EditIcon fontSize="small"/>Edit

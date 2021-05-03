@@ -91,7 +91,7 @@ const OrderItem = (props) => {
                     <CardActions>
                         <Link
                             to={{
-                                pathname: `/admin/orders/${order._id}`,
+                                pathname: `/admin/order/${order._id}`,
                             }}
                             style={{ textDecoration: "none" }}
                         >

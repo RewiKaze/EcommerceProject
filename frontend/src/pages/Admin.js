@@ -78,7 +78,7 @@ const Admin = () => {
                   style={{width:"100%", borderRadius:0, color:'#F2D492'}}
                   component={NavLink}
                   activeStyle={{ backgroundColor: "#F2D492", color: "#202C39" }}
-                  to="/admin/product"
+                  to="/admin/products"
               >
                 Products
               </Button>
@@ -120,7 +120,7 @@ const Admin = () => {
             <Route exact path="/admin">
               <AdminDashboard style={{ padding: 10 }} />
             </Route>
-            <Route exact path="/admin/product">
+            <Route exact path="/admin/products">
               <AdminProduct style={{ padding: 10 }} />
             </Route>
             <Route exact path="/admin/product/create">
@@ -132,10 +132,10 @@ const Admin = () => {
             <Route exact path="/admin/promotions">
               <AdminPromotion style={{ padding: 10 }} />
             </Route>
-            <Route exact path="/admin/promotions/create">
+            <Route exact path="/admin/promotion/create">
               <AdminCreatePromotion style={{ padding: 10 }} />
             </Route>
-            <Route exact path="/admin/promotions/:_id">
+            <Route exact path="/admin/promotion/:_id">
               <AdminUpdatePromotion style={{ padding: 10 }} />
             </Route>
             <Route exact path="/admin/create/user">
@@ -144,7 +144,7 @@ const Admin = () => {
             <Route exact path="/admin/orders">
               <AdminOrder style={{ padding: 10 }} />
             </Route>
-            <Route exact path="/admin/orders/:_id">
+            <Route exact path="/admin/order/:_id">
               <AdminOrderDetail style={{ padding: 10 }} />
             </Route>
           </Switch>

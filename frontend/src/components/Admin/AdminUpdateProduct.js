@@ -97,7 +97,7 @@ const AdminUpdateProduct = (props) => {
       setType("");
       setQuantity("");
       setImageUrl("");
-      history.push("/admin/product");
+      history.push("/admin/products");
       alert("Update Product Success!!!");
     } catch (err) {
       console.log(JSON.stringify(err, null, 2));
@@ -241,7 +241,7 @@ const AdminUpdateProduct = (props) => {
                 {"  "}
                 <Link
                   to={{
-                    pathname: `/admin/product`,
+                    pathname: `/admin/products`,
                   }}
                   style={{ textDecoration: "none" }}
                 >

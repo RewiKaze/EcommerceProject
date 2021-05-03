@@ -110,7 +110,7 @@ const NavBar = () => {
               className={classes.button}
               component={NavLink}
               activeStyle={{ borderBottom: "5px solid #f29559" }}
-              to="/product"
+              to="/products"
             >
               Product
             </Button>
@@ -118,7 +118,7 @@ const NavBar = () => {
               className={classes.button}
               component={NavLink}
               activeStyle={{ borderBottom: "5px solid #f29559" }}
-              to="/promotion"
+              to="/promotions"
             >
               Promotion
             </Button>
